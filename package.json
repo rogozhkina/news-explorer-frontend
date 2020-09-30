@@ -1,0 +1,53 @@
+{
+  "name": "news-explorer-frontend",
+  "version": "0.0.1",
+  "description": "frontend to  news-explorer service",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "eslint": "eslint",
+    "prettier": "prettier"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogozhkina/news-explorer-frontend.git"
+  },
+  "author": "natali rogozhkina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rogozhkina/news-explorer-frontend/issues"
+  },
+  "homepage": "https://github.com/rogozhkina/news-explorer-frontend#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "autoprefixer": "^10.0.1",
+    "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^4.3.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "file-loader": "^6.1.0",
+    "gh-pages": "^3.1.0",
+    "html-webpack-plugin": "^4.5.0",
+    "image-webpack-loader": "^7.0.1",
+    "mini-css-extract-plugin": "^0.11.2",
+    "nodemon": "^2.0.4",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "path": "^0.12.7",
+    "postcss": "^8.1.1",
+    "postcss-loader": "^4.0.2",
+    "prettier": "^2.1.2",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-md5-hash": "0.0.6"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5"
+  }
+}
