@@ -1,0 +1,221 @@
+body {
+  width: 320px;
+  min-height: 100vh;
+  background-color: #F5F6F7;
+  margin: auto;
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+
+.header_mobile {
+  width: 320px;
+  height: 536px;
+  margin: 0px;
+  background-image: url(../src/images/fon/georgia-de-lotz--UsJoNxLaNo-unsplash.jpg);
+}
+
+
+.header__top {
+  height: 56px;
+  border: 1px solid rgba(196, 196, 196, 0.3);
+}
+
+.header__logo {
+  width: 117px;
+  height: 24px;
+  line-height: 24px;
+  padding-top: 16px;
+  padding-left: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.header__nav
+
+.header__section {
+  margin: 0px;
+
+}
+
+
+.title {
+  margin: 0px;
+  padding-left: 16px;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.header__title {
+  margin: 0px;
+  padding-top: 30px;
+  padding-left: 19px;
+  padding-bottom: 16px;
+  font-size: 36px;
+  font-weight: normal;
+  color: #ffffff;
+}
+
+
+.header__text {
+  margin: 0px;
+  padding-left: 16px;
+  padding-bottom: 122px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.button {
+  width: 288px;
+  height: 56px;
+  margin-left: 16px;
+  border-radius: 100px;
+  border: none;
+}
+
+
+.button__field {
+  padding-left: 16px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  text-align: left;
+  background: #ffffff;
+  color: #B6BCBF;
+}
+
+.button__search {
+  font-size: 18px;
+  color: #ffffff;
+  background: rgba(47, 113, 229, 1);
+}
+
+.button__schow {
+  margin-bottom: 32px;
+  font-size: 18px;
+  background: #ffffff;
+}
+
+.section-title {
+  margin: 0px;
+  padding-top: 32px;
+  padding-left: 16px;
+  padding-bottom: 24px;
+  font-size: 30px;
+  font-family: 'Roboto Slab';
+}
+
+.article-card {
+  width: 288px;
+  min-height: 440px;
+  margin-left: 16px;
+  margin-bottom: 9px;
+  background-color: #fff;
+  border-radius: 10px;
+  /* position: absolute; */
+  /* display: flex; */
+  /* z-index: -1; */
+}
+
+.article-card__image-section {
+  width: 288px;
+  height: 196px;
+  /* background-size: cover;
+  background-position: center; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: ;
+  display: flex;
+}
+
+.article-card__image {
+  width: 288px;
+  height: 196px;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* position: relative; */
+  /* z-index: -1; */
+}
+
+.article-card__icon {
+  width: 40px;
+  height: 40px;
+  margin-top: 16px;
+  margin-left: 232px;
+  border-radius: 8px;
+  background: url(../src/images/icon/Rectangle\ 8.png);
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  background-position: center;
+  border: none;
+  /* z-index: 3; */
+  position: absolute;
+  /* display: flex; */
+}
+
+.article-card__date {
+  width: 256px;
+  height: 24px;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0px;
+  padding-top: 16px;
+  padding-left: 16px;
+  padding-bottom: 0px;
+  color: #B6BCBF;
+  /* position: absolute; */
+  /* z-index: 1; */
+}
+
+.article-card__title {
+  width: 256px;
+  height: 52px;
+  margin: 0px;
+  font-size: 22px;
+  font-weight: normal;
+  padding-top: 10px;
+  padding-left: 16px;
+  color: #1A1B22;
+  /* z-index: 1; */
+}
+
+.article-card__text {
+  width: 256px;
+  height: 88px;
+  margin: 0px;
+  font-size: 16px;
+  font-weight: normal;
+  padding-top: 10px;
+  padding-left: 16px;
+  color: #1A1B22;
+}
+
+.article-card__source {
+  width: 256px;
+  height: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px;
+  padding-top: 8px;
+  padding-left: 16px;
+  color: #B6BCBF;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+}
+
+.about__section {
+  width: 320px;
+  min-height: 752px;
+  margin: 0px;
+  background-color: #ffffff;
+}
+
+.about__photo {
+  width: 272px;
+  height: 272px;
+  margin: 24px 32px 24px 24px;
+  border-radius: 1000px;
+  background: url(../src/images/image-03.jpg);
+}
