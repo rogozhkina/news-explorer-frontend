@@ -29,6 +29,8 @@ body {
 .header__top {
   height: 56px;
   border: 1px solid rgba(196, 196, 196, 0.3);
+  display: flex;
+  justify-content: space-between;
 }
 
 .header__logo {
@@ -42,7 +44,12 @@ body {
   color: #ffffff;
 }
 
-.header__nav
+.header__nav {
+  width: 16px;
+  height: 16px;
+  padding-top: 24px;
+  padding-right: 24px;
+}
 
 .header__section {
   margin: 0px;
@@ -312,6 +319,18 @@ body {
 
 .icon_fb {
   background: url(../src/images/icons/VectorFB.png) 0 0px no-repeat;
+}
+
+.icon_nav {
+  border-bottom: 7px double #ffffff;
+  /* border-top: 6px solid #ffffff; */
+  content:"";
+  height: 1px;
+  width: 16px;
+  /* width: 16px;
+  height: 2px; */
+  /* background: url(../src/images/icons/Rectangle\ 11.png);
+  background-repeat: repeat-y; */
 }
 
 .footer__сopyright {
