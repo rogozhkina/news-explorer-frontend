@@ -7,6 +7,16 @@ body {
   /* justify-content: center; */
 }
 
+.main {
+  margin: 0px;
+}
+
+.text {
+  width: 288px;
+  margin: 0px;
+  padding-left: 16px;
+  font-size: 18px;
+}
 
 .header_mobile {
   width: 320px;
@@ -145,7 +155,7 @@ body {
   margin-top: 16px;
   margin-left: 232px;
   border-radius: 8px;
-  background: url(../src/images/icon/Rectangle\ 8.png);
+  background: url(../src/images/icons/Rectangle\ 8.png);
   background-repeat: no-repeat;
   background-color: #ffffff;
   background-position: center;
@@ -209,13 +219,103 @@ body {
   width: 320px;
   min-height: 752px;
   margin: 0px;
+  padding-top: 32px;
   background-color: #ffffff;
 }
 
 .about__photo {
   width: 272px;
   height: 272px;
-  margin: 24px 32px 24px 24px;
+  margin: 0px 24px 24px 24px;
   border-radius: 1000px;
   background: url(../src/images/image-03.jpg);
+}
+
+.about__text {
+  padding-top: 16px;
+}
+
+.footer_mobile {
+  width: 320px;
+  height: 224px;
+  background-color: #F5F6F7;
+}
+
+.footer__down {
+  width: 320px;
+  height: 270px;
+  background-color: #ffffff;
+  background-position: bottom;
+  /* padding-bottom: 0px; */
+  /* margin-bottom: 0px; */
+}
+
+.footer__columns {
+  margin: 0px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+}
+
+.footer__column-navigation {
+  width: 200px;
+  height: 74px;
+  margin: 0px;
+  padding-top: 20px;
+  padding-left: 16px;
+  font-size: 18px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: #1A1B22;
+  font-size: 18px;
+}
+
+.footer__column-social-icons {
+  width: 74px;
+  height: 74px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__social-icon {
+  /* line-height: 17px; */
+  /* font-size: 18px; */
+  /* font-weight: normal; */
+  /* color: white; */
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  /* margin: 6px 0 8px -1px; */
+  /* text-decoration: none; */
+  /* padding: 0px 0 0 22px; */
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+
+.icon_gh {
+  background: url(../src/images/icons/VectorGH.png) 0 0px no-repeat;
+}
+
+.icon_fb {
+  background: url(../src/images/icons/VectorFB.png) 0 0px no-repeat;
+}
+
+.footer__сopyright {
+  font-size: 16px;
+  padding-left: 16px;
+  color: #B6BCBF;
 }
