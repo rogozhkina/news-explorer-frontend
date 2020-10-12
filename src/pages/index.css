@@ -1,5 +1,5 @@
-@import url(./vendor/normalize.css);
-@import url(./vendor/fonts.css);
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts.css);
 
 * {
   border: 1px solid red;
@@ -28,7 +28,7 @@ body {
   margin: auto;
   /* display: flex; */
   /* justify-content: center; */
-} */
+/* } */
 
 .main {
   margin: 0px;
@@ -76,7 +76,7 @@ body {
   width: 320px;
   height: 536px;
   margin: 0px;
-  background-image: url(../src/images/mobile/fon/georgia-de-lotz--UsJoNxLaNo-unsplash.jpg);
+  background-image: url(../images/mobile/fon/georgia-de-lotz--UsJoNxLaNo-unsplash.jpg);
   background-repeat: no-repeat;
 }
 
@@ -94,7 +94,7 @@ body {
     height: 400px;
     margin: 0px;
     display: block;
-    background-image: url(../src/images/tablet/fon/georgia-de-lotz--UsJoNxLaNo-unsplash.png);
+    background-image: url(../images/tablet/fon/georgia-de-lotz--UsJoNxLaNo-unsplash.png);
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -109,7 +109,7 @@ body {
     height: 576px;
     /* margin: 0px; */
     /* display: block; */
-    background-image: url(../src/images/desktop/fon/georgia-de-lotz--UsJoNxLaNo-unsplash.png);
+    background-image: url(../images/desktop/fon/georgia-de-lotz--UsJoNxLaNo-unsplash.png);
     /* background-size: cover; */
     /* background-repeat: no-repeat; */
   }
@@ -677,7 +677,7 @@ body {
   margin-top: 16px;
   margin-left: 232px;
   border-radius: 8px;
-  background: url(../src/images/icons/Rectangle\ 8.png);
+  background: url(../images/icons/Rectangle\ 8.png);
   background-repeat: no-repeat;
   background-color: #ffffff;
   background-position: center;
@@ -905,7 +905,7 @@ body {
   height: 272px;
   margin: 0px 24px 24px 24px;
   border-radius: 1000px;
-  background: url(../src/images/mobile/avatar/image-03.jpg);
+  background: url(../images/mobile/avatar/image-03.jpg);
 }
 
 @media screen and (min-width: 622px) {
@@ -913,7 +913,7 @@ body {
     width: 232px;
     height: 232px;
     margin: 61px 32px 61px 40px;
-    background: url(../src/images/tablet/avatar/image-03.jpg);
+    background: url(../images/tablet/avatar/image-03.jpg);
   }
 
 }
@@ -924,7 +924,7 @@ body {
     width: 464px;
     height: 464px;
     margin: 61px 32px 61px 40px;
-    background: url(../src/images/desktop/avatar/image-03.png);
+    background: url(../images/desktop/avatar/image-03.png);
   }
 
 }
@@ -1139,11 +1139,11 @@ body {
 
 
 .icon_gh {
-  background: url(../src/images/icons/VectorGH.png) 0 0px no-repeat;
+  background: url(../images/icons/VectorGH.png) 0 0px no-repeat;
 }
 
 .icon_fb {
-  background: url(../src/images/icons/VectorFB.png) 0 0px no-repeat;
+  background: url(../images/icons/VectorFB.png) 0 0px no-repeat;
 }
 
 .icon_menu {
@@ -1197,6 +1197,13 @@ body {
 @media screen and (min-width: 622px) {
   .popup {
    margin-top: -1026px;
+  }
+}
+
+
+@media screen and (min-width: 1282px) {
+  .popup {
+   margin-top: -1198px;
   }
 }
 
@@ -1322,6 +1329,7 @@ password
   z-index: 2;
   width: 320px;
   height: 286px;
+  color: #ffffff;
   /* margin: 10px; */
   /* padding-top: 35px; */
   /* margin-top: 10px; */
@@ -1353,5 +1361,13 @@ password
   .entry-keyboard {
     width: 768px;
     height: 1024px;
+  }
+}
+
+
+@media screen and (min-width: 1282px) {
+  .entry-keyboard {
+    width: 1440px;
+    height: 1188px;
   }
 }

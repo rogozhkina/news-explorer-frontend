@@ -2,13 +2,13 @@
   "name": "news-explorer-frontend",
   "version": "0.0.1",
   "description": "frontend to  news-explorer service",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "eslint": "eslint",
     "prettier": "prettier",
-    "build": "webpack --mode production",
+    "build": "rimraf dist webpack --mode production",
     "dev": "webpack-dev-server --mode development --open --watch",
-    "deploy": "cross-env NODE_ENV=production gh-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "babel-polyfill": "^6.26.0",
     "css-loader": "^4.3.0",
     "cssnano": "^4.1.10",
+    "cross-env": "^7.0.2",
     "eslint": "^7.10.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
@@ -43,6 +44,7 @@
     "postcss": "^8.1.1",
     "postcss-loader": "^4.0.2",
     "prettier": "^2.1.2",
+    "style-loader": "^2.0.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
