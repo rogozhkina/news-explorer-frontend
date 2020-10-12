@@ -1,17 +1,18 @@
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const WebpackMd5Hash = require("webpack-md5-hash");
-const webpack = require("webpack");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const isDev = process.env.NODE_ENV === "development";
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+const webpack = require('webpack');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
+const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  entry: "./src/js/script.js",
+  entry: './src/js/script.js',
 
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].[chunkhash].js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[chunkhash].js',
   },
   module: {
     rules: [
@@ -19,15 +20,15 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
         test: /\.css$/i,
         use: [
-          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-          { loader: "css-loader", options: { importLoaders: 2 } },
-          "postcss-loader",
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { importLoaders: 2 } },
+          'postcss-loader',
         ],
       },
       {
@@ -35,9 +36,9 @@ module.exports = {
 
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "./images/[name].[ext]",
+              name: './images/[name].[ext]',
 
               esModule: false,
             },
@@ -47,26 +48,26 @@ module.exports = {
       {
         test: /\.(eot|ttf|woff|woff2)$/,
 
-        loader: "file-loader?name=./vendor/fonts/[name].[ext]",
+        loader: 'file-loader?name=./vendor/fonts/[name].[ext]',
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: '[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
-      cssProcessor: require("cssnano"),
+      cssProcessor: require('cssnano'),
       cssProcessorPluginOptions: {
-        preset: ["default"],
+        preset: ['default'],
       },
       canPrint: true,
     }),
     new HtmlWebpackPlugin({
       inject: false,
-      template: "./src/index.html",
-      filename: "index.html", // имя выходного файла, то есть того, что окажется в папке dist после сборки
+      template: './src/index.html',
+      filename: 'index.html',
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({

@@ -201,6 +201,20 @@ body {
   }
 }
 
+
+@media screen and (min-width: 622px) {
+  .entry {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 622px) {
+  .pridumay {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 622px) {
   .header__nav {
     display: flex;
@@ -652,8 +666,8 @@ body {
 
 @media screen and (min-width: 1282px) {
   .article-card__image {
-  width: 224px;
-  height: 150px;
+  width: 400px;
+  height: 272px;
   }
 }
 
@@ -950,9 +964,26 @@ body {
 
 @media screen and (min-width: 622px) {
   .footer_mobile {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 1282px) {
+  .footer_mobile {
+    display: none;
+  }
+}
+
+.footer_big {
+  display: none;
+}
+
+@media screen and (min-width: 622px) {
+  .footer_big {
     width: 768px;
     height: 64px;
-    background-color: #F5F6F7;
+    background-color: #ffffff;
     display: flex;
     /* direction: revert; */
   }
@@ -960,11 +991,11 @@ body {
 
 
 @media screen and (min-width: 1282px) {
-  .footer_mobile {
-    width: 768px;
+  .footer_big {
+    width: 1440px;
     height: 64px;
-    background-color: #F5F6F7;
     display: flex;
+    justify-content: space-between;
     /* direction: revert; */
   }
 }
@@ -1006,8 +1037,23 @@ body {
   margin: 0px;
   display: flex;
   padding-bottom: 30px;
+  /* padding-right: 106px; */
   /* flex-wrap: wrap; */
   /* justify-content: space-between; */
+}
+
+
+@media screen and (min-width: 622px) {
+  .footer__columns {
+   padding-right: 25px;
+  }
+}
+
+
+@media screen and (min-width: 1282px) {
+  .footer__columns {
+   padding-right: 106px;
+  }
 }
 
 .footer__column-navigation {
@@ -1021,6 +1067,28 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+
+@media screen and (min-width: 622px) {
+  .footer__column-navigation {
+    width: 264px;
+    /* height: 22px;
+    margin: 24px auto; */
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+  }
+}
+
+
+@media screen and (min-width: 1282px) {
+  .footer__column-navigation {
+    width: 304px;
+    /* height: 22px;
+    margin: 24px auto; */
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+  }
 }
 
 .footer__link {
@@ -1038,6 +1106,17 @@ body {
   padding: 0;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 622px) {
+  .footer__column-social-icons {
+    /* width: 300px;
+    height: 22px;
+    margin: 24px auto; */
+    flex-direction: row;
+    padding-left: 48px;
+    /* flex-wrap: wrap; */
+  }
 }
 
 .footer__social-icon {
@@ -1079,7 +1158,7 @@ body {
   background-repeat: repeat-y; */
 }
 
-.footer__сopyright {
+.footer__copyright {
   font-size: 16px;
   padding-left: 16px;
   color: #B6BCBF;
@@ -1087,6 +1166,16 @@ body {
   width: 288px;
   height: 22px;
   padding-bottom: 16px;
+}
+
+
+@media screen and (min-width: 622px) {
+  .footer__copyright {
+    width: 300px;
+    height: 0px;
+    /* margin: 24px 28px 18px 40px; */
+    margin: auto;
+  }
 }
 
 .popup {
@@ -1104,14 +1193,29 @@ body {
   margin-top: -478px;
 }
 
+
+@media screen and (min-width: 622px) {
+  .popup {
+   margin-top: -1026px;
+  }
+}
+
 .popup__content {
   width: 320px;
-  min-height: 560px;
+  height: 560px;
   background-color: #ffffff;
   border-radius: 10px;
   position: relative;
   box-sizing: border-box;
   /* padding: 34px 36px; */
+}
+
+
+@media screen and (min-width: 622px) {
+  .popup__content {
+    width: 430px;
+    height: 380px;
+  }
 }
 
 .popup__title {
@@ -1122,6 +1226,14 @@ body {
 
 .popup__form {
   margin-top: 22px;
+}
+
+
+
+@media screen and (min-width: 622px) {
+  .popup__form {
+    /* height: 192px; */
+  }
 }
 
 
@@ -1168,12 +1280,38 @@ password
 }
 
 
-.popup__keyboard {
+.popup__keyboard_mobile {
   width: 320px;
   height: 248px;
   margin-top: -19px;
 }
 
+
+.popup__keyboard_tablet {
+  display: none;
+}
+
+@media screen and (min-width: 622px) {
+  .popup__keyboard_mobile {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 622px) {
+  .popup__keyboard_tablet {
+    width: 768px;
+    height: 264px;
+    display: flex;
+  }
+}
+
+
+@media screen and (min-width: 1282px) {
+  .popup__keyboard_tablet {
+    display: none;
+  }
+}
 
 .popup__menu {
   /* position: absolute; */
@@ -1197,4 +1335,23 @@ password
 
 .registration {
 
+}
+
+.about__section_hidden {
+  display: none;
+}
+
+
+@media screen and (min-width: 622px) {
+  .about__section_hidden {
+    display: flex;
+  }
+}
+
+
+@media screen and (min-width: 622px) {
+  .entry-keyboard {
+    width: 768px;
+    height: 1024px;
+  }
 }
