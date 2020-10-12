@@ -28,24 +28,7 @@
         <button class="button button__search" type="submit">Искать</button>
       </div>
     </header>
-    <header class="header header_mobile header_authorization">
-      <div class="header__top">
-        <div class="header__logo">NewsExplorer</div>
-        <div class="header__menu">
-          <a class="icon icon_menu link" href="" target="_blank"></a>
-        </div>
-        <div class="header__nav">
-          <a class="header__link link" href="" target="_blank">Главная</a>
-          <button class="button button__registration" type="submit">Авторизоваться</button>
-        </div>
-      </div>
-      <div class="header__section">
-        <h1 class="header__title">Что творится в мире?</h1>
-        <p class="text header__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
-        <button class="button button__field" type="submit">Политика</button>
-        <button class="button button__search" type="submit">Искать</button>
-      </div>
-    </header>
+
     <main class="main">
       <div class="section">
         <h2 class="title section-title">Результаты поиска</h2>
@@ -177,6 +160,73 @@
         </form>
       </div>
     </div>
-
+    <header class="header header_mobile">
+      <div class="header__top">
+        <div class="header__logo">NewsExplorer</div>
+        <div class="header__menu">
+          <a class="icon icon_menu link" href="" target="_blank"></a>
+        </div>
+        <div class="header__nav">
+          <a class="header__link link" href="" target="_blank">Главная</a>
+          <button class="button button__registration" type="submit">Авторизоваться</button>
+        </div>
+      </div>
+      <div class="header__section">
+        <h1 class="header__title">Что творится в мире?</h1>
+        <p class="text header__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+        <button class="button button__field" type="submit">Политика</button>
+        <button class="button button__search" type="submit">Искать</button>
+      </div>
+    </header>
+    <div class="popup">
+      <div class="popup__content">
+        <img src=" " alt=" " class="popup__close">
+        <h2 class="popup__title">Вход</h2>
+        <form class="popup__form">
+          <input required type="undefined" class="popup__input popup__input_type_email" placeholder="Введите почту" name="email">
+          <span class="popup__error-message" id="email"></span>
+          <input required type="undefined" class="popup__input popup__input_type_password" placeholder="Введите пароль" name="password">
+          <span class="popup__error-message" id="password"></span>
+          <button type="submit" class="button popup__button popup__button_disabled" disabled="disabled">Войти</button>
+          <div class="registration">
+            или Зарегистрироваться
+          </div>
+        </form>
+        <img src="images/mobile/Return 1.png" alt=" " class="popup__keyboard">
+      </div>
+    </div>
+    <header class="header header_mobile header_authorization">
+      <div class="overlay">
+      <div class="header__top">
+        <div class="header__logo"></div>
+        <div class="header__menu">
+          <!-- <a class="icon icon_menu link" href="" target="_blank"></a> -->
+        </div>
+        <div class="header__nav">
+          <a class="header__link link" href="" target="_blank">Главная</a>
+          <button class="button button__registration" type="submit">Авторизоваться</button>
+        </div>
+      </div>
+      <div class="header__section">
+        <h1 class="header__title"></h1>
+        <p class="text header__text"></p>
+        <button class="button button__field" type="submit">Политика</button>
+        <button class="button button__search" type="submit">Искать</button>
+      </div>
+      </div>
+      <div class="popup popup__menu">
+        <div class="header__popup">
+          <div class="popup__logo">NewsExplorer</div>
+          <div class="popup__menu">
+            <img class="icon icon_close" href="">
+          </div>
+          <div class="popup__navigation">
+            <a class="popup__link link" href="" target="_blank">Главная</a>
+            <a class="popup__link link" href="" target="_blank">Сохраненные статьи</a>
+            <button class="button button__registration" type="submit">Авторизоваться</button>
+          </div>
+        </div>
+      </div>
+    </header>
 </body>
 </html>
