@@ -1,8 +1,12 @@
 # news-explorer-frontend https://github.com/rogozhkina/news-explorer-frontend.git
 
+# Ссылка на gh-pages: https://rogozhkina.github.io/news-explorer-frontend/
+
 <u>Версия 0.0.1</u>
 
 ### Фронтенд сервиса по поиску новостей
+
+Верстка двух страниц.
 
 
 #### О проекте:

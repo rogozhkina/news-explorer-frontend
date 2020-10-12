@@ -6,7 +6,7 @@
   "scripts": {
     "eslint": "eslint",
     "prettier": "prettier",
-    "build": "rimraf dist webpack --mode production",
+    "build": "rimraf dist && webpack --mode production",
     "dev": "webpack-dev-server --mode development --open --watch",
     "deploy": "gh-pages -d dist"
   },

@@ -1,9 +1,9 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
-
+/*
 * {
   border: 1px solid red;
-}
+} */
 .page {
   background-color: #F5F6F7;
   max-width: 1440px;
@@ -1369,5 +1369,38 @@ password
   .entry-keyboard {
     width: 1440px;
     height: 1188px;
+  }
+}
+
+
+@media screen and (min-width: 622px) {
+  .registration {
+    margin-left: 123px;
+  }
+}
+
+
+@media screen and (min-width: 622px) {
+  .popup__close {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    cursor: pointer;
+    top: -26px;
+    right: -26px;
+  }
+}
+
+.loader {
+  display: none;
+}
+
+@media screen and (min-width: 1282px) {
+  .loader {
+    width: 1440px;
+    height: 282px;
+    background-color: #F5F6F7;
+    color: #B6BCBF;
+    margin: auto;
   }
 }
