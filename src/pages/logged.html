@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>page-logged</title>
     <!-- <link rel="stylesheet" href="./preloader.css"> -->
-    <link rel="stylesheet" href="./index-logged.css" />
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[1]%>" />
   </head>
   <body class="page">
     <i class="circle-preloader"></i>
@@ -357,5 +357,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="<%= htmlWebpackPlugin.files.js[1] %>"></script>
   </body>
 </html>

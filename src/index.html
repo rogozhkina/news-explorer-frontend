@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>page</title>
     <!-- <link rel="stylesheet" href="./preloader.css"> -->
-    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css%>" />
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[0]%>" />
   </head>
   <body class="page">
     <i class="circle-preloader"></i>
@@ -403,6 +403,6 @@
         </div>
       </header>
     </div>
-    <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
+    <script type="module" src="<%= htmlWebpackPlugin.files.js[0] %>"></script>
   </body>
 </html>
