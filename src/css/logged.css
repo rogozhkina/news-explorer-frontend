@@ -1004,7 +1004,7 @@ body {
   height: 272px;
   margin: 0px 24px 24px 24px;
   border-radius: 1000px;
-  background: url(../images/mobile/avatar/image-03.jpg);
+  background: url(../images/mobile/avatar/image-03_mobile.jpg);
 }
 
 @media screen and (min-width: 622px) {
@@ -1012,7 +1012,7 @@ body {
     width: 232px;
     height: 232px;
     margin: 61px 32px 61px 40px;
-    background: url(../images/tablet/avatar/image-03.jpg);
+    background: url(../images/tablet/avatar/image-03_tablet.jpg);
   }
 
 }
@@ -1023,7 +1023,7 @@ body {
     width: 464px;
     height: 464px;
     margin: 61px 32px 61px 40px;
-    background: url(../images/desktop/avatar/image-03.png);
+    background: url(../images/desktop/avatar/image-03_desktop.png);
   }
 
 }
