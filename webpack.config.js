@@ -77,11 +77,13 @@ module.exports = {
       inject: false,
       template: './src/index.html',
       filename: 'index.html',
+      chunks: 'main',
     }),
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/pages/logged.html',
       filename: './pages/logged.html',
+      chunks: 'logged',
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
