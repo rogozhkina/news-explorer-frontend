@@ -226,7 +226,7 @@ body {
 
 
 .title {
-  margin: 0;
+  /* margin: 0; */
   padding-left: 16px;
   font-size: 30px;
   font-weight: normal;
@@ -244,7 +244,7 @@ body {
   font-family: 'Robotoslab';
   font-weight: 400;
   font-size: 30px;
-  /* color: #ffffff; */
+  margin: 32px auto 16px auto;
 }
 
 .section__title_main {
@@ -407,7 +407,7 @@ body {
   }
 }
 
-.button__show {
+.button_type_show {
   margin-bottom: 32px;
   font-size: 18px;
   font-family: 'Roboto';
@@ -417,7 +417,7 @@ body {
 
 
 @media screen and (min-width: 622px) {
-  .button__show {
+  .button_type_show {
     width: 240px;
     /* position: absolute; */
     margin-left: calc((100% - 240px)/2);
@@ -427,7 +427,7 @@ body {
 
 
 @media screen and (min-width: 1282px) {
-  .button__show {
+  .button_type_show {
     width: 288px;
     /* position: absolute; */
     margin-left: calc((100% - 240px)/2);
@@ -438,7 +438,7 @@ body {
 
 
 .article-list {
-  /* margin: 0; */
+  /* margin: 0 auto; */
 }
 
 @media screen and (min-width: 622px) {
@@ -492,11 +492,12 @@ body {
 
 .article-card {
   width: 288px;
-  min-height: 440px;
-  margin-left: 16px;
-  margin-bottom: 9px;
+  height: 440px;
+  /* margin-left: 16px; */
+  /* margin-bottom: 9px; */
   background-color: #fff;
   border-radius: 10px;
+  margin: 0 auto 9px auto;
   /* position: absolute; */
   /* display: flex; */
   /* z-index: -1; */
@@ -883,7 +884,7 @@ body {
 .about__photo {
   width: 272px;
   height: 272px;
-  margin: 0px 24px 24px 24px;
+  margin: 0 auto;
   border-radius: 1000px;
   background: url(../images/mobile/avatar/image-03_mobile.jpg);
 }
@@ -910,10 +911,12 @@ body {
 }
 
 .about__text {
-  padding-top: 16px;
+  width: 288px;
+  /* padding-top: 16px; */
   font-size: 18px;
   font-weight: 400;
   font-family: 'Roboto';
+  margin: 0 auto 30px auto;
   line-height: 24px;
 }
 
@@ -1390,3 +1393,7 @@ password
   background-color: aqua;
 }
 
+.probel {
+  width: 320px;
+  height: 400px;
+}
