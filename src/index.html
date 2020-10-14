@@ -10,33 +10,30 @@
   </head>
   <body class="page">
     <i class="circle-preloader"></i>
-    <header class="header header_mobile">
-      <div class="header__top">
+    <header class="header">
         <div class="header__logo">NewsExplorer</div>
         <div class="header__menu">
           <a class="icon icon_menu link" href="" target="_blank"></a>
         </div>
         <div class="header__nav">
           <a class="header__link link" href="" target="_blank">Главная</a>
-          <button class="button button__registration" type="submit">
+          <button class="button button_type_registration" type="submit">
             Авторизоваться
           </button>
         </div>
-      </div>
-      <div class="header__section">
-        <h1 class="header__title">Что творится в мире?</h1>
-        <p class="text header__text">
+    </header>
+    <main class="main">
+      <div class="section section_news">
+        <h1 class="title section__title section__title_main">Что творится в мире?</h1>
+        <p class="text section__text">
           Находите самые свежие статьи на любую тему и сохраняйте в своём личном
           кабинете.
         </p>
-        <button class="button button__field" type="submit">Политика</button>
-        <button class="button button__search" type="submit">Искать</button>
+        <button class="button button_type_field" type="submit">Политика</button>
+        <button class="button button_type_search" type="submit">Искать</button>
       </div>
-    </header>
-
-    <main class="main">
-      <div class="section">
-        <h2 class="title section-title">Результаты поиска</h2>
+      <div class="section section_results">
+        <h2 class="title section__title">Результаты поиска</h2>
         <div class="article-list">
           <div class="article-card">
             <div class="article-card__image-section">
@@ -110,7 +107,7 @@
         </div>
         <button class="button button__show" type="submit">Показать еще</button>
       </div>
-      <div class="section about__section">
+      <div class="section section_about">
         <div class="about__photo"></div>
         <div class="about__content">
           <h2 class="title about__title">Об авторе</h2>
@@ -125,29 +122,6 @@
         </div>
       </div>
     </main>
-    <!-- <footer class="footer footer_mobile">
-      <div class="footer__down">
-        <div class="footer__columns">
-          <ul class="footer__column-navigation">
-            <li>
-              <a class="footer__link link" href="">Главная</a>
-            </li>
-            <li>
-              <a class="footer__link link" href="https://praktikum.yandex.ru/web/" target="_blank">Яндекс.Практикум</a>
-            </li>
-          </ul>
-          <ul class="footer__column-social-icons">
-            <li>
-              <a class="icon icon_gh footer__social-icon link" href="https://github.com" target="_blank"></a>
-            </li>
-            <li>
-              <a class="icon icon_fb footer__social-icon link" href="https://facebook.com" target="_blank"></a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__сopyright">&copy2020 Supersite, Powered by News API</div>
-      </div>
-    </footer> -->
     <footer class="footer footer_mobile">
       <div class="footer__columns">
         <ul class="footer__column-navigation">
@@ -232,19 +206,19 @@
           </div>
           <div class="header__nav">
             <a class="header__link link" href="" target="_blank">Главная</a>
-            <button class="button button__registration" type="submit">
+            <button class="button button_type_registration" type="submit">
               Авторизоваться
             </button>
           </div>
         </div>
-        <div class="header__section">
-          <h1 class="header__title">Что творится в мире?</h1>
-          <p class="text header__text">
+        <div class="section section_news">
+          <h1 class="section__title">Что творится в мире?</h1>
+          <p class="text section__text">
             Находите самые свежие статьи на любую тему и сохраняйте в своём
             личном кабинете.
           </p>
-          <button class="button button__field" type="submit">Политика</button>
-          <button class="button button__search" type="submit">Искать</button>
+          <button class="button button_type_field" type="submit">Политика</button>
+          <button class="button button_type_search" type="submit">Искать</button>
         </div>
       </header>
       <div class="popup">
@@ -293,22 +267,22 @@
           </div>
           <div class="header__nav">
             <a class="header__link link" href="" target="_blank">Главная</a>
-            <button class="button button__registration" type="submit">
+            <button class="button button_type_registration" type="submit">
               Авторизоваться
             </button>
           </div>
         </div>
-        <div class="header__section">
-          <h1 class="header__title">Что творится в мире?</h1>
-          <p class="text header__text">
+        <div class="section_news">
+          <h1 class="section__title">Что творится в мире?</h1>
+          <p class="text section__text">
             Находите самые свежие статьи на любую тему и сохраняйте в своём
             личном кабинете.
           </p>
-          <button class="button button__field" type="submit">Политика</button>
-          <button class="button button__search" type="submit">Искать</button>
+          <button class="button button_type_field" type="submit">Политика</button>
+          <button class="button button_type_search" type="submit">Искать</button>
         </div>
       </header>
-      <div class="section about__section about__section_hidden">
+      <div class="section section_about section_about_hidden">
         <div class="about__photo"></div>
         <div class="about__content">
           <h2 class="title about__title">Об авторе</h2>
@@ -372,16 +346,16 @@
             </div>
             <div class="header__nav">
               <a class="header__link link" href="" target="_blank">Главная</a>
-              <button class="button button__registration" type="submit">
+              <button class="button button_type_registration" type="submit">
                 Авторизоваться
               </button>
             </div>
           </div>
-          <div class="header__section">
-            <h1 class="header__title"></h1>
-            <p class="text header__text"></p>
-            <button class="button button__field" type="submit">Политика</button>
-            <button class="button button__search" type="submit">Искать</button>
+          <div class="section_news">
+            <h1 class="section__title"></h1>
+            <p class="text section__text"></p>
+            <button class="button button_type_field" type="submit">Политика</button>
+            <button class="button button_type_search" type="submit">Искать</button>
           </div>
         </div>
         <div class="popup popup__menu">
@@ -395,7 +369,7 @@
               <a class="popup__link link" href="" target="_blank"
                 >Сохраненные статьи</a
               >
-              <button class="button button__registration" type="submit">
+              <button class="button button_type_registration" type="submit">
                 Авторизоваться
               </button>
             </div>
