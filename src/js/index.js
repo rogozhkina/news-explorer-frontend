@@ -7,3 +7,12 @@ import '../css/index.css';
 // button.addEventListener('click', () => {
 //   button.classList.add('button_invisible');
 // });
+
+const popupMenu = document.querySelector('.popup_menu');
+const iconMenu = document.querySelector('.icon_menu');
+
+iconMenu.addEventListener('click', () => {
+  console.log(iconMenu);
+  popupMenu.classList.add('popup_menu_open');
+  iconMenu.classList.add('icon_menu_hidden');
+});

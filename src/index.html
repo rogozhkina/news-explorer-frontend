@@ -11,20 +11,37 @@
   <body class="page">
     <i class="circle-preloader"></i>
     <header class="header">
-        <div class="header__logo">NewsExplorer</div>
-        <div class="header__menu">
-          <a class="icon icon_menu link" href="" target="_blank"></a>
-        </div>
-        <div class="header__nav">
-          <a class="header__link link" href="" target="_blank">Главная</a>
-          <button class="button button_type_registration" type="submit">
-            Авторизоваться
-          </button>
-        </div>
+      <div class="header__logo">NewsExplorer</div>
+      <div class="header__menu">
+        <div class="icon icon_menu"></div>
+      </div>
+      <div class="header__nav">
+        <a class="header__link link" href="" target="_blank">Главная</a>
+        <button class="button button_type_registration" type="submit">
+          Авторизоваться
+        </button>
+      </div>
     </header>
     <main class="main">
+      <div class="popup popup_menu">
+        <div class="popup__icon">
+          <img src="<%=require("./images/icons/Path 5.svg")%>" alt="закрыть"
+          class="icon_close">
+        </div>
+        <div class="popup__navigation">
+          <a class="popup__link link" href="" target="_blank">Главная</a>
+          <a class="popup__link link" href="" target="_blank"
+            >Сохраненные статьи</a>
+
+        </div>
+        <button class="button button_type_registration" type="submit">
+          Авторизоваться
+        </button>
+      </div>
       <div class="section section_news">
-        <h1 class="title section__title section__title_main">Что творится в мире?</h1>
+        <h1 class="title section__title section__title_main">
+          Что творится в мире?
+        </h1>
         <p class="text section__text">
           Находите самые свежие статьи на любую тему и сохраняйте в своём личном
           кабинете.
@@ -105,7 +122,9 @@
             <p class="article-card__source">риа</p>
           </div>
         </div>
-        <button class="button button_type_show" type="submit">Показать еще</button>
+        <button class="button button_type_show" type="submit">
+          Показать еще
+        </button>
       </div>
       <div class="section section_about">
         <div class="about__photo"></div>
@@ -218,8 +237,12 @@
             Находите самые свежие статьи на любую тему и сохраняйте в своём
             личном кабинете.
           </p>
-          <button class="button button_type_field" type="submit">Политика</button>
-          <button class="button button_type_search" type="submit">Искать</button>
+          <button class="button button_type_field" type="submit">
+            Политика
+          </button>
+          <button class="button button_type_search" type="submit">
+            Искать
+          </button>
         </div>
       </header>
       <div class="popup">
@@ -279,8 +302,12 @@
             Находите самые свежие статьи на любую тему и сохраняйте в своём
             личном кабинете.
           </p>
-          <button class="button button_type_field" type="submit">Политика</button>
-          <button class="button button_type_search" type="submit">Искать</button>
+          <button class="button button_type_field" type="submit">
+            Политика
+          </button>
+          <button class="button button_type_search" type="submit">
+            Искать
+          </button>
         </div>
       </header>
       <div class="section section_about section_about_hidden">
@@ -355,8 +382,12 @@
           <div class="section_news">
             <h1 class="section__title"></h1>
             <p class="text section__text"></p>
-            <button class="button button_type_field" type="submit">Политика</button>
-            <button class="button button_type_search" type="submit">Искать</button>
+            <button class="button button_type_field" type="submit">
+              Политика
+            </button>
+            <button class="button button_type_search" type="submit">
+              Искать
+            </button>
           </div>
         </div>
         <div class="popup popup__menu">
