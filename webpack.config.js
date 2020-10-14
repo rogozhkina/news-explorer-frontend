@@ -31,18 +31,18 @@ module.exports = {
         use: [
           isDev
             ? { loader: 'style-loader' }
-            : { loader: MiniCssExtractPlugin.loader,
-                options: {
-                  publicPath: '../',
-                },
+            : {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: '../',
               },
+            },
           { loader: 'css-loader', options: { importLoaders: 2 } },
           'postcss-loader',
         ],
       },
       {
         test: /\.(png|jpg|jpeg|gif|ico|svg)$/i,
-
         use: [
           {
             loader: 'file-loader',
@@ -56,7 +56,6 @@ module.exports = {
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
-
         loader: 'file-loader?name=./vendor/fonts/[name].[ext]',
       },
     ],
