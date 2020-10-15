@@ -24,20 +24,23 @@
     </header>
     <main class="main">
       <div class="popup popup_menu">
+
         <div class="popup__icon">
-          <img src="<%=require("./images/icons/Path 5.svg")%>" alt="закрыть"
+          <img src="<%=require("./images/icons/Path5_left.svg")%>" alt="закрыть"
+          class="icon_close">
+          <img src="<%=require("./images/icons/Path5_right.svg")%>" alt="закрыть"
           class="icon_close">
         </div>
         <div class="popup__navigation">
           <a class="popup__link link" href="" target="_blank">Главная</a>
           <a class="popup__link link" href="" target="_blank"
             >Сохраненные статьи</a>
-
         </div>
         <button class="button button_type_registration" type="submit">
           Авторизоваться
         </button>
       </div>
+      <!-- <div class="overlay"></div> -->
       <div class="section section_news">
         <h1 class="title section__title section__title_main">
           Что творится в мире?
@@ -216,8 +219,8 @@
 
       <!-- <div class="footer__down"></div> -->
     </footer>
-    <div class="probel"></div>
-    <div class="entry">
+    <!-- <div class="probel"></div>
+       <div class="entry">
       <header class="header header_mobile">
         <div class="header__top">
           <div class="header__logo">NewsExplorer</div>
@@ -247,7 +250,7 @@
       </header>
       <div class="popup">
         <div class="popup__content">
-          <img src="<%=require("./images/icons/Path 5.svg")%>" alt=" "
+          <img src="<%=require("./images/icons/Path5_left.svg")%>" alt=" "
           class="popup__close">
           <h2 class="popup__title">Вход</h2>
           <form class="popup__form">
@@ -281,8 +284,8 @@
           </form>
         </div>
       </div>
-    </div>
-    <div class="entry-keyboard">
+    </div> -->
+    <!-- <div class="entry-keyboard">
       <header class="header header_mobile">
         <div class="header__top">
           <div class="header__logo">NewsExplorer</div>
@@ -324,7 +327,7 @@
           </p>
         </div>
       </div>
-      <img src="<%=require("./images/tablet/Light Uppercase.png")%>" alt=" "
+      <img src="<%=require("./images/tablet/LightUppercase.png")%>" alt=" "
       class="popup__keyboard_tablet">
       <div class="popup">
         <div class="popup__content">
@@ -359,19 +362,19 @@
               <a class="link" href=" " target="_blank">Зарегистрироваться</a>
             </div>
           </form>
-          <img src="<%=require("./images/mobile/Return 1.png")%>" alt=" "
+          <img src="<%=require("./images/mobile/Return1.png")%>" alt=" "
           class="popup__keyboard_mobile">
         </div>
       </div>
-    </div>
-    <div class="pridumay">
+    </div> -->
+    <!-- <div class="pridumay">
       <header class="header header_mobile header_authorization">
         <div class="overlay">
           <div class="header__top">
             <div class="header__logo"></div>
             <div class="header__menu">
               <!-- <a class="icon icon_menu link" href="" target="_blank"></a> -->
-            </div>
+            <!-- </div>
             <div class="header__nav">
               <a class="header__link link" href="" target="_blank">Главная</a>
               <button class="button button_type_registration" type="submit">
@@ -408,7 +411,7 @@
           </div>
         </div>
       </header>
-    </div>
+    </div> -->
     <script type="module" src="<%= htmlWebpackPlugin.files.js[0] %>"></script>
   </body>
 </html>
