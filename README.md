@@ -4,7 +4,7 @@
 
 * Главная страница: https://rogozhkina.github.io/news-explorer-frontend/
 
-* Страница залогиненного пользователя: https://rogozhkina.github.io/news-explorer-frontend/pages/logged.html
+* Страница залогиненного пользователя: https://rogozhkina.github.io/news-explorer-frontend/logged.html
 
 <u>Версия 0.0.1</u>
 
