@@ -30,4 +30,5 @@ buttonAuth.addEventListener('click', () => {
   console.log(buttonAuth);
   console.log(popupAuth);
   popupAuth.classList.add('popup_authorization_open');
+  popupMenu.classList.remove('popup_menu_open');
 });
