@@ -15,16 +15,15 @@
       <div class="header__menu">
         <div class="icon icon_menu"></div>
       </div>
-      <div class="header__nav">
+      <!-- <div class="header__nav">
         <a class="header__link link" href="" target="_blank">Главная</a>
         <button class="button button_type_registration" type="submit">
           Авторизоваться
         </button>
-      </div>
+      </div> -->
     </header>
     <main class="main">
       <div class="popup popup_menu">
-
         <div class="popup__icon">
           <img src="<%=require("./images/icons/Path5_left.svg")%>" alt="закрыть"
           class="icon_close">
@@ -39,6 +38,48 @@
         <button class="button button_type_registration" type="submit">
           Авторизоваться
         </button>
+      </div>
+      <div class="popup popup_authorization">
+        <div class="popup__content">
+          <!-- <div class="popup__close">
+            <img src="<%=require("./images/icons/Path5_left.svg")%>" alt="закрыть"
+            class="icon_close">
+            <img src="<%=require("./images/icons/Path5_right.svg")%>" alt="закрыть"
+            class="icon_close">
+          </div> -->
+          <h2 class="popup__title">Вход</h2>
+          <form class="popup__form">
+            <span class="popup__label">Email</span>
+            <input
+              required
+              type="email"
+              class="popup__input popup__input_type_email"
+              placeholder="Введите почту"
+              name="email"
+            />
+            <span class="popup__error-message" id="email"></span>
+            <span class="popup__label">Пароль</span>
+            <input
+              required
+              type="password"
+              class="popup__input popup__input_type_password"
+              placeholder="Введите пароль"
+              name="password"
+            />
+            <span class="popup__error-message" id="password"></span>
+            <button
+              type="submit"
+              class="button popup__button popup__button_disabled button_type_entry"
+              disabled="disabled"
+            >
+              Войти
+            </button>
+            <div class="registration">
+              или
+              <a class="link registration__link" href=" " target="_blank">Зарегистрироваться</a>
+            </div>
+          </form>
+        </div>
       </div>
       <!-- <div class="overlay"></div> -->
       <div class="section section_news">
