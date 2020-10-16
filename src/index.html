@@ -174,7 +174,11 @@
         </button>
       </div>
       <div class="section section_about">
-        <div class="about__photo"></div>
+        <picture>
+          <source media="(min-width: 1282px)" srcset="<%=require("./images/desktop/avatar/image-03_desktop.png")%>" />
+          <source media="(min-width: 622px)" srcset="<%=require("./images/tablet/avatar/image-03_tablet.jpg")%>" />
+          <img class="about__photo" src="<%=require("./images/mobile/avatar/image-03_mobile.jpg")%>" alt="Фотография автора сайта" />
+        </picture>
         <div class="about__content">
           <h2 class="title about__title">Об авторе</h2>
           <p class="text about__text">
