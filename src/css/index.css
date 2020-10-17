@@ -60,11 +60,11 @@ body {
     width: 99vw;
     /* width: 95%; */
     height: 66px;
-    margin: 0 auto;
-    display: block;
+    /* margin: 0 auto; */
+    /* display: block; */
     /* background-image: url(../images/tablet/fon/georgia-de-lotz_tablet.png); */
-    background-size: cover;
-    background-repeat: no-repeat;
+    /* background-size: cover;
+    background-repeat: no-repeat; */
   }
 }
 
@@ -117,7 +117,7 @@ body {
   }
 }
 
-.header__menu {
+.header__menu_mobile {
   width: 16px;
   height: 16px;
   padding-top: 24px;
@@ -126,24 +126,35 @@ body {
 
 
 
-.header__nav {
-  display: none;
-}
-
-
 @media screen and (min-width: 622px) {
-  .header__menu {
+  .header__menu_mobile {
     display: none;
   }
 }
 
 
 @media screen and (min-width: 1282px) {
-  .header__menu {
-    /* display: none; */
+  .header__menu_mobile {
+    display: none;
   }
 }
 
+.header__menu_big {
+  display: none;
+}
+
+@media screen and (min-width: 622px) {
+  .header__menu_big {
+    width: 300px;
+    height: 66px;
+    display: flex;
+  }
+}
+
+
+.header__nav {
+  display: flex;
+}
 
 @media screen and (min-width: 622px) {
   .entry {
@@ -1621,7 +1632,7 @@ password
 }
 
 
-.button_type_registration {
+.button_type_authorization {
   /* display: none; */
   background-color: #000;
   color: #fff;
@@ -1698,7 +1709,16 @@ password
 
 
 @media screen and (min-width: 1282px) {
-.popup_icon_show {
-  display: block;
+  .popup_icon_show {
+    display: block;
+  }
 }
+
+.button_type_authorization_menu {
+  background-color: unset;
+  width: 152px;
+  height: 40px;
+  margin-top: 14px;
+  margin-right: 40px;
+  border: 1px solid #fff;
 }
