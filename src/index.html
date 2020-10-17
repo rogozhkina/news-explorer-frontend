@@ -85,20 +85,20 @@
         </div>
       </div>
       <!-- <div class="overlay"></div> -->
-      <div class="section section_news">
-        <h1 class="title section__title section__title_main">
+      <section class="news">
+        <h1 class="title news__title">
           Что творится в мире?
         </h1>
-        <p class="text section__text">
+        <p class="text news__text">
           Находите самые свежие статьи на любую тему и сохраняйте в своём личном
           кабинете.
         </p>
         <button class="button button_type_field" type="submit">Политика</button>
         <button class="button button_type_search" type="submit">Искать</button>
-      </div>
-      <div class="section section_results">
-        <h2 class="title section__title">Результаты поиска</h2>
-        <div class="article-list">
+      </section>
+      <section class="articles">
+        <h2 class="articles__title">Результаты поиска</h2>
+        <div class="articles__list">
           <div class="article-card">
             <div class="article-card__image-section">
               <img src="<%=require("./images/mobile/cards/image_08.png")%>"
@@ -172,11 +172,11 @@
         <button class="button button_type_show" type="submit">
           Показать еще
         </button>
-      </div>
-      <div class="section section_about">
-        <picture>
+      </section>
+      <section class="about">
+        <picture class="about__photo-section">
           <source media="(min-width: 1282px)" srcset="<%=require("./images/desktop/avatar/image-03_desktop.png")%>" />
-          <source media="(min-width: 622px)" srcset="<%=require("./images/tablet/avatar/image-03_tablet.jpg")%>" />
+          <source media="(min-width: 622px)" srcset="<%=require("./images/mobile/cards/image_08.png")%>" />
           <img class="about__photo" src="<%=require("./images/mobile/avatar/image-03_mobile.jpg")%>" alt="Фотография автора сайта" />
         </picture>
         <div class="about__content">
@@ -190,7 +190,7 @@
             научились, и чем можете помочь потенциальным заказчикам.
           </p>
         </div>
-      </div>
+      </section>
     </main>
     <footer class="footer footer_mobile">
       <div class="footer__columns">
@@ -267,72 +267,7 @@
 
       <!-- <div class="footer__down"></div> -->
     </footer>
-    <!-- <div class="probel"></div>
-       <div class="entry">
-      <header class="header header_mobile">
-        <div class="header__top">
-          <div class="header__logo">NewsExplorer</div>
-          <div class="header__menu">
-            <a class="icon icon_menu link" href="" target="_blank"></a>
-          </div>
-          <div class="header__nav">
-            <a class="header__link link" href="" target="_blank">Главная</a>
-            <button class="button button_type_registration" type="submit">
-              Авторизоваться
-            </button>
-          </div>
-        </div>
-        <div class="section section_news">
-          <h1 class="section__title">Что творится в мире?</h1>
-          <p class="text section__text">
-            Находите самые свежие статьи на любую тему и сохраняйте в своём
-            личном кабинете.
-          </p>
-          <button class="button button_type_field" type="submit">
-            Политика
-          </button>
-          <button class="button button_type_search" type="submit">
-            Искать
-          </button>
-        </div>
-      </header>
-      <div class="popup">
-        <div class="popup__content">
-          <img src="<%=require("./images/icons/Path5_left.svg")%>" alt=" "
-          class="popup__close">
-          <h2 class="popup__title">Вход</h2>
-          <form class="popup__form">
-            <input
-              required
-              type="undefined"
-              class="popup__input popup__input_type_email"
-              placeholder="Введите почту"
-              name="email"
-            />
-            <span class="popup__error-message" id="email"></span>
-            <input
-              required
-              type="undefined"
-              class="popup__input popup__input_type_password"
-              placeholder="Введите пароль"
-              name="password"
-            />
-            <span class="popup__error-message" id="password"></span>
-            <button
-              type="submit"
-              class="button popup__button popup__button_disabled"
-              disabled="disabled"
-            >
-              Войти
-            </button>
-            <div class="registration">
-              или
-              <a class="link" href=" " target="_blank">Зарегистрироваться</a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div> -->
+
     <!-- <div class="entry-keyboard">
       <header class="header header_mobile">
         <div class="header__top">
