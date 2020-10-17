@@ -514,6 +514,7 @@ body {
     height: 64px;
     margin-left: 416px;
     position: absolute;
+    color: #000;
   }
 }
 
@@ -1785,4 +1786,58 @@ password
   margin-top: 14px;
   margin-right: 40px;
   border: 1px solid #fff;
+}
+
+.preloader {
+  width: 100%;
+  height: 282px;
+  display: none;
+}
+
+@media screen and (min-width: 1282px) {
+  .preloader {
+    display: block;
+
+    margin: 0;
+    padding-top: 80px;
+	/* min-height: 100vh; */
+	background-color: #f5f6f7;
+
+	overflow: hidden;
+  }
+}
+
+.circle-preloader {
+	display: block;
+	width: 74px;
+	height: 74px;
+	border: 4px solid #444;
+	border-bottom-color: #888;
+
+	border-radius: 50%;
+
+	/* position: absolute; */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+
+	animation: spin .75s infinite linear;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.preloader__message {
+  width: 280px;
+  height: 24px;
+  font-size: 18px;
+  font-family: 'Roboto';
+  color: #b6bcbf;
+  margin: 24px auto;
+  text-align: center;
 }
