@@ -14,6 +14,7 @@ const iconMenu = document.querySelector('.icon_menu');
 const overlay = document.querySelector('.overlay');
 const iconClose = document.querySelector('.popup__icon');
 const buttonAuth = document.querySelector('.button_type_registration');
+const iconFlags = document.querySelectorAll('.article-card__icon');
 
 iconMenu.addEventListener('click', () => {
   // overlay.classList.add('overlay_show');
@@ -27,8 +28,20 @@ iconMenu.addEventListener('click', () => {
 // });
 
 buttonAuth.addEventListener('click', () => {
-  console.log(buttonAuth);
-  console.log(popupAuth);
   popupAuth.classList.add('popup_authorization_open');
   popupMenu.classList.remove('popup_menu_open');
 });
+
+iconFlags.forEach((element) => {
+  element.addEventListener('click', () => {
+    element.classList.add('article-card__icon_active');
+  });
+});
+
+// const iconFlag = document.querySelector('.article-card__icon_special');
+// const popupIcon = document.querySelector('.popup_icon');
+
+// iconFlag.addEventListener('click', () => {
+//   popupIcon.classList.add('popup_icon_show');
+//   iconFlag.classList.add('article-card__icon_attention');
+// });

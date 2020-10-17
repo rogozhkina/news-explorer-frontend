@@ -393,6 +393,14 @@ body {
 
 @media screen and (min-width: 622px) {
   .about__photo-section {
+    width: 232px;
+    height: 232px;
+  }
+}
+
+
+@media screen and (min-width: 1282px) {
+  .about__photo-section {
     width: 464px;
     height: 464px;
   }
@@ -785,6 +793,7 @@ body {
   /* display: flex; */
 }
 
+
 @media screen and (min-width: 622px) {
   .article-card__icon {
     margin-top: 8px;
@@ -795,9 +804,30 @@ body {
 
 @media screen and (min-width: 1282px) {
   .article-card__icon {
-    margin-top: 8px;
-    margin-left: 176px;
+    /* margin: 35px 37px auto 349px; */
+    margin-top: 24px;
+    margin-left: 336px;
   }
+}
+
+
+.article-card__icon_active {
+  width: 40px;
+  height: 40px;
+  background: url(../images/icons/Rectangle8_blue.svg);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.article-card__icon_attention {
+  width: 40px;
+  height: 40px;
+  background: url(../images/icons/Rectangle8_black.svg);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .article-card__date {
@@ -975,6 +1005,8 @@ body {
 }
 
 .about__title {
+  width: 288px;
+  height: 40px;
   font-size: 30px;
   font-family: 'Robotoslab';
   font-weight: 400;
@@ -984,6 +1016,7 @@ body {
 @media screen and (min-width: 622px) {
   .about__title {
     width: 424px;
+    height: 34px;
     padding-top: 40px;
     padding-left: 0px;
   }
@@ -992,17 +1025,21 @@ body {
 
 @media screen and (min-width: 1282px) {
   .about__title {
-    width: 424px;
-    padding-top: 131px;
-    padding-left: 0px;
+    font-size: 40px;
+    width: 496px;
+    height: 46px;
+    margin: 131px auto 24px 0;
+    padding: 0;
+    /* padding-top: 131px;
+    padding-left: 0px; */
   }
 }
-
+/*
 .about__photo-section {
   width: 272px;
   height: 272px;
   margin: 0 auto;
-}
+} */
 
 .about__photo {
   width: 272px;
@@ -1055,7 +1092,7 @@ body {
 @media screen and (min-width: 1282px) {
   .about__text {
     width: 600px;
-    padding-top: 24px;
+    /* padding-top: 24px; */
     padding-left: 0px;
   }
 
@@ -1643,4 +1680,25 @@ password
 .registration__link {
   text-decoration: none;
   color: #2f71e5
+}
+
+
+.popup_icon {
+  width: 182px;
+  height: 28px;
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 10px;
+  position: absolute;
+  display: none;
+  margin: 24px auto auto 149px;
+  text-align: center;
+  padding-top: 12px;
+}
+
+
+@media screen and (min-width: 1282px) {
+.popup_icon_show {
+  display: block;
+}
 }
