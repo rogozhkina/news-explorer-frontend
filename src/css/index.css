@@ -1605,8 +1605,19 @@ password
 }
 
 
+/*
+.popup__close {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  cursor: pointer;
+  top: -26px;
+  right: -26px;
+} */
+
 @media screen and (min-width: 622px) {
   .popup__close {
+    display: flex;
     width: 20px;
     height: 20px;
     position: absolute;
@@ -1719,18 +1730,10 @@ password
     margin-top: -66px;
     z-index: 2;
     padding-top: 207px;
+    margin-left: 0;
   }
 }
 
-/*
-.popup__close {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  cursor: pointer;
-  top: -26px;
-  right: -26px;
-} */
 
 .popup__label {
   width: 66px;
