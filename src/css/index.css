@@ -1359,14 +1359,14 @@ body {
 
 @media screen and (min-width: 622px) {
   .popup {
-   margin-top: -1026px;
+   /* margin-top: -1026px; */
   }
 }
 
 
 @media screen and (min-width: 1282px) {
   .popup {
-   margin-top: -1198px;
+   /* margin-top: -1198px; */
   }
 }
 

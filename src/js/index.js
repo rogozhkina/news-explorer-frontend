@@ -13,8 +13,9 @@ const popupAuth = document.querySelector('.popup_authorization');
 const iconMenu = document.querySelector('.icon_menu');
 const overlay = document.querySelector('.overlay');
 const iconClose = document.querySelector('.popup__icon');
-const buttonAuth = document.querySelector('.button_type_registration');
+const buttonAuthPopup = document.querySelector('.button_type_authorization_popup');
 const iconFlags = document.querySelectorAll('.article-card__icon');
+const buttonAuthMenu = document.querySelector('.button_type_authorization_menu');
 
 iconMenu.addEventListener('click', () => {
   // overlay.classList.add('overlay_show');
@@ -27,9 +28,13 @@ iconMenu.addEventListener('click', () => {
 //   popupMenu.classList.remove('popup_menu_open');
 // });
 
-buttonAuth.addEventListener('click', () => {
+buttonAuthPopup.addEventListener('click', () => {
   popupAuth.classList.add('popup_authorization_open');
   popupMenu.classList.remove('popup_menu_open');
+});
+
+buttonAuthMenu.addEventListener('click', () => {
+  popupAuth.classList.add('popup_authorization_open');
 });
 
 iconFlags.forEach((element) => {
