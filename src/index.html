@@ -7,12 +7,11 @@
     <meta name="description" content="Ресурс для поиска и сохранения новостей"/>
     <meta name="author" content="Наталья Рогожкина"/>
     <title>page</title>
-    <!-- <link rel="stylesheet" href="./preloader.css"> -->
     <link type="image/x-icon" rel="icon" href="./images/favicon/favicon.ico">
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[0]%>" />
   </head>
   <body class="page">
-    <!-- <i class="circle-preloader"></i> -->
+
     <header class="header">
       <div class="header__logo">NewsExplorer</div>
       <div class="header__menu header__menu_mobile">
@@ -86,7 +85,6 @@
           </form>
         </div>
       </div>
-      <!-- <div class="overlay"></div> -->
       <section class="news">
         <h1 class="title news__title">
           Что творится в мире?
@@ -398,6 +396,10 @@
         </div>
       </header>
     </div> -->
+    <section class="preloader">
+      <i class="circle-preloader"></i>
+      <p class="preloader__message">Идет поиск новостей</p>
+    </section>
     <script type="module" src="<%= htmlWebpackPlugin.files.js[0] %>"></script>
   </body>
 </html>
