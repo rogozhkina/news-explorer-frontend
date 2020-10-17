@@ -38,10 +38,10 @@ iconFlags.forEach((element) => {
   });
 });
 
-// const iconFlag = document.querySelector('.article-card__icon_special');
-// const popupIcon = document.querySelector('.popup_icon');
+const iconFlag = document.querySelector('.article-card__icon_special');
+const popupIcon = document.querySelector('.popup_icon');
 
-// iconFlag.addEventListener('click', () => {
-//   popupIcon.classList.add('popup_icon_show');
-//   iconFlag.classList.add('article-card__icon_attention');
-// });
+iconFlag.addEventListener('click', () => {
+  popupIcon.classList.add('popup_icon_show');
+  iconFlag.classList.add('article-card__icon_attention');
+});
