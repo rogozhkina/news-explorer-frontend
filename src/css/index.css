@@ -320,7 +320,8 @@ body {
   font-size: 18px;
   font-weight: 500;
   color: #ffffff;
-  background: rgba(47, 113, 229, 1);
+  cursor: pointer;
+  background: #2f71e5;
 }
 
 @media screen and (min-width: 622px) {
@@ -338,6 +339,15 @@ body {
     margin-left: 857px;
     position: relative;
   }
+}
+
+.button_type_search:hover {
+  border: 4px solid #347efe;
+}
+
+
+.button_type_search:active {
+  background-color: #2a65cc;
 }
 
 .button_type_show {
