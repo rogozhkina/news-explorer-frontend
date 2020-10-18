@@ -1192,29 +1192,6 @@ body {
   }
 }
 
-
-@media screen and (min-width: 622px) {
-  .entry-keyboard {
-    width: 100%;
-    height: 1100px;
-  }
-}
-
-
-@media screen and (min-width: 1100px) {
-  .entry-keyboard {
-    width: 1440px;
-    height: 1188px;
-  }
-}
-
-/*
-@media screen and (min-width: 622px) {
-  .registration {
-    margin-left: 123px;
-  }
-} */
-
 .icon_close {
   width: 10px;
   height: 20px;
@@ -1229,17 +1206,6 @@ body {
   display: flex;
   z-index: 3;
 }
-
-
-/*
-.popup__close {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  cursor: pointer;
-  top: -26px;
-  right: -26px;
-} */
 
 @media screen and (min-width: 622px) {
   .popup__close {
@@ -1267,29 +1233,20 @@ body {
   }
 }
 
-
 .button_green {
   background-color: aqua;
-}
-
-.probel {
-  width: 320px;
-  height: 400px;
 }
 
 .popup_menu {
   width: 320px;
   height: 286px;
   background-color: #000;
-  margin: -56px auto 0 auto;
   position: absolute;
-  /* display: block; */
   display: none;
 }
 
 .popup_menu_open {
   display: block;
-  margin-top: -56px;
   margin-left: calc((100vw-320px)/2);
 }
 
@@ -1302,9 +1259,7 @@ body {
   text-decoration: none;
 }
 
-
 .button_type_authorization {
-  /* display: none; */
   background-color: #000;
   color: #fff;
   border-color: #fff;
@@ -1312,43 +1267,22 @@ body {
   border-style: outset;
 }
 
-/*
 .popup_authorization {
   position: fixed;
-  /* top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: none;
-  z-index: 1;
-  /* margin-top: -478px;
-} */
-
-
-.popup_authorization {
-  position: fixed;
-  /* top: 0px;
-  left: 0px; */
+  margin-top: 56px;
   width: 320px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  /* display: flex; */
   align-items: center;
   justify-content: center;
   display: none;
   z-index: 1;
   margin-left: calc((100% - 320px)/2);
-  /* margin-top: -478px; */
 }
 
 .popup_authorization_open {
   display: block;
 }
-
 
 @media screen and (min-width: 622px) {
   .popup_authorization {
@@ -1360,11 +1294,9 @@ body {
   }
 }
 
-
 .popup__label {
   width: 66px;
   height: 14px;
-  /* padding-left: 16px; */
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -1373,8 +1305,9 @@ body {
 }
 
 .button_type_entry {
+  font-size: 24px;
   margin-left: 0;
-  padding-top: 16px;
+  padding-top: 6px;
   margin: 22px auto 16px;
 }
 
@@ -1382,7 +1315,6 @@ body {
   text-decoration: none;
   color: #2f71e5
 }
-
 
 .popup_icon {
   width: 182px;
@@ -1396,7 +1328,6 @@ body {
   text-align: center;
   padding-top: 12px;
 }
-
 
 @media screen and (min-width: 1100px) {
   .popup_icon_show {
