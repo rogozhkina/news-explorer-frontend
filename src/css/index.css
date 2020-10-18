@@ -56,7 +56,6 @@ body {
 
 @media screen and (min-width: 622px) {
   .header {
-    /* width: 768px; */
     width: 99vw;
     /* width: 95%; */
     height: 66px;
@@ -73,6 +72,7 @@ body {
     /* width: 768px; */
     /* width: 99vw; */
     /* width: 95%; */
+    width: 100%;
     height: 80px;
     /* margin: 0px; */
     /* display: block; */
@@ -265,7 +265,7 @@ body {
 
 @media screen and (min-width: 1100px) {
   .news {
-    width: 99vw;
+    width: 100%;
     height: 576px;
     margin-top: -80px;
     background-image: url(../images/desktop/fon/georgia-de-lotz_desktop.jpg);
@@ -406,28 +406,6 @@ body {
   color: #fff;
 }
 
-.about__photo-section {
-  width: 272px;
-  height: 272px;
-  background-color: #2f71e5;
-  display: flex;
-}
-
-
-@media screen and (min-width: 622px) {
-  .about__photo-section {
-    width: 232px;
-    height: 232px;
-  }
-}
-
-
-@media screen and (min-width: 1100px) {
-  .about__photo-section {
-    width: 464px;
-    height: 464px;
-  }
-}
 
 @media screen and (min-width: 622px) {
   .news__text {
@@ -994,7 +972,7 @@ body {
 
 @media screen and (min-width: 1100px) {
   .about {
-    width: 99vw;
+    width: 100%;
     min-height: 624px;
     display: grid;
     grid-template-columns: 624px 1fr;
@@ -1101,12 +1079,30 @@ body {
   }
 }
 
-/*
+
 .about__photo-section {
   width: 272px;
   height: 272px;
-  margin: 0 auto;
-} */
+  /* background-color: #2f71e5; */
+  display: flex;
+  margin: auto;
+}
+
+
+@media screen and (min-width: 622px) {
+  .about__photo-section {
+    width: 232px;
+    height: 232px;
+  }
+}
+
+
+@media screen and (min-width: 1100px) {
+  .about__photo-section {
+    width: 464px;
+    height: 464px;
+  }
+}
 
 .about__photo {
   width: 272px;
@@ -1120,7 +1116,7 @@ body {
   .about__photo {
     width: 232px;
     height: 232px;
-    margin: 61px 32px 61px 40px;
+    /* margin: 61px 32px 61px 40px; */
     /* background: url(../images/tablet/avatar/image-03_tablet.jpg); */
   }
 
@@ -1131,7 +1127,7 @@ body {
   .about__photo {
     width: 464px;
     height: 464px;
-    margin: 61px 32px 61px 40px;
+    /* margin: 61px 32px 61px 40px; */
     /* background: url(../images/desktop/avatar/image-03_desktop.png); */
   }
 
