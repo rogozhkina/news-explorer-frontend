@@ -335,7 +335,7 @@ body {
 
 .button_type_show {
   margin-bottom: 32px;
-  margin-left: calc((100%-288px)/2);
+  margin-left: calc((100%-288px) / 2);
   font-size: 18px;
   font-family: 'Roboto', Arial, sans-serif;
   font-weight: 500;
@@ -345,7 +345,7 @@ body {
 @media screen and (min-width: 622px) {
   .button_type_show {
     width: 240px;
-    margin-left: calc((100% - 240px)/2);
+    margin-left: calc((100% - 240px) / 2);
     margin-bottom: 40px;
   }
 }
@@ -353,7 +353,7 @@ body {
 @media screen and (min-width: 1100px) {
   .button_type_show {
     width: 288px;
-    margin-left: calc((100% - 240px)/2);
+    margin-left: calc((100% - 240px) / 2);
     margin-bottom: 80px;
   }
 }
@@ -708,7 +708,6 @@ body {
     height: 64px;
     background-color: #ffffff;
     display: flex;
-    direction: revert;
   }
 }
 
@@ -718,7 +717,6 @@ body {
     height: 64px;
     background-color: #ffffff;
     display: flex;
-    direction: revert;
   }
 }
 
