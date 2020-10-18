@@ -1875,6 +1875,10 @@ password
   border: 1px solid #fff;
 }
 
+.preloader {
+  display: none;
+}
+
 @media screen and (min-width: 1100px) {
   .preloader {
     width: 100%;
