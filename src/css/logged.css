@@ -1390,7 +1390,7 @@ body {
 }
 
 .icon_menu {
-  border-bottom: 7px double #ffffff;
+  border-bottom: 7px double #000;
   /* border-top: 6px solid #ffffff; */
   content:"";
   height: 1px;
@@ -1952,6 +1952,7 @@ password
   width: 320px;
   height: 246px;
   background-color: #ffffff;
+  margin: 0 auto;
 }
 
 
@@ -1977,11 +1978,13 @@ password
 
 .saved-info__title {
   width: 288px;
-  height: 24px;
+  /* height: 24px; */
   font-family: 'Roboto', Arial, sans-serif;
   font-weight: 400;
   font-size: 12px;
   color: #B6BCBF;
+  margin-top: 8px;
+  margin-bottom: 16px;
 }
 
 
@@ -2017,7 +2020,7 @@ password
 
 @media screen and (min-width: 622px) {
   .saved-info__category {
-    width: 712px;
+    width: 97%;
     height: 48px;
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: 400;
@@ -2083,9 +2086,9 @@ password
 .saved-info__message {
   margin: 0px;
   width: 288px;
-  padding-top: 32px;
+  /* padding-top: 32px; */
   padding-left: 16px;
-  padding-bottom: 24px;
+  /* padding-bottom: 24px; */
   font-size: 30px;
   font-family: 'Robotoslab', Arial, sans-serif;
 }
@@ -2138,4 +2141,9 @@ password
     background: none;
     border: 1px solid #000000;
   }
+}
+
+
+.saved-info__category_span {
+  font-weight: 700;
 }
