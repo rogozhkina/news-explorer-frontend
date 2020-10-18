@@ -4,44 +4,118 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>page</title>
-    <!-- <link rel="stylesheet" href="./preloader.css"> -->
-    <link rel="stylesheet" href="./css/index.5fdf0f46d20b16fc5671.css" />
+    <meta
+      name="description"
+      content="Ресурс для поиска и сохранения новостей"
+    />
+    <meta name="author" content="Наталья Рогожкина" />
+    <title>news-explorer</title>
+    <link type="image/x-icon" rel="icon" href="./images/favicon/favicon.ico" />
+    <link rel="stylesheet" href="./css/index.2bc40b2e10b8e7ee589c.css" />
   </head>
   <body class="page">
-    <i class="circle-preloader"></i>
-    <header class="header header_mobile">
-      <div class="header__top">
-        <div class="header__logo">NewsExplorer</div>
-        <div class="header__menu">
-          <a class="icon icon_menu link" href="" target="_blank"></a>
-        </div>
+    <header class="header">
+      <div class="header__logo">NewsExplorer</div>
+      <div class="header__menu header__menu_mobile">
+        <div class="icon icon_menu"></div>
+      </div>
+      <div class="header__menu header__menu_big">
         <div class="header__nav">
           <a class="header__link link" href="" target="_blank">Главная</a>
-          <button class="button button__registration" type="submit">
+          <button
+            class="button button_type_authorization button_type_authorization_menu"
+            type="submit"
+          >
             Авторизоваться
           </button>
         </div>
       </div>
-      <div class="header__section">
-        <h1 class="header__title">Что творится в мире?</h1>
-        <p class="text header__text">
+    </header>
+    <main class="main">
+      <div class="popup popup_menu">
+        <div class="popup__icon">
+          <img src="./images/Path5_left.svg" alt="Закрыть
+          попап" class="icon_close"> <img
+          src="./images/Path5_right.svg" alt="Закрыть
+          попап" class="icon_close">
+        </div>
+        <div class="popup__navigation">
+          <a class="popup__link link" href="" target="_blank">Главная</a>
+          <a class="popup__link link" href="" target="_blank"
+            >Сохраненные статьи</a
+          >
+        </div>
+        <button
+          class="button button_type_authorization button_type_authorization_popup"
+          type="submit"
+        >
+          Авторизоваться
+        </button>
+      </div>
+      <div class="popup popup_authorization">
+        <div class="popup__content">
+          <div class="popup__close">
+            <img src="./images/Path5_left.svg"
+            alt="Закрыть попап" class="icon_close"> <img
+            src="./images/Path5_right.svg" alt="Закрыть
+            попап" class="icon_close">
+          </div>
+          <h2 class="popup__title">Вход</h2>
+          <form class="popup__form">
+            <span class="popup__label">Email</span>
+            <input
+              required
+              type="email"
+              class="popup__input popup__input_type_email"
+              placeholder="Введите почту"
+              name="email"
+            />
+            <span class="popup__error-message" id="email"></span>
+            <span class="popup__label">Пароль</span>
+            <input
+              required
+              type="password"
+              class="popup__input popup__input_type_password"
+              placeholder="Введите пароль"
+              name="password"
+            />
+            <span class="popup__error-message" id="password"></span>
+            <button
+              type="submit"
+              class="button popup__button popup__button_disabled button_type_entry"
+              disabled="disabled"
+            >
+              Войти
+            </button>
+            <div class="registration">
+              или
+              <a class="link registration__link" href=" " target="_blank"
+                >Зарегистрироваться</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+      <section class="news">
+        <h1 class="title news__title">Что творится в мире?</h1>
+        <p class="text news__text">
           Находите самые свежие статьи на любую тему и сохраняйте в своём личном
           кабинете.
         </p>
-        <button class="button button__field" type="submit">Политика</button>
-        <button class="button button__search" type="submit">Искать</button>
-      </div>
-    </header>
-
-    <main class="main">
-      <div class="section">
-        <h2 class="title section-title">Результаты поиска</h2>
-        <div class="article-list">
+        <button class="button button_type_field" type="submit">Политика</button>
+        <button class="button button_type_search" type="submit">Искать</button>
+      </section>
+      <section class="preloader">
+        <i class="circle-preloader"></i>
+        <p class="preloader__message">Идет поиск новостей</p>
+      </section>
+      <section class="articles">
+        <h2 class="articles__title">Результаты поиска</h2>
+        <div class="articles__list">
           <div class="article-card">
             <div class="article-card__image-section">
               <img src="./images/image_08.png"
-              alt="article" class="article-card__image" />
+              alt="Бересклет" class="article-card__image" />
               <button class="article-card__icon"></button>
             </div>
             <p class="article-card__date">2 августа, 2019</p>
@@ -64,7 +138,7 @@
           <div class="article-card">
             <div class="article-card__image-section">
               <img src="./images/image_06.png"
-              alt="article" class="article-card__image" />
+              alt="Фикус" class="article-card__image" />
               <button class="article-card__icon"></button>
             </div>
             <p class="article-card__date">2 августа, 2019</p>
@@ -87,8 +161,11 @@
           <div class="article-card">
             <div class="article-card__image-section">
               <img src="./images/image_07.png"
-              alt="article" class="article-card__image" />
-              <button class="article-card__icon"></button>
+              alt="Зеленый куст" class="article-card__image" />
+              <div class="popup_icon">Войдите, чтобы сохранить статьи</div>
+              <button
+                class="article-card__icon article-card__icon_special"
+              ></button>
             </div>
             <p class="article-card__date">2 августа, 2019</p>
             <h2 class="article-card__title">Национальное достояние – парки</h2>
@@ -108,10 +185,20 @@
             <p class="article-card__source">риа</p>
           </div>
         </div>
-        <button class="button button__show" type="submit">Показать еще</button>
-      </div>
-      <div class="section about__section">
-        <div class="about__photo"></div>
+        <button class="button button_type_show" type="submit">
+          Показать еще
+        </button>
+      </section>
+      <section class="about">
+        <picture class="about__photo-section">
+          <source media="(min-width: 1282px)"
+          srcset="./images/image-03_desktop.png"
+          /> <source media="(min-width: 622px)"
+          srcset="./images/image-03_mobile.jpg" />
+          <img class="about__photo"
+          src="./images/image-03_mobile.jpg"
+          alt="Фотография автора сайта" />
+        </picture>
         <div class="about__content">
           <h2 class="title about__title">Об авторе</h2>
           <p class="text about__text">
@@ -123,38 +210,15 @@
             научились, и чем можете помочь потенциальным заказчикам.
           </p>
         </div>
-      </div>
+      </section>
     </main>
-    <!-- <footer class="footer footer_mobile">
-      <div class="footer__down">
-        <div class="footer__columns">
-          <ul class="footer__column-navigation">
-            <li>
-              <a class="footer__link link" href="">Главная</a>
-            </li>
-            <li>
-              <a class="footer__link link" href="https://praktikum.yandex.ru/web/" target="_blank">Яндекс.Практикум</a>
-            </li>
-          </ul>
-          <ul class="footer__column-social-icons">
-            <li>
-              <a class="icon icon_gh footer__social-icon link" href="https://github.com" target="_blank"></a>
-            </li>
-            <li>
-              <a class="icon icon_fb footer__social-icon link" href="https://facebook.com" target="_blank"></a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__сopyright">&copy2020 Supersite, Powered by News API</div>
-      </div>
-    </footer> -->
     <footer class="footer footer_mobile">
       <div class="footer__columns">
         <ul class="footer__column-navigation">
-          <li>
+          <li class="footer__list">
             <a class="footer__link link" href="">Главная</a>
           </li>
-          <li>
+          <li  class="footer__list">
             <a
               class="footer__link link"
               href="https://praktikum.yandex.ru/web/"
@@ -164,14 +228,14 @@
           </li>
         </ul>
         <ul class="footer__column-social-icons">
-          <li>
+          <li class="footer__list">
             <a
               class="icon icon_gh footer__social-icon link"
               href="https://github.com"
               target="_blank"
             ></a>
           </li>
-          <li>
+          <li class="footer__list">
             <a
               class="icon icon_fb footer__social-icon link"
               href="https://facebook.com"
@@ -181,13 +245,13 @@
         </ul>
       </div>
       <div class="footer__copyright">
-        &copy2020 Supersite, Powered by News API
+        &copy;2020 Supersite, Powered by News API
       </div>
       <div class="footer__down"></div>
     </footer>
     <footer class="footer footer_big">
       <div class="footer__copyright">
-        &copy2020 Supersite, Powered by News API
+        &copy;2020 Supersite, Powered by News API
       </div>
       <div class="footer__columns">
         <ul class="footer__column-navigation">
@@ -220,189 +284,7 @@
           </li>
         </ul>
       </div>
-
-      <!-- <div class="footer__down"></div> -->
     </footer>
-    <div class="entry">
-      <header class="header header_mobile">
-        <div class="header__top">
-          <div class="header__logo">NewsExplorer</div>
-          <div class="header__menu">
-            <a class="icon icon_menu link" href="" target="_blank"></a>
-          </div>
-          <div class="header__nav">
-            <a class="header__link link" href="" target="_blank">Главная</a>
-            <button class="button button__registration" type="submit">
-              Авторизоваться
-            </button>
-          </div>
-        </div>
-        <div class="header__section">
-          <h1 class="header__title">Что творится в мире?</h1>
-          <p class="text header__text">
-            Находите самые свежие статьи на любую тему и сохраняйте в своём
-            личном кабинете.
-          </p>
-          <button class="button button__field" type="submit">Политика</button>
-          <button class="button button__search" type="submit">Искать</button>
-        </div>
-      </header>
-      <div class="popup">
-        <div class="popup__content">
-          <img src="./images/Path5.svg" alt=" "
-          class="popup__close">
-          <h2 class="popup__title">Вход</h2>
-          <form class="popup__form">
-            <input
-              required
-              type="undefined"
-              class="popup__input popup__input_type_email"
-              placeholder="Введите почту"
-              name="email"
-            />
-            <span class="popup__error-message" id="email"></span>
-            <input
-              required
-              type="undefined"
-              class="popup__input popup__input_type_password"
-              placeholder="Введите пароль"
-              name="password"
-            />
-            <span class="popup__error-message" id="password"></span>
-            <button
-              type="submit"
-              class="button popup__button popup__button_disabled"
-              disabled="disabled"
-            >
-              Войти
-            </button>
-            <div class="registration">
-              или
-              <a class="link" href=" " target="_blank">Зарегистрироваться</a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="entry-keyboard">
-      <header class="header header_mobile">
-        <div class="header__top">
-          <div class="header__logo">NewsExplorer</div>
-          <div class="header__menu">
-            <a class="icon icon_menu link" href="" target="_blank"></a>
-          </div>
-          <div class="header__nav">
-            <a class="header__link link" href="" target="_blank">Главная</a>
-            <button class="button button__registration" type="submit">
-              Авторизоваться
-            </button>
-          </div>
-        </div>
-        <div class="header__section">
-          <h1 class="header__title">Что творится в мире?</h1>
-          <p class="text header__text">
-            Находите самые свежие статьи на любую тему и сохраняйте в своём
-            личном кабинете.
-          </p>
-          <button class="button button__field" type="submit">Политика</button>
-          <button class="button button__search" type="submit">Искать</button>
-        </div>
-      </header>
-      <div class="section about__section about__section_hidden">
-        <div class="about__photo"></div>
-        <div class="about__content">
-          <h2 class="title about__title">Об авторе</h2>
-          <p class="text about__text">
-            Это блок с описанием автора проекта. Здесь следует указать, как вас
-            зовут, чем вы занимаетесь, какими технологиями разработки владеете.
-          </p>
-          <p class="text about__text">
-            Также можно рассказать о процессе обучения в Практикуме, чему вы тут
-            научились, и чем можете помочь потенциальным заказчикам.
-          </p>
-        </div>
-      </div>
-      <img src="./images/LightUppercase.png" alt=" "
-      class="popup__keyboard_tablet">
-      <div class="popup">
-        <div class="popup__content">
-          <img src=" " alt=" " class="popup__close" />
-          <h2 class="popup__title">Вход</h2>
-          <form class="popup__form">
-            <input
-              required
-              type="undefined"
-              class="popup__input popup__input_type_email"
-              placeholder="Введите почту"
-              name="email"
-            />
-            <span class="popup__error-message" id="email"></span>
-            <input
-              required
-              type="undefined"
-              class="popup__input popup__input_type_password"
-              placeholder="Введите пароль"
-              name="password"
-            />
-            <span class="popup__error-message" id="password"></span>
-            <button
-              type="submit"
-              class="button popup__button popup__button_disabled"
-              disabled="disabled"
-            >
-              Войти
-            </button>
-            <div class="registration">
-              или
-              <a class="link" href=" " target="_blank">Зарегистрироваться</a>
-            </div>
-          </form>
-          <img src="./images/Return1.png" alt=" "
-          class="popup__keyboard_mobile">
-        </div>
-      </div>
-    </div>
-    <div class="pridumay">
-      <header class="header header_mobile header_authorization">
-        <div class="overlay">
-          <div class="header__top">
-            <div class="header__logo"></div>
-            <div class="header__menu">
-              <!-- <a class="icon icon_menu link" href="" target="_blank"></a> -->
-            </div>
-            <div class="header__nav">
-              <a class="header__link link" href="" target="_blank">Главная</a>
-              <button class="button button__registration" type="submit">
-                Авторизоваться
-              </button>
-            </div>
-          </div>
-          <div class="header__section">
-            <h1 class="header__title"></h1>
-            <p class="text header__text"></p>
-            <button class="button button__field" type="submit">Политика</button>
-            <button class="button button__search" type="submit">Искать</button>
-          </div>
-        </div>
-        <div class="popup popup__menu">
-          <div class="header__popup">
-            <div class="popup__logo">NewsExplorer</div>
-            <div class="popup__menu">
-              <img class="icon icon_close" href="" />
-            </div>
-            <div class="popup__navigation">
-              <a class="popup__link link" href="" target="_blank">Главная</a>
-              <a class="popup__link link" href="" target="_blank"
-                >Сохраненные статьи</a
-              >
-              <button class="button button__registration" type="submit">
-                Авторизоваться
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-    </div>
-    <script type="module" src="./js/index.f6120557d4f7c29dea0a.js"></script>
+    <script type="module" src="./js/index.c05c30ad378b07eb8163.js"></script>
   </body>
 </html>
