@@ -1,9 +1,6 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
-/*
-* {
-  border: .1px solid #b6bcbf;
-} */
+
 
 body {
   background-color: #f5f6f7;
@@ -44,34 +41,15 @@ body {
 @media screen and (min-width: 622px) {
   .header {
     width: 99vw;
-    /* width: 95%; */
     height: 66px;
-    /* margin: 0 auto; */
-    /* display: block; */
-    /* background-image: url(../images/tablet/fon/georgia-de-lotz_tablet.png); */
-    /* background-size: cover;
-    background-repeat: no-repeat; */
   }
 }
 
 @media screen and (min-width: 1100px) {
   .header {
-    /* width: 768px; */
-    /* width: 99vw; */
-    /* width: 95%; */
     width: 100%;
     height: 80px;
-    /* margin: 0px; */
-    /* display: block; */
-    /* background-image: url(../images/desktop/fon/georgia-de-lotz_desktop.jpg); */
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
   }
-}
-
-.header_authorization {
-  /* opacity: 0.5;
-  background-color: rgba(0, 0, 0, 1); */
 }
 
 .header__logo {
@@ -96,9 +74,6 @@ body {
 
 @media screen and (min-width: 1100px) {
   .header__logo {
-    /* font-size: 20px; */
-    /* width: 200px; */
-    /* height: 24.8px; */
     padding-top: 30px;
     padding-left: 104px;
   }
@@ -111,14 +86,11 @@ body {
   padding-right: 24px;
 }
 
-
-
 @media screen and (min-width: 622px) {
   .header__menu_mobile {
     display: none;
   }
 }
-
 
 @media screen and (min-width: 1100px) {
   .header__menu_mobile {
@@ -138,22 +110,8 @@ body {
   }
 }
 
-
 .header__nav {
   display: flex;
-}
-
-@media screen and (min-width: 622px) {
-  .entry {
-    display: none;
-  }
-}
-
-
-@media screen and (min-width: 622px) {
-  .pridumay {
-    display: none;
-  }
 }
 
 @media screen and (min-width: 622px) {
@@ -161,9 +119,6 @@ body {
     display: flex;
     font-size: 16px;
     width: 220px;
-    /* text-decoration: none; */
-    /* color: #ffffff; */
-    /* border-bottom: #ffffff; */
     padding-right: 20px;
   }
 }
@@ -174,10 +129,6 @@ body {
     display: flex;
     font-size: 16px;
     width: 220px;
-    /* text-decoration: none; */
-    /* color: #ffffff; */
-    /* border-bottom: #ffffff; */
-    /* padding-right: 116px; */
   }
 }
 
@@ -193,7 +144,6 @@ body {
   }
 }
 
-
 @media screen and (min-width: 1100px) {
   .header__link {
     display: flex;
@@ -201,15 +151,9 @@ body {
     font-size: 18px;
     width: 69px;
     font-weight: 500;
-    /* text-decoration: none; */
-    /* color: #ffffff; */
     border-bottom: 3px solid #ffffff;
   }
 }
-/*
-.section {
-  margin: 0 auto;
-} */
 
 .text {
   font-family: 'Roboto', Arial, sans-serif;
@@ -220,14 +164,11 @@ body {
 .news {
   width: 320px;
   height: 536px;
-  /* margin-top: -56px; */
   margin: -56px auto 0;
   background-image: url(../images/mobile/fon/georgia-de-lotz_mobile.jpg);
   background-repeat: no-repeat;
   padding-top: 1px;
 }
-
-
 
 @media screen and (min-width: 622px) {
   .news {
@@ -240,17 +181,6 @@ body {
   }
 }
 
-/*
-@media screen and (min-width: 769px) {
-  .news {
-    width: 99vw;
-    height: 400px;
-    margin-top: -66px;
-    background-image: url(../images/tablet/fon/georgia-de-lotz_tablet.png);
-    background-repeat: no-repeat;
-  }
-} */
-
 @media screen and (min-width: 1100px) {
   .news {
     width: 100%;
@@ -261,9 +191,7 @@ body {
   }
 }
 
-
 .title {
-  /* margin: 0; */
   padding-left: 16px;
   font-size: 30px;
   font-weight: normal;
@@ -358,17 +286,6 @@ body {
     margin: 160px auto 32px 416px;
   }
 }
-
-/*
-@media screen and (min-width: 622px) {
-  .section__title {
-    width: 336px;
-    height: 34px;
-    padding-left: 40px;
-    margin-left: 40px;
-  }
-} */
-
 
 @media screen and (min-width: 1100px) {
   .section__title {
