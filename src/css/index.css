@@ -1409,3 +1409,7 @@ body {
   margin: 24px auto;
   text-align: center;
 }
+
+.popup__error-message {
+  color: red;
+}
