@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content="Ресурс для поиска и сохранения новостей"/>
-    <meta name="author" content="Наталья Рогожкина"/>
-    <title>page</title>
-    <link type="image/x-icon" rel="icon" href="./images/favicon/favicon.ico">
+    <meta
+      name="description"
+      content="Ресурс для поиска и сохранения новостей"
+    />
+    <meta name="author" content="Наталья Рогожкина" />
+    <title>news-explorer</title>
+    <link type="image/x-icon" rel="icon" href="./images/favicon/favicon.ico" />
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[0]%>" />
   </head>
   <body class="page">
-
     <header class="header">
       <div class="header__logo">NewsExplorer</div>
       <div class="header__menu header__menu_mobile">
@@ -20,7 +22,10 @@
       <div class="header__menu header__menu_big">
         <div class="header__nav">
           <a class="header__link link" href="" target="_blank">Главная</a>
-          <button class="button button_type_authorization button_type_authorization_menu" type="submit">
+          <button
+            class="button button_type_authorization button_type_authorization_menu"
+            type="submit"
+          >
             Авторизоваться
           </button>
         </div>
@@ -29,27 +34,31 @@
     <main class="main">
       <div class="popup popup_menu">
         <div class="popup__icon">
-          <img src="<%=require("./images/icons/Path5_left.svg")%>" alt="Закрыть попап"
-          class="icon_close">
-          <img src="<%=require("./images/icons/Path5_right.svg")%>" alt="Закрыть попап"
-          class="icon_close">
+          <img src="<%=require("./images/icons/Path5_left.svg")%>" alt="Закрыть
+          попап" class="icon_close"> <img
+          src="<%=require("./images/icons/Path5_right.svg")%>" alt="Закрыть
+          попап" class="icon_close">
         </div>
         <div class="popup__navigation">
           <a class="popup__link link" href="" target="_blank">Главная</a>
           <a class="popup__link link" href="" target="_blank"
-            >Сохраненные статьи</a>
+            >Сохраненные статьи</a
+          >
         </div>
-        <button class="button button_type_authorization button_type_authorization_popup" type="submit">
+        <button
+          class="button button_type_authorization button_type_authorization_popup"
+          type="submit"
+        >
           Авторизоваться
         </button>
       </div>
       <div class="popup popup_authorization">
         <div class="popup__content">
           <div class="popup__close">
-            <img src="<%=require("./images/icons/Path5_left.svg")%>" alt="Закрыть попап"
-            class="icon_close">
-            <img src="<%=require("./images/icons/Path5_right.svg")%>" alt="Закрыть попап"
-            class="icon_close">
+            <img src="<%=require("./images/icons/Path5_left.svg")%>"
+            alt="Закрыть попап" class="icon_close"> <img
+            src="<%=require("./images/icons/Path5_right.svg")%>" alt="Закрыть
+            попап" class="icon_close">
           </div>
           <h2 class="popup__title">Вход</h2>
           <form class="popup__form">
@@ -80,15 +89,15 @@
             </button>
             <div class="registration">
               или
-              <a class="link registration__link" href=" " target="_blank">Зарегистрироваться</a>
+              <a class="link registration__link" href=" " target="_blank"
+                >Зарегистрироваться</a
+              >
             </div>
           </form>
         </div>
       </div>
       <section class="news">
-        <h1 class="title news__title">
-          Что творится в мире?
-        </h1>
+        <h1 class="title news__title">Что творится в мире?</h1>
         <p class="text news__text">
           Находите самые свежие статьи на любую тему и сохраняйте в своём личном
           кабинете.
@@ -150,7 +159,9 @@
               <img src="<%=require("./images/mobile/cards/image_07.png")%>"
               alt="Зеленый куст" class="article-card__image" />
               <div class="popup_icon">Войдите, чтобы сохранить статьи</div>
-              <button class="article-card__icon article-card__icon_special"></button>
+              <button
+                class="article-card__icon article-card__icon_special"
+              ></button>
             </div>
             <p class="article-card__date">2 августа, 2019</p>
             <h2 class="article-card__title">Национальное достояние – парки</h2>
@@ -176,9 +187,13 @@
       </section>
       <section class="about">
         <picture class="about__photo-section">
-          <source media="(min-width: 1282px)" srcset="<%=require("./images/desktop/avatar/image-03_desktop.png")%>" />
-          <source media="(min-width: 622px)" srcset="<%=require("./images/mobile/avatar/image-03_mobile.jpg")%>" />
-          <img class="about__photo" src="<%=require("./images/mobile/avatar/image-03_mobile.jpg")%>" alt="Фотография автора сайта" />
+          <source media="(min-width: 1282px)"
+          srcset="<%=require("./images/desktop/avatar/image-03_desktop.png")%>"
+          /> <source media="(min-width: 622px)"
+          srcset="<%=require("./images/mobile/avatar/image-03_mobile.jpg")%>" />
+          <img class="about__photo"
+          src="<%=require("./images/mobile/avatar/image-03_mobile.jpg")%>"
+          alt="Фотография автора сайта" />
         </picture>
         <div class="about__content">
           <h2 class="title about__title">Об авторе</h2>
@@ -358,7 +373,7 @@
             <div class="header__logo"></div>
             <div class="header__menu">
               <!-- <a class="icon icon_menu link" href="" target="_blank"></a> -->
-            <!-- </div>
+    <!-- </div>
             <div class="header__nav">
               <a class="header__link link" href="" target="_blank">Главная</a>
               <button class="button button_type_registration" type="submit">
