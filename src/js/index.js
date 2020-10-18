@@ -16,6 +16,10 @@ const iconClose = document.querySelector('.popup__icon');
 const buttonAuthPopup = document.querySelector('.button_type_authorization_popup');
 const iconFlags = document.querySelectorAll('.article-card__icon');
 const buttonAuthMenu = document.querySelector('.button_type_authorization_menu');
+const buttonSearch = document.querySelector('.button_type_search');
+const iconFlag = document.querySelector('.article-card__icon_special');
+const popupIcon = document.querySelector('.popup_icon');
+const preloader = document.querySelector('.preloader');
 
 iconMenu.addEventListener('click', () => {
   // overlay.classList.add('overlay_show');
@@ -43,10 +47,11 @@ iconFlags.forEach((element) => {
   });
 });
 
-const iconFlag = document.querySelector('.article-card__icon_special');
-const popupIcon = document.querySelector('.popup_icon');
-
 iconFlag.addEventListener('click', () => {
   popupIcon.classList.add('popup_icon_show');
   iconFlag.classList.add('article-card__icon_attention');
+});
+
+buttonSearch.addEventListener('click', () => {
+  preloader.classList.add('preloader_active');
 });
