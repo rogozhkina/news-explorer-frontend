@@ -1,9 +1,9 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
 
-/* * {
+* {
   border: 1px solid red;
-} */
+}
 
 .page {
   background-color: #F5F6F7;
@@ -85,7 +85,8 @@ body {
 @media screen and (min-width: 622px) {
   .header {
     /* width: 768px; */
-    width: 99vw;
+    /* width: 99vw; */
+    width: 100%;
     /* width: 95%; */
     height: 80px;
     margin: 0px;
@@ -103,6 +104,7 @@ body {
     /* width: 99vw; */
     /* width: 95%; */
     height: 80px;
+    width: 100%;
     /* margin: 0px; */
     /* display: block; */
     /* background-image: url(../src/images/desktop/fon/georgia-de-lotz--UsJoNxLaNo-unsplash.png); */
@@ -1081,7 +1083,7 @@ body {
 
 @media screen and (min-width: 622px) {
   .footer_big {
-    width: 768px;
+    width: 100%;
     height: 64px;
     background-color: #ffffff;
     display: flex;
@@ -1174,6 +1176,7 @@ body {
     /* height: 22px;
     margin: 24px auto; */
     flex-direction: row;
+    height: 20px;
     /* flex-wrap: wrap; */
   }
 }
@@ -1215,6 +1218,7 @@ body {
     flex-direction: row;
     padding-left: 48px;
     /* flex-wrap: wrap; */
+    height: 22px;
   }
 }
 

@@ -82,7 +82,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/pages/logged.html',
-      filename: './pages/logged.html',
+      filename: 'logged.html',
       chunks: 'logged',
     }),
     new WebpackMd5Hash(),
