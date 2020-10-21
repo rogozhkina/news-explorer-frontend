@@ -3,9 +3,13 @@ import '../css/index.css';
 const popupMenu = document.querySelector('.popup_menu');
 const popupAuth = document.querySelector('.popup_authorization');
 const iconMenu = document.querySelector('.icon_menu');
-const buttonAuthPopup = document.querySelector('.button_type_authorization_popup');
+const buttonAuthPopup = document.querySelector(
+  '.button_type_authorization_popup'
+);
 const iconFlags = document.querySelectorAll('.article-card__icon');
-const buttonAuthMenu = document.querySelector('.button_type_authorization_menu');
+const buttonAuthMenu = document.querySelector(
+  '.button_type_authorization_menu'
+);
 const buttonSearch = document.querySelector('.button_type_search');
 const iconFlag = document.querySelector('.article-card__icon_special');
 const popupIcon = document.querySelector('.popup_icon');
@@ -69,20 +73,19 @@ class Card {
             <p class="article-card__source"></p>
 </div>`;
 
-    const template = document.createElement("div");
-    template.insertAdjacentHTML("beforeend", templateString.trim());
+    const template = document.createElement('div');
+    template.insertAdjacentHTML('beforeend', templateString.trim());
 
     const placeCard = template.firstElementChild;
     placeCard.querySelector(
-      ".article-card__title"
+      '.article-card__title'
     ).textContent = this._cardData.title;
 
-    const cardImage = placeCard.querySelector(".article-card__image");
+    const cardImage = placeCard.querySelector('.article-card__image');
     cardImage.style.backgroundImage = `url(${this._cardData.urlToImage})`;
 
-
-    this._likeButton = placeCard.querySelector(".article-card__icon");
-    this._likeButton.addEventListener("click", this.like);
+    this._likeButton = placeCard.querySelector('.article-card__icon');
+    this._likeButton.addEventListener('click', this.like);
 
     return placeCard;
   }
@@ -95,7 +98,27 @@ class Card {
   }
 
   like() {
-    this._likeButton.classList.toggle("article-card__icon_special");
+    this._likeButton.classList.toggle('article-card__icon_special');
+  }
+}
+
+class CardList {
+  constructor(domContainer, cardCreator) {
+    this.container = domContainer;
+    this._cardCreator = cardCreator;
+    this._cardList = [];
   }
 
+  addCard(cardData) {
+    const newCard = this._cardCreator(cardData);
+    this._cardList.push(newCard);
+  }
+
+  render() {
+    this.container.textContent = '';
+    this._cardList.forEach((card) => {
+      const cards = card.domElement();
+      this.container.appendChild(cards);
+    });
+  }
 }
