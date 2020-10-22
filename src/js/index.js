@@ -44,81 +44,125 @@ buttonSearch.addEventListener('click', () => {
   preloader.classList.add('preloader_active');
 });
 
-class Card {
-  constructor(cardData) {
-    this._domElement = null;
-    this._cardData = cardData;
-    this._likeButton = null;
-    this.like = this.like.bind(this);
-  }
+import { Api } from "./api/api.js";
+import { Button } from "./button.js";
+import { Card } from "./card.js";
+import { CardList } from "./cardlist.js";
+import { FormCard } from "./formcard.js";
+import { FormUser } from "./formuser.js";
+import { FormValidator } from "./formvalidator.js";
+import { InputValidator } from "./inputvalidator.js";
+import { LargeImage } from "./largeimage.js";
+import { PlacesPage } from "./placespage.js";
+import { Popup } from "./popup.js";
+import { PopupImage } from "./popupimage.js";
+import { TextInput } from "./textinput.js";
+import { URLValidator } from "./urlvalidator.js";
+import { UserInfo } from "./userinfo.js";
 
-  _createCard() {
-    const templateString = `
 
-    </div>
 
-<div class="article-card">
-            <div class="article-card__image-section">
-              <div class="article-card__image">
-                <div class="popup_icon"></div>
-                <button
-                  class="article-card__icon article-card__icon_special"
-                ></button>
-              </div>
-            </div>
-            <p class="article-card__date"></p>
-            <h2 class="article-card__title"></h2>
-            <p class="article-card__text">
-            </p>
-            <p class="article-card__source"></p>
-</div>`;
+(function () {
+  const domRootNode = document.querySelector(".root");
+  const domEditButton = document.querySelector(".user-info__button_edit");
+  const domAddButton = document.querySelector(".user-info__button_add");
+  const domCardListContainer = document.querySelector(".places-list");
 
-    const template = document.createElement('div');
-    template.insertAdjacentHTML('beforeend', templateString.trim());
+  const errorEmptyField = "Это обязательное поле";
+  const errorWrongLength = "Должно быть от 2 до 30 символов";
+  const errorWrongLink = "Это не ссылка";
 
-    const placeCard = template.firstElementChild;
-    placeCard.querySelector(
-      '.article-card__title'
-    ).textContent = this._cardData.title;
+  const api = new Api({
+    baseUrl:
+      process.env.NODE_ENV === "production"
+        ? "https://praktikum.tk/cohort11"
+        : "http://praktikum.tk/cohort11",
+    headers: {
+      authorization: "098deaea-e99e-492d-906f-622aa2508f6d",
+      "Content-Type": "application/json",
+    },
+  });
 
-    const cardImage = placeCard.querySelector('.article-card__image');
-    cardImage.style.backgroundImage = `url(${this._cardData.urlToImage})`;
+  const userInfo = new UserInfo(
+    ".user-info__name",
+    ".user-info__job",
+    ".user-info__photo"
+  );
 
-    this._likeButton = placeCard.querySelector('.article-card__icon');
-    this._likeButton.addEventListener('click', this.like);
+  const cardList = new CardList(domCardListContainer, (cardData) => {
+    const newCard = new Card(cardData);
+    return newCard;
+  });
 
-    return placeCard;
-  }
+  const formAdd = new FormCard(
+    cardList,
+    [
+      new TextInput(
+        "Название",
+        "cardname",
+        "text",
+        new InputValidator(2, 30, errorEmptyField, errorWrongLength)
+      ),
+      new TextInput(
+        "Ссылка на картинку",
+        "link",
+        "text",
+        new URLValidator(errorEmptyField, errorWrongLink)
+      ),
+    ],
+    new Button("+", ["popup__button"], "popup__button_disabled"),
+    (tagElement, submit, inputs) => {
+      return new FormValidator(tagElement, submit, inputs);
+    },
+    ["popup__form"]
+  );
+  const popupAdd = new Popup("Новое место", formAdd);
 
-  domElement() {
-    if (null == this._domElement) {
-      this._domElement = this._createCard();
-    }
-    return this._domElement;
-  }
+  const formEdit = new FormUser(
+    userInfo,
+    [
+      new TextInput(
+        "Имя",
+        "username",
+        "text",
+        new InputValidator(2, 30, errorEmptyField, errorWrongLength)
+      ),
+      new TextInput(
+        "О себе",
+        "job",
+        "text",
+        new InputValidator(2, 30, errorEmptyField, errorWrongLength)
+      ),
+    ],
+    new Button(
+      "Сохранить",
+      ["popup__button", "popup__button_edit"],
+      "popup__button_disabled"
+    ),
+    (tagElement, submit, inputs) => {
+      return new FormValidator(tagElement, submit, inputs);
+    },
+    ["popup__form"]
+  );
+  const popupUser = new Popup("Редактировать профиль", formEdit);
 
-  like() {
-    this._likeButton.classList.toggle('article-card__icon_special');
-  }
-}
+  const largeImage = new LargeImage();
+  const popupImage = new PopupImage(largeImage);
 
-class CardList {
-  constructor(domContainer, cardCreator) {
-    this.container = domContainer;
-    this._cardCreator = cardCreator;
-    this._cardList = [];
-  }
+  const page = new PlacesPage(
+    api,
+    domRootNode,
+    domEditButton,
+    domAddButton,
+    cardList,
+    userInfo,
+    popupAdd,
+    popupUser,
+    formEdit,
+    formAdd,
+    popupImage,
+    largeImage
+  );
 
-  addCard(cardData) {
-    const newCard = this._cardCreator(cardData);
-    this._cardList.push(newCard);
-  }
-
-  render() {
-    this.container.textContent = '';
-    this._cardList.forEach((card) => {
-      const cards = card.domElement();
-      this.container.appendChild(cards);
-    });
-  }
-}
+  page.render();
+})();
