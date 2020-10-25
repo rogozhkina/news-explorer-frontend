@@ -1209,9 +1209,10 @@ body {
   /* position: absolute; */
   cursor: pointer;
   /* transform: scale(-1, 1); */
+  background-image: url(../images/icons/back.png);
 }
 
-.popup__icon {
+.popup__close {
   padding-top: 16px;
   padding-left: 283px;
   display: flex;

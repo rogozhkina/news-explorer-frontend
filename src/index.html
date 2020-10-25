@@ -33,15 +33,12 @@
     </header>
     <main class="main">
       <div class="popup popup_menu">
-        <div class="popup__icon">
-          <img src="<%=require("./images/icons/Path5_left.svg")%>" alt="Закрыть
-          попап" class="icon_close"> <img
-          src="<%=require("./images/icons/Path5_right.svg")%>" alt="Закрыть
-          попап" class="icon_close">
+        <div class="popup__close">
+          <div class="icon_close"></div>
         </div>
         <div class="popup__navigation">
           <a class="popup__link link" href="" target="_blank">Главная</a>
-          <a class="popup__link link" href="" target="_blank"
+          <a class="popup__link link" href="./pages/logged.html" target="_blank"
             >Сохраненные статьи</a
           >
         </div>
@@ -55,10 +52,7 @@
       <div class="popup popup_authorization">
         <div class="popup__content">
           <div class="popup__close">
-            <img src="<%=require("./images/icons/Path5_left.svg")%>"
-            alt="Закрыть попап" class="icon_close"> <img
-            src="<%=require("./images/icons/Path5_right.svg")%>" alt="Закрыть
-            попап" class="icon_close">
+            <div class="icon_close"></div>
           </div>
           <h2 class="popup__title">Вход</h2>
           <form class="popup__form">
