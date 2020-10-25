@@ -11,7 +11,8 @@
     <meta name="author" content="Наталья Рогожкина" />
     <title>news-explorer</title>
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[0]%>" />
-    <link type="image/x-icon" rel="icon" href="<%=require("./images/favicon/favicon.ico")%>" />
+    <link type="image/x-icon" rel="icon"
+    href="<%=require("./images/favicon/favicon.ico")%>" />
   </head>
   <body class="page">
     <header class="header header_theme_dark">
@@ -33,25 +34,30 @@
     </header>
     <main class="main">
       <div class="popup popup_menu">
-        <div class="popup__close">
-          <div class="icon_close"></div>
-        </div>
-        <div class="popup__navigation">
-          <a class="popup__link link" href="" target="_blank">Главная</a>
-          <a class="popup__link link" href="./pages/logged.html" target="_blank"
-            >Сохраненные статьи</a
+        <div class="popup__fon">
+          <div class="popup__close popup__close_menu">
+            <div class="icon_close"></div>
+          </div>
+          <div class="popup__navigation">
+            <a class="popup__link link" href="" target="_blank">Главная</a>
+            <a
+              class="popup__link link"
+              href="./pages/logged.html"
+              target="_blank"
+              >Сохраненные статьи</a
+            >
+          </div>
+          <button
+            class="button button_type_authorization button_type_authorization_popup"
+            type="submit"
           >
+            Авторизоваться
+          </button>
         </div>
-        <button
-          class="button button_type_authorization button_type_authorization_popup"
-          type="submit"
-        >
-          Авторизоваться
-        </button>
       </div>
       <div class="popup popup_authorization">
         <div class="popup__content">
-          <div class="popup__close">
+          <div class="popup__close popup__close_form">
             <div class="icon_close"></div>
           </div>
           <h2 class="popup__title">Вход</h2>
@@ -64,7 +70,9 @@
               placeholder="Введите почту"
               name="email"
             />
-            <span class="popup__error-message" id="email">Неправильный формат email</span>
+            <span class="popup__error-message" id="email"
+              >Неправильный формат email</span
+            >
             <span class="popup__label">Пароль</span>
             <input
               required
@@ -97,13 +105,21 @@
           кабинете.
         </p>
         <form class="form news__search">
-          <input required type="text" class="input news__input"
-          placeholder="Введите тему новости" name="search" minlength="2" maxlength="30">
+          <input
+            required
+            type="text"
+            class="input news__input"
+            placeholder="Введите тему новости"
+            name="search"
+            minlength="2"
+            maxlength="30"
+          />
 
-          <button class="button button_type_search" type="submit">Искать</button>
+          <button class="button button_type_search" type="submit">
+            Искать
+          </button>
           <span class="popup__error-message" id="input"></span>
         </form>
-
       </section>
       <section class="preloader">
         <i class="circle-preloader"></i>
@@ -218,7 +234,7 @@
           <li class="footer__list">
             <a class="footer__link link" href="">Главная</a>
           </li>
-          <li  class="footer__list">
+          <li class="footer__list">
             <a
               class="footer__link link"
               href="https://praktikum.yandex.ru/web/"
