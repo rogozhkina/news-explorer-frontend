@@ -96,8 +96,14 @@
           Находите самые свежие статьи на любую тему и сохраняйте в своём личном
           кабинете.
         </p>
-        <button class="button button_type_field" type="submit">Политика</button>
-        <button class="button button_type_search" type="submit">Искать</button>
+        <form class="form news__search">
+          <input required type="text" class="input news__input"
+          placeholder="Введите тему новости" name="search" minlength="2" maxlength="30">
+
+          <button class="button button_type_search" type="submit">Искать</button>
+          <span class="popup__error-message" id="input"></span>
+        </form>
+
       </section>
       <section class="preloader">
         <i class="circle-preloader"></i>
