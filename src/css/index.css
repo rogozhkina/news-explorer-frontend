@@ -389,7 +389,7 @@ body {
 }
 
 .button_type_show {
-  height: 64px;
+
   margin-bottom: 32px;
   margin-left: calc((100%-288px) / 2);
   font-size: 18px;
@@ -1179,10 +1179,13 @@ body {
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   font-size: 14px;
+  font-weight: 400;
   line-height: 17px;
   box-sizing: border-box;
-  padding: 0 6px 13px;
+  padding-top: 9px;
   margin-bottom: 1px;
+  color: #000;
+  opacity: .4;
 }
 
 @media screen and (min-width: 622px) {
@@ -1380,7 +1383,9 @@ body {
 }
 
 .button_type_entry {
+  height: 64px;
   font-size: 18px;
+  font-weight: 500;
   margin-left: 0;
   padding-top: 6px;
   margin: 22px auto 16px;
