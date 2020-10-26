@@ -271,7 +271,7 @@ body {
 
 @media screen and (min-width: 622px) {
   .news__text {
-    width: 452px;
+    max-width: 452px;
     height: 48px;
     margin-left: 160px;
     margin-bottom: 52px;
@@ -336,6 +336,15 @@ body {
 
 @media screen and (min-width: 622px) {
   .news__input {
+    width: 410px;
+    margin-left: 160px;
+    position: absolute;
+  }
+}
+
+
+@media screen and (min-width: 660px) {
+  .news__input {
     width: 432px;
     margin-left: 160px;
     position: absolute;
@@ -363,6 +372,15 @@ body {
 }
 
 @media screen and (min-width: 622px) {
+  .button_type_search {
+    width: 160px;
+    margin-left: 427px;
+    position: relative;
+  }
+}
+
+
+@media screen and (min-width: 660px) {
   .button_type_search {
     width: 160px;
     margin-left: 450px;
@@ -763,13 +781,13 @@ body {
 @media screen and (min-width: 622px) {
   .about__content {
     padding-left: 0;
-    width: 318px;
+    max-width: 318px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .about__content {
-    padding-left: 32px;
+    padding-left: 0;
     width: 424px;
   }
 }
@@ -798,7 +816,7 @@ body {
 
 @media screen and (min-width: 622px) {
   .about__title {
-    width: 318px;
+    max-width: 318px;
     height: 34px;
     padding-top: 40px;
     padding-left: 0;
@@ -889,8 +907,9 @@ body {
 
 @media screen and (min-width: 622px) {
   .about__text {
-    width: 310px;
+    max-width: 310px;
     padding-left: 0;
+    margin-left: 0;
   }
 }
 
