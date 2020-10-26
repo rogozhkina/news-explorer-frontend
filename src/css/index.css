@@ -1,10 +1,6 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
 
-* {
-  border: 1px solid red;
-}
-
 body {
   background-color: #f5f6f7;
 }
