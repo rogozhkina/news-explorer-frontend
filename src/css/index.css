@@ -1076,6 +1076,7 @@ body {
   content:"";
   height: 1px;
   width: 16px;
+  cursor: pointer;
 }
 
 .icon_menu_hidden {
@@ -1190,7 +1191,7 @@ body {
 
 @media screen and (min-width: 622px) {
   .popup__input {
-    height: 46px;
+    height: 32px;
     padding: 0;
     margin: 0;
   }
@@ -1291,8 +1292,8 @@ body {
     display: flex;
     width: 40px;
     height: 40px;
-    top: -26px;
-    right: -26px;
+    top: -46px;
+    right: -46px;
   }
 }
 
