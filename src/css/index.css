@@ -375,7 +375,6 @@ body {
     height: 64px;
     margin-left: 416px;
     position: absolute;
-    color: #000;
   }
 }
 
@@ -435,7 +434,7 @@ body {
 }
 
 .button_type_show:hover {
-  opacity: .8;
+  opacity: .7;
 }
 
 @media screen and (min-width: 622px) {
@@ -611,6 +610,7 @@ body {
   background-position: center;
   border: none;
   position: absolute;
+  outline: none;
 }
 
 @media screen and (min-width: 622px) {
@@ -1382,7 +1382,14 @@ body {
   border-color: #fff;
   border-width: 1px;
   border-style: outset;
+  cursor: pointer;
 }
+
+
+.button_type_authorization:hover {
+  opacity: .7;
+}
+
 
 .popup_authorization {
   position: fixed;

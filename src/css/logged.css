@@ -531,6 +531,7 @@ body {
   background-position: center;
   border: none;
   position: absolute;
+  outline: none;
 }
 
 @media screen and (min-width: 622px) {
