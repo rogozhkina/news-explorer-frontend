@@ -532,6 +532,11 @@ body {
   border: none;
   position: absolute;
   outline: none;
+  cursor: pointer;
+}
+
+.article-card__icon:hover {
+  opacity: .8;
 }
 
 @media screen and (min-width: 622px) {
@@ -1071,6 +1076,11 @@ body {
   display: none;
 }
 
+
+.button__escape:hover {
+  opacity: .7;
+}
+
 @media screen and (min-width: 622px) {
   .button__escape {
     display: grid;
@@ -1089,6 +1099,7 @@ body {
     margin-right: 40px;
     outline: none;
     justify-content: left;
+    cursor: pointer;
   }
 }
 

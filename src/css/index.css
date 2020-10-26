@@ -611,6 +611,12 @@ body {
   border: none;
   position: absolute;
   outline: none;
+  cursor: pointer;
+}
+
+
+.article-card__icon:hover {
+  opacity: .8;
 }
 
 @media screen and (min-width: 622px) {

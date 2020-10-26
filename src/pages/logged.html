@@ -10,8 +10,9 @@
     />
     <meta name="author" content="Наталья Рогожкина" />
     <title>saved-articles</title>
-    <link type="image/x-icon" rel="icon" href="../images/favicon/favicon.ico" />
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[1]%>" />
+    <link type="image/x-icon" rel="icon"
+    href="<%=require("../images/favicon/favicon.ico")%>" />
   </head>
   <body class="page">
     <header class="header">
@@ -21,7 +22,7 @@
       </div>
       <div class="header__menu header__menu_big">
         <div class="header__nav  header__nav_saved">
-          <a class="header__link link" href="" target="_blank">Главная</a>
+          <a class="header__link link" href="https://rogozhkina.github.io/news-explorer-frontend/" target="_blank">Главная</a>
           <a
             class="header__link header__link_focus link"
             href=""
