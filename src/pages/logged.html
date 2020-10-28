@@ -10,8 +10,9 @@
     />
     <meta name="author" content="Наталья Рогожкина" />
     <title>saved-articles</title>
-    <link type="image/x-icon" rel="icon" href="../images/favicon/favicon.ico" />
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[1]%>" />
+    <link type="image/x-icon" rel="icon"
+    href="<%=require("../images/favicon/favicon.ico")%>" />
   </head>
   <body class="page">
     <header class="header">
@@ -21,15 +22,15 @@
       </div>
       <div class="header__menu header__menu_big">
         <div class="header__nav  header__nav_saved">
-          <a class="header__link link" href="" target="_blank">Главная</a>
+          <a class="header__link link" href="https://rogozhkina.github.io/news-explorer-frontend/" target="_blank">Главная</a>
           <a
             class="header__link header__link_focus link"
             href=""
             target="_blank"
             >Сохраненные статьи</a
           >
-          <button class="button button__escape" type="submit">Грета</button>
         </div>
+        <button class="button button__escape" type="submit">Грета</button>
       </div>
     </header>
     <main class="main">
@@ -100,7 +101,7 @@
                 alt="Зеленый куст"
                 class="article-card__image"
               />
-              <div class="article-card__tag">Природа</div>
+              <div class="article-card__tag">Тайга</div>
               <button class="article-card__icon"></button>
             </div>
             <p class="article-card__date">2 августа, 2019</p>
@@ -127,7 +128,7 @@
                 alt="Зеленый куст"
                 class="article-card__image"
               />
-              <div class="article-card__tag">Природа</div>
+              <div class="article-card__tag">Парки</div>
               <button class="article-card__icon"></button>
             </div>
             <p class="article-card__date">2 августа, 2019</p>
@@ -154,7 +155,7 @@
                 alt="Зеленый куст"
                 class="article-card__image"
               />
-              <div class="article-card__tag">Природа</div>
+              <div class="article-card__tag">Фотография</div>
               <button class="article-card__icon"></button>
             </div>
             <p class="article-card__date">2 августа, 2019</p>
@@ -175,9 +176,6 @@
             <p class="article-card__source">риа</p>
           </div>
         </div>
-        <button class="button button_type_show" type="submit">
-          Показать еще
-        </button>
       </section>
     </main>
     <footer class="footer footer_mobile">
