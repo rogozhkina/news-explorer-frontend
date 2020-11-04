@@ -48,16 +48,12 @@ import { Api } from "./api/api.js";
 import { Button } from "./button.js";
 import { Card } from "./card.js";
 import { CardList } from "./cardlist.js";
-import { FormCard } from "./formcard.js";
 import { FormUser } from "./formuser.js";
 import { FormValidator } from "./formvalidator.js";
 import { InputValidator } from "./inputvalidator.js";
-import { LargeImage } from "./largeimage.js";
 import { PlacesPage } from "./placespage.js";
 import { Popup } from "./popup.js";
-import { PopupImage } from "./popupimage.js";
 import { TextInput } from "./textinput.js";
-import { URLValidator } from "./urlvalidator.js";
 import { UserInfo } from "./userinfo.js";
 
 

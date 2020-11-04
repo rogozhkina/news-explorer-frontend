@@ -1,4 +1,4 @@
-export class Popup {
+class Popup {
   constructor(title, content, additionalClasses) {
     this._domElement = null;
     this._closeButton = null;
@@ -16,7 +16,7 @@ export class Popup {
   }
 
   _template() {
-    const icon = require("../images/close.svg");
+    const icon = require("../images/icons/close.png");
     return `
     <div class="popup">
         <div class="popup__content">
@@ -92,3 +92,5 @@ export class Popup {
     this._domElement.classList.remove(this._classIsOpened());
   }
 }
+
+export { Popup };
