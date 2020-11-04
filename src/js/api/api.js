@@ -3,82 +3,80 @@ class Api {
     this._options = options;
   }
 
-  signUp = (name, email, password ) => {
+  signUp = (name, email, password) => {
     return fetch(`${this.options.baseUrl}/signup`, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-     },
-   credentials: 'include',
-   body: JSON.stringify({
-    name: name,
-    email: email,
-    password: password,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        password: password,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise));
+      })
+      .catch((err) => {
+        throw err;
+      });
+  };
 
-   }),
-  })
-   .then(res => {
-   if (res.ok) {
-     return res.json();
-    }
-   const json = res.json();
-   return json.then(Promise.reject.bind(Promise))
-  })
-  .catch((err) => {
-    throw err;
-  })
-  }
-
-  signIn = (email, password ) => {
+  signIn = (email, password) => {
     return fetch(`${this.options.baseUrl}/signin`, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-     },
-   credentials: 'include',
-   body: JSON.stringify({
-   email: email,
-   password: password,
-   }),
-  })
-   .then(res => {
-   if (res.ok) {
-     return res.json();
-    }
-   const json = res.json();
-   return json.then(Promise.reject.bind(Promise))
-  })
-  .catch((err) => {
-    throw err;
-  })
-  }
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise));
+      })
+      .catch((err) => {
+        throw err;
+      });
+  };
 
   logout = () => {
     return fetch(`${this.options.baseUrl}/logout`, {
       method: 'POST',
       headers: {
-      'Content-Type': 'application/json'
-       },
-     credentials: 'include',
-
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
     })
-     .then(res => {
-     if (res.ok) {
-       return res.json();
-      }
-     const json = res.json();
-     return json.then(Promise.reject.bind(Promise))
-    })
-    .catch((err) => {
-      throw err;
-    })
-  }
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise));
+      })
+      .catch((err) => {
+        throw err;
+      });
+  };
 
   getUserInfo(success) {
-    const url = this._options.baseUrl + "/users/me";
+    const url = this._options.baseUrl + '/users/me';
 
     fetch(url, {
-      method : 'GET',
+      method: 'GET',
       credentials: 'include',
       headers: this._options.headers,
     })
@@ -89,7 +87,7 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
       })
       .then((res) => {
-        if (typeof success === "function") {
+        if (typeof success === 'function') {
           success(res);
         }
       })
@@ -97,13 +95,12 @@ class Api {
         console.log(err);
       });
   }
-
 
   getCards(success) {
-    const url = this._options.baseUrl + "/cards";
+    const url = this._options.baseUrl + '/cards';
 
     fetch(url, {
-      method : 'GET',
+      method: 'GET',
       credentials: 'include',
       headers: this._options.headers,
     })
@@ -114,7 +111,7 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
       })
       .then((res) => {
-        if (typeof success === "function") {
+        if (typeof success === 'function') {
           success(res);
         }
       })
@@ -123,11 +120,11 @@ class Api {
       });
   }
 
-  createCard( card ) {
-    const url = this._options.baseUrl + "/cards";
+  createCard(card) {
+    const url = this._options.baseUrl + '/cards';
 
     fetch(url, {
-      method : 'POST',
+      method: 'POST',
       credentials: 'include',
       headers: this._options.headers,
       body: JSON.stringify({
@@ -138,7 +135,7 @@ class Api {
         date: card.date,
         text: card.text,
         source: card.source,
-      })
+      }),
     })
       .then((res) => {
         if (res.ok) {
@@ -147,7 +144,7 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
       })
       .then((res) => {
-        if (typeof success === "function") {
+        if (typeof success === 'function') {
           success(res);
         }
       })
@@ -156,14 +153,13 @@ class Api {
       });
   }
 
-  removeCard( id ) {
-    const url = this._options.baseUrl + "/cards/${id}";
+  removeCard(id) {
+    const url = this._options.baseUrl + '/cards/${id}';
 
     fetch(url, {
-      method : 'DELETE',
+      method: 'DELETE',
       credentials: 'include',
       headers: this._options.headers,
-
     })
       .then((res) => {
         if (res.ok) {
@@ -172,7 +168,7 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
       })
       .then((res) => {
-        if (typeof success === "function") {
+        if (typeof success === 'function') {
           success(res);
         }
       })
@@ -180,7 +176,6 @@ class Api {
         throw err;
       });
   }
-
 }
 
-export { Api }
+export { Api };
