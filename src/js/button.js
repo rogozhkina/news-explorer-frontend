@@ -1,4 +1,4 @@
-export class Button {
+class Button {
   constructor(title, additionalClasses, classDisabled) {
     this._title = title;
     this._classDisabled = classDisabled;
@@ -9,7 +9,7 @@ export class Button {
   }
 
   domElement() {
-    if (null == this._domElement) {
+    if (this._domElement == null) {
       this._domElement = this._createButton();
     }
     return this._domElement;
@@ -17,8 +17,8 @@ export class Button {
 
   _createButton() {
     const templateString = `<button type="submit" class="button">-title-</button>`;
-    const template = document.createElement("div");
-    template.insertAdjacentHTML("beforeend", templateString.trim());
+    const template = document.createElement('div');
+    template.insertAdjacentHTML('beforeend', templateString.trim());
     const element = template.firstElementChild;
 
     this._additionalClasses.forEach((className) => {
@@ -29,7 +29,7 @@ export class Button {
 
     element.textContent = this._title;
 
-    element.addEventListener("click", this._onClick);
+    element.addEventListener('click', this._onClick);
 
     return element;
   }
@@ -37,25 +37,25 @@ export class Button {
   _onClick(event) {
     event.preventDefault();
     this._subscribers.forEach((subscrieber) => {
-      if (typeof subscrieber === "function") {
+      if (typeof subscrieber === 'function') {
         subscrieber();
       }
     });
   }
 
   enable(button) {
-    if (typeof button === "undefined") {
+    if (typeof button === 'undefined') {
       button = true;
     }
 
     if (button) {
-      this._domElement.removeAttribute("disabled");
+      this._domElement.removeAttribute('disabled');
 
       if (this._classDisabled && this._classDisabled.length > 0) {
         this._domElement.classList.remove(this._classDisabled);
       }
     } else {
-      this._domElement.setAttribute("disabled", "disabled");
+      this._domElement.setAttribute('disabled', 'disabled');
 
       if (this._classDisabled && this._classDisabled.length > 0) {
         this._domElement.classList.add(this._classDisabled);
@@ -72,3 +72,5 @@ export class Button {
     this._subscribers.push(callback);
   }
 }
+
+export { Button };
