@@ -1,11 +1,11 @@
-export class Form {
+export default class Form {
   constructor(inputs, submitButton, formValidatorCreator, additionalClasses) {
     this._domElement = null;
     this._inputs = inputs;
     this._formValidatorCreator = formValidatorCreator;
     this._validator = null;
 
-    if (typeof additionalClasses !== "object") {
+    if (typeof additionalClasses !== 'object') {
       additionalClasses = [];
     }
 
@@ -23,7 +23,7 @@ export class Form {
   }
 
   domElement() {
-    if (null == this._domElement) {
+    if (this._domElement == null) {
       this._domElement = this._createForm();
     }
 
@@ -31,7 +31,7 @@ export class Form {
   }
 
   _createForm() {
-    const tagElement = document.createElement("form");
+    const tagElement = document.createElement('form');
 
     this._additionalClasses.forEach((className) => {
       tagElement.classList.add(className);
@@ -50,7 +50,7 @@ export class Form {
     this._validator = this._formValidatorCreator(
       tagElement,
       this._submit,
-      this._inputs
+      this._inputs,
     );
     this._validator.setEventListeners();
     return tagElement;
@@ -76,7 +76,7 @@ export class Form {
   }
 
   subscribeSubmit(callback) {
-    if (typeof callback !== "function") {
+    if (typeof callback !== 'function') {
       return;
     }
     this._subscribers.push(callback);

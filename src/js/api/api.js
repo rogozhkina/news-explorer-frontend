@@ -1,9 +1,9 @@
-class Api {
+export default class Api {
   constructor(options) {
     this._options = options;
   }
 
-  signUp = (name, email, password) => {
+  signUp(name, email, password) {
     return fetch(`${this.options.baseUrl}/signup`, {
       method: 'POST',
       headers: {
@@ -26,9 +26,9 @@ class Api {
       .catch((err) => {
         throw err;
       });
-  };
+  }
 
-  signIn = (email, password) => {
+  signIn(email, password) {
     return fetch(`${this.options.baseUrl}/signin`, {
       method: 'POST',
       headers: {
@@ -50,9 +50,9 @@ class Api {
       .catch((err) => {
         throw err;
       });
-  };
+  }
 
-  logout = () => {
+  logout() {
     return fetch(`${this.options.baseUrl}/logout`, {
       method: 'POST',
       headers: {
@@ -70,7 +70,7 @@ class Api {
       .catch((err) => {
         throw err;
       });
-  };
+  }
 
   getUserInfo(success) {
     const url = this._options.baseUrl + '/users/me';
@@ -177,5 +177,3 @@ class Api {
       });
   }
 }
-
-export { Api };

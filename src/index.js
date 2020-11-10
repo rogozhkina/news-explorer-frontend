@@ -1,16 +1,16 @@
-import '../css/index.css';
+import './css/index.css';
 
-import { Api } from './api/api.js';
-import { Button } from './button.js';
-import { Card } from './card.js';
-import { CardList } from './cardlist.js';
-import { FormUser } from './formuser.js';
-import { FormValidator } from './formvalidator.js';
-import { InputValidator } from './inputvalidator.js';
-import { PlacesPage } from './placespage.js';
-import { Popup } from './popup.js';
-import { TextInput } from './textinput.js';
-import { UserInfo } from './userinfo.js';
+import Api from './js/api/api';
+import { Button } from './js/button';
+import { Card } from './js/components/newscard';
+import { CardList } from './js/components/newscardlist';
+import { FormUser } from './js/formuser';
+import { FormValidator } from './js/formvalidator';
+import { InputValidator } from './js/inputvalidator';
+import { PlacesPage } from './js/placespage';
+import Popup from './js/components/popup';
+import { TextInput } from './js/textinput';
+import { UserInfo } from './js/userinfo';
 
 (function () {
   const domRootNode = document.querySelector('.root');

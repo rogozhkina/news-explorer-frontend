@@ -1,6 +1,6 @@
-import { Form } from "./form.js";
+import Form from './components/form.js';
 
-export class FormUser extends Form {
+export default class FormUser extends Form {
   constructor(
     userInfo,
     inputs,
@@ -15,22 +15,22 @@ export class FormUser extends Form {
   reset() {
     super.reset();
     this._submit.enable(true);
-    this._submit.rename("Сохранить");
+    this._submit.rename('Сохранить');
     const name = this._userInfo.name();
     const email = this._userInfo.email();
-    this._names["username"].setValue(name);
-    this._names["email"].setValue(email);
+    this._names['username'].setValue(name);
+    this._names['email'].setValue(email);
   }
 
   _setWaitingAnswer() {
-    this._submit.rename("Сохранение...");
+    this._submit.rename('Сохранение...');
     this._submit.enable(false);
   }
 
   _onSubmit() {
     this._setWaitingAnswer();
-    const name = this._names["username"].value();
-    const email = this._names["email"].value();
+    const name = this._names['username'].value();
+    const email = this._names['email'].value();
     this._userInfo.setUserInfo(name, email);
     this._userInfo.updateUserInfo();
     this._informSubscribers();
