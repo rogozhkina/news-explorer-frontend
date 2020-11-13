@@ -57,8 +57,8 @@ export default class Form {
   }
 
   _informSubscribers() {
-    this._subscribers.forEach((subscrieber) => {
-      subscrieber();
+    this._subscribers.forEach((subscriber) => {
+      subscriber();
     });
   }
 

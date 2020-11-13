@@ -1,17 +1,15 @@
-
-class Card {
+export default class NewsCard {
   constructor(cardData) {
     this._domElement = null;
     this._cardData = cardData;
-    this._likeButton = null;
-    this._largeImageSubscribers = [];
+    this._saveButton = null;
+    this._deleteButton = null;
     this._removeSubscribers = [];
-    this.like = this.like.bind(this);
+    this.save = this.save.bind(this);
     this.remove = this.remove.bind(this);
-    this._onImageClick = this._onImageClick.bind(this);
   }
 
-  _createCard() {
+  _createNewsCard() {
     const templateString = `
     <div class='article-card'>
       <div class='article-card__image-section'>
@@ -29,34 +27,37 @@ class Card {
     const template = document.createElement('div');
     template.insertAdjacentHTML('beforeend', templateString.trim());
 
-    const placeCard = template.firstElementChild;
-    placeCard.querySelector(
-      '.article-card__title'
-    ).textContent = this._cardData.title;
+    const card = template.firstElementChild;
 
-    const cardImage = placeCard.querySelector('.article-card__image');
-    cardImage.style.backgroundImage = `url(${this._cardData.urlToImage})`;
+    card.querySelector('.article-card__title').textContent = this._cardData.title;
+    card.querySelector('.article-card__date').textContent = this._cardData.date;
+    card.querySelector('.article-card__text').textContent = this._cardData.text;
+    card.querySelector('.article-card__source').textContent = this._cardData.source;
 
-    cardImage.addEventListener('click', this._onImageClick);
+    // const cardImage = placeCard.querySelector('.article-card__image');
 
-    this._likeButton = placeCard.querySelector('.article-card__icon');
-    this._likeButton.addEventListener('click', this.like);
+    card.style.backgroundImage = `url(${this._cardData.urlToImage})`;
 
-    this._deleteButton = placeCard.querySelector('.place-card__delete-icon');
+    // card.addEventListener('click', this._onImageClick);
+
+    this._saveButton = card.querySelector('.article-card__icon');
+    this._saveButton.addEventListener('click', this.save);
+
+    this._deleteButton = card.querySelector('.article-card__delete-icon');
     this._deleteButton.addEventListener('click', this.remove);
 
-    return placeCard;
+    return card;
   }
 
   domElement() {
-    if (null == this._domElement) {
+    if (this._domElement == null) {
       this._domElement = this._createCard();
     }
     return this._domElement;
   }
 
-  like() {
-    this._likeButton.classList.toggle('article-card__icon_special');
+  save() {
+    this._saveButton.classList.toggle('article-card__icon_special');
   }
 
   remove(event) {
@@ -71,28 +72,17 @@ class Card {
 
   removeListeners() {
     this._deleteButton.removeEventListener('click', this.remove);
-    this._likeButton.removeEventListener('click', this.like);
+    this._saveButton.removeEventListener('click', this.save);
 
-    const cardImage = this._domElement.querySelector('.place-card__image');
-    cardImage.style.backgroundImage = `url(${this._cardData.link})`;
-    cardImage.removeEventListener('click', this._onImageClick);
-  }
-
-  subscribeLargeImageClick(callback) {
-    if (typeof callback !== 'function') {
-      return;
-    }
-
-    this._largeImageSubscribers.push(callback);
+    // const cardImage = this._domElement.querySelector('.place-card__image');
+    // cardImage.style.backgroundImage = `url(${this._cardData.link})`;
+    // cardImage.removeEventListener('click', this._onImageClick);
   }
 
   subscribeRemove(callback) {
     if (typeof callback !== 'function') {
       return;
     }
-
     this._removeSubscribers.push(callback);
   }
 }
-
-export { Card };

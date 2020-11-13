@@ -1,4 +1,4 @@
-class Button {
+export default class Button {
   constructor(title, additionalClasses, classDisabled) {
     this._title = title;
     this._classDisabled = classDisabled;
@@ -36,9 +36,9 @@ class Button {
 
   _onClick(event) {
     event.preventDefault();
-    this._subscribers.forEach((subscrieber) => {
-      if (typeof subscrieber === 'function') {
-        subscrieber();
+    this._subscribers.forEach((subscriber) => {
+      if (typeof subscriber === 'function') {
+        subscriber();
       }
     });
   }
@@ -72,5 +72,3 @@ class Button {
     this._subscribers.push(callback);
   }
 }
-
-export { Button };

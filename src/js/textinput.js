@@ -1,4 +1,4 @@
-export class TextInput {
+export default class TextInput {
   constructor(placeholder, name, type, validator) {
     this._domInput = null;
     this._domErrorMessage = null;

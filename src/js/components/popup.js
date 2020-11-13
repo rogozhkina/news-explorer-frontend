@@ -14,12 +14,14 @@ export default class Popup {
   }
 
   _template() {
-    const icon = require('../../images/icons/close.png');
     return `
     <div class="popup">
-        <div class="popup__content">
-        <img  src="${icon}" alt="" class="popup__close" />
+      <div class="popup__content">
+        <div class="popup__close">
+          <div class="icon_close"></div>
         </div>
+        <h2 class="popup__title"></h2>
+      </div>
     </div>
   `;
   }
@@ -55,7 +57,7 @@ export default class Popup {
     const popupContent = element.querySelector(this._selectorContent());
 
     if (this._title.length > 0) {
-      const tagTitle = document.createElement('h3');
+      const tagTitle = document.createElement('h2');
       tagTitle.classList.add('popup__title');
       tagTitle.textContent = this._title;
       popupContent.appendChild(tagTitle);

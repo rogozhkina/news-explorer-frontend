@@ -1,21 +1,20 @@
 import './css/index.css';
 
 import Api from './js/api/api';
-import { Button } from './js/button';
+import Button from './js/button';
 import { Card } from './js/components/newscard';
 import { CardList } from './js/components/newscardlist';
 import { FormUser } from './js/formuser';
 import { FormValidator } from './js/formvalidator';
 import { InputValidator } from './js/inputvalidator';
-import { PlacesPage } from './js/placespage';
+import Page from './js/page';
 import Popup from './js/components/popup';
 import { TextInput } from './js/textinput';
 import { UserInfo } from './js/userinfo';
 
 (function () {
-  const domRootNode = document.querySelector('.root');
-  const domEditButton = document.querySelector('.user-info__button_edit');
-  const domAddButton = document.querySelector('.user-info__button_add');
+  const domRootNode = document.querySelector('.page');
+  const domAuthButton = document.querySelector('.button_type_authorization');
   const domCardListContainer = document.querySelector('.places-list');
 
   const errorEmptyField = 'Это обязательное поле';
@@ -44,27 +43,29 @@ import { UserInfo } from './js/userinfo';
     return newCard;
   });
 
-  const formAdd = new FormCard(
-    cardList,
-    [
-      new TextInput(
-        'Название',
-        'cardname',
-        'text',
-        new InputValidator(2, 30, errorEmptyField, errorWrongLength),
-      ),
-      new TextInput(
-        'Ссылка на картинку',
-        'link',
-        'text',
-        new URLValidator(errorEmptyField, errorWrongLink),
-      ),
-    ],
-    new Button('+', ['popup__button'], 'popup__button_disabled'),
-    (tagElement, submit, inputs) => new FormValidator(tagElement, submit, inputs),
-    ['popup__form'],
-  );
-  const popupAdd = new Popup('Новое место', formAdd);
+  // const formAdd = new FormCard(
+  //   cardList,
+  //   [
+  //     new TextInput(
+  //       'Название',
+  //       'cardname',
+  //       'text',
+  //       new InputValidator(2, 30, errorEmptyField, errorWrongLength),
+  //     ),
+  //     new TextInput(
+  //       'Ссылка на картинку',
+  //       'link',
+  //       'text',
+  //       new URLValidator(errorEmptyField, errorWrongLink),
+  //     ),
+  //   ],
+  //   new Button('+', ['popup__button'], 'popup__button_disabled'),
+  //   (tagElement, submit, inputs) => new FormValidator(tagElement, submit, inputs),
+  //   ['popup__form'],
+  // );
+  // const popupAdd = new Popup('Новое место', formAdd);
+
+  const PopupAuth = new Popup('Title', 'content');
 
   const formEdit = new FormUser(
     userInfo,
@@ -95,19 +96,19 @@ import { UserInfo } from './js/userinfo';
   const largeImage = new LargeImage();
   const popupImage = new PopupImage(largeImage);
 
-  const page = new PlacesPage(
+  const page = new Page(
     api,
     domRootNode,
-    domEditButton,
-    domAddButton,
-    cardList,
-    userInfo,
-    popupAdd,
-    popupUser,
-    formEdit,
-    formAdd,
-    popupImage,
-    largeImage,
+    domAuthButton,
+    PopupAuth,
+    // cardList,
+    // userInfo,
+    // popupAdd,
+    // popupUser,
+    // formEdit,
+    // formAdd,
+    // popupImage,
+    // largeImage,
   );
 
   page.render();

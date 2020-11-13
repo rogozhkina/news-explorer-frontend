@@ -4,8 +4,7 @@ export default class NewsApi {
   }
 
   getNews(keyWord) {
-    const url = this._options.newsUrl + 'keyWord';
-
+    const url = `${this._options.newsUrl}?keyWord`;
     fetch(url, {
       headers: this._options.headers,
     })

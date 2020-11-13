@@ -1162,6 +1162,14 @@ body {
   }
 }
 
+.popup {
+  display: none;
+}
+
+.popup_is-opened {
+  display: block;
+}
+
 @media screen and (min-width: 622px) {
   .popup {
    margin-top: 0;

@@ -1,4 +1,4 @@
-import Form from './components/form.js';
+import Form from './components/form';
 
 export default class FormUser extends Form {
   constructor(
@@ -6,7 +6,7 @@ export default class FormUser extends Form {
     inputs,
     submitButton,
     formValidatorCreator,
-    additionalClasses
+    additionalClasses,
   ) {
     super(inputs, submitButton, formValidatorCreator, additionalClasses);
     this._userInfo = userInfo;
@@ -19,7 +19,7 @@ export default class FormUser extends Form {
     const name = this._userInfo.name();
     const email = this._userInfo.email();
     this._names['username'].setValue(name);
-    this._names['email'].setValue(email);
+    this._names.email.setValue(email);
   }
 
   _setWaitingAnswer() {

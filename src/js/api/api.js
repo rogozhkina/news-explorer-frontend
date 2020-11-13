@@ -3,7 +3,7 @@ export default class Api {
     this._options = options;
   }
 
-  signUp(name, email, password) {
+  signup(name, email, password) {
     return fetch(`${this.options.baseUrl}/signup`, {
       method: 'POST',
       headers: {
@@ -11,9 +11,9 @@ export default class Api {
       },
       credentials: 'include',
       body: JSON.stringify({
-        name: name,
-        email: email,
-        password: password,
+        name,
+        email,
+        password,
       }),
     })
       .then((res) => {
@@ -28,7 +28,7 @@ export default class Api {
       });
   }
 
-  signIn(email, password) {
+  signin(email, password) {
     return fetch(`${this.options.baseUrl}/signin`, {
       method: 'POST',
       headers: {
@@ -36,8 +36,8 @@ export default class Api {
       },
       credentials: 'include',
       body: JSON.stringify({
-        email: email,
-        password: password,
+        email,
+        password,
       }),
     })
       .then((res) => {
@@ -73,8 +73,7 @@ export default class Api {
   }
 
   getUserInfo(success) {
-    const url = this._options.baseUrl + '/users/me';
-
+    const url = `${this._options.baseUrl}/users/me`;
     fetch(url, {
       method: 'GET',
       credentials: 'include',
@@ -96,9 +95,8 @@ export default class Api {
       });
   }
 
-  getCards(success) {
-    const url = this._options.baseUrl + '/cards';
-
+  getArticles(success) {
+    const url = `${this._options.baseUrl}/articles`;
     fetch(url, {
       method: 'GET',
       credentials: 'include',
@@ -120,21 +118,20 @@ export default class Api {
       });
   }
 
-  createCard(card) {
-    const url = this._options.baseUrl + '/cards';
-
+  createArticle(article) {
+    const url = `${this._options.baseUrl}/articles`;
     fetch(url, {
       method: 'POST',
       credentials: 'include',
       headers: this._options.headers,
       body: JSON.stringify({
-        keyword: card.keyword,
-        image: card.image,
-        link: card.link,
-        title: card.title,
-        date: card.date,
-        text: card.text,
-        source: card.source,
+        keyword: article.keyword,
+        image: article.image,
+        link: article.link,
+        title: article.title,
+        date: article.date,
+        text: article.text,
+        source: article.source,
       }),
     })
       .then((res) => {
@@ -153,9 +150,8 @@ export default class Api {
       });
   }
 
-  removeCard(id) {
-    const url = this._options.baseUrl + '/cards/${id}';
-
+  removeArticle(id) {
+    const url = `${this._options.baseUrl}/cards/\${id}`;
     fetch(url, {
       method: 'DELETE',
       credentials: 'include',
