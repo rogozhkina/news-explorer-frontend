@@ -1,6 +1,6 @@
 import Form from './components/form';
 
-export default class FormUser extends Form {
+export default class FormReg extends Form {
   constructor(
     userInfo,
     inputs,

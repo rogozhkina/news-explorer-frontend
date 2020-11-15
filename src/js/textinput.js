@@ -23,13 +23,13 @@ export default class TextInput {
     type="text"
     class="popup__input popup__input_type_name"
     />`;
-    const template = document.createElement("div");
-    template.insertAdjacentHTML("beforeend", templateString.trim());
+    const template = document.createElement('div');
+    template.insertAdjacentHTML('beforeend', templateString.trim());
     const element = template.firstElementChild;
 
-    element.setAttribute("placeholder", this._placeholder);
-    element.setAttribute("name", this._name);
-    element.setAttribute("type", this._type);
+    element.setAttribute('placeholder', this._placeholder);
+    element.setAttribute('name', this._name);
+    element.setAttribute('type', this._type);
 
     return element;
   }

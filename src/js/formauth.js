@@ -1,6 +1,6 @@
 import Form from './components/form';
 
-export default class FormUser extends Form {
+export default class FormAuth extends Form {
   constructor(
     userInfo,
     inputs,
@@ -20,7 +20,7 @@ export default class FormUser extends Form {
     const password = this._userInfo.password();
     // this._names.setValue(name);
     this._names['email'].setValue(email);
-    // this._names.setValue(password);
+    this._names.password.setValue(password);
   }
 
   _setWaitingAnswer() {

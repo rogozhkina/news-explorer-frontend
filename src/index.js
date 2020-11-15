@@ -8,7 +8,7 @@ import NewsCard from './js/components/newscard';
 import NewsCardList from './js/components/newscardlist';
 import FormAuth from './js/formauth';
 import FormReg from './js/formreg';
-import FormSucsess from './js/formsucsess';
+// import FormSucsess from './js/formsucsess';
 import FormValidator from './js/formvalidator';
 import InputValidator from './js/inputvalidator';
 import Page from './js/page';
@@ -133,12 +133,6 @@ import UserInfo from './js/userinfo';
   const formAuth = new FormAuth(
     userInfo,
     [
-      // new TextInput(
-      //   'Имя',
-      //   'username',
-      //   'text',
-      //   new InputValidator(2, 30, errorEmptyField, errorWrongLength),
-      // ),
       new TextInput(
         'Почта',
         'email',
@@ -161,19 +155,19 @@ import UserInfo from './js/userinfo';
     ['popup__form'],
   );
 
-  const formSucsess = new FormSucsess(
-    new Button(
-      'Войти',
-      ['popup__button', 'button_type_entry'],
-      'popup__button_disabled',
-    ),
-    (tagElement, submit, inputs) => new FormValidator(tagElement, submit, inputs),
-    ['popup__form'],
-  );
+  // const formSucsess = new FormSucsess(
+  //   new Button(
+  //     'Войти',
+  //     ['popup__button', 'button_type_entry'],
+  //     'popup__button_disabled',
+  //   ),
+  //   (tagElement, submit, inputs) => new FormValidator(tagElement, submit, inputs),
+  //   ['popup__form'],
+  // );
 
   const popupAuth = new Popup('Вход', formAuth);
   const popupReg = new Popup('Регистрация', formReg);
-  const popupSucsess = new Popup('Пользователь успешно зарегистрирован!', formSucsess);
+  // const popupSucsess = new Popup('Пользователь успешно зарегистрирован!', formSucsess);
 
   const page = new Page(
     api,
@@ -181,10 +175,10 @@ import UserInfo from './js/userinfo';
     domAuthButton,
     popupAuth,
     popupReg,
-    popupSucsess,
+    // popupSucsess,
     formAuth,
     formReg,
-    formSucsess,
+    // formSucsess,
     // cardList,
     userInfo,
     // popupAdd,
