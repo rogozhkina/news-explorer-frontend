@@ -69,9 +69,9 @@ export default class TextInput {
     const value = this._domInput.value;
     this._validator.onValueChanged(value);
 
-    this._subscribers.forEach((subscrieber) => {
-      if (typeof subscrieber === "function") {
-        subscrieber();
+    this._subscribers.forEach((subscriber) => {
+      if (typeof subscriber === "function") {
+        subscriber();
       }
     });
   }

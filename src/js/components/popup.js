@@ -21,6 +21,7 @@ export default class Popup {
           <div class="icon_close"></div>
         </div>
         <h2 class="popup__title"></h2>
+        <form class="popup__form"></form>
       </div>
     </div>
   `;
@@ -63,10 +64,10 @@ export default class Popup {
       popupContent.appendChild(tagTitle);
     }
 
-    if (typeof this._content !== 'undefined') {
-      const domContent = this._content.domElement();
-      popupContent.appendChild(domContent);
-    }
+    // if (typeof this._content !== 'undefined') {
+    //   const domContent = this._content.domElement();
+    //   popupContent.appendChild(domContent);
+    // }
 
     return element;
   }
@@ -79,7 +80,11 @@ export default class Popup {
   }
 
   open() {
-    this._domElement.classList.add(this._classIsOpened());
+
+    // const de = this.domElement();
+    // console.log(de);
+
+    this.domElement().classList.add(this._classIsOpened());
     if (
       typeof this._content !== 'undefined' &&
       typeof this._content.reset !== 'undefined'
@@ -89,6 +94,6 @@ export default class Popup {
   }
 
   close() {
-    this._domElement.classList.remove(this._classIsOpened());
+    this.domElement().classList.remove(this._classIsOpened());
   }
 }

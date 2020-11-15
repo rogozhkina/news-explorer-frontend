@@ -1,17 +1,17 @@
 export default class UserInfo {
-  constructor(selectorName, selectorJob, selectorAvatar) {
+  constructor(selectorName, selectorEmail, selectorPassword) {
     this._domName = document.querySelector(selectorName);
-    // this._domEmail = document.querySelector(selectorJob);
-    // this._domAvatar = document.querySelector(selectorAvatar);
+    this._domEmail = document.querySelector(selectorEmail);
+    this._domPassword = document.querySelector(selectorPassword);
 
-    this._id = "";
+    this._id = '';
 
-    this._name = "";
-    // this._job = "";
-    // this._avatar = "";
+    this._name = '';
+    this._email = '';
+    this._password = '';
 
     // Для возврата по undo
-    this._prevName = "";
+    // this._prevName = "";
     // this._prevJob = "";
     // this._prevAvatar = "";
   }
@@ -19,7 +19,8 @@ export default class UserInfo {
   // Рисует содержимое на странице
   updateUserInfo() {
     this._domName.textContent = this._name;
-    // this._domJob.textContent = this._job;
+    this._domEmail.textContent = this._email;
+    this._domPassword.textContent = this._password;
     // this._domAvatar.style.backgroundImage = `url(${this._avatar})`;
   }
 
@@ -27,40 +28,40 @@ export default class UserInfo {
     return this._name;
   }
 
-  // job() {
-  //   return this._job;
-  // }
+  email() {
+    return this._email;
+  }
 
-  // avatar() {
-  //   return this._avatar;
-  // }
+  password() {
+    return this._password;
+  }
 
   id() {
     return this._id;
   }
 
   // Сохраняет новые значения
-  setUserInfo(name, job, avatar, id) {
+  // setUserInfo(name, job, avatar, id) {
     // this._prevAvatar = this._avatar;
-    this._prevName = this._name;
+    // this._prevName = this._name;
     // this._prevJob = this._job;
 
-    this._name = name;
+    // this._name = name;
     // this._job = job;
 
     // if (typeof avatar !== "undefined") {
     //   this._avatar = avatar;
     // }
-    if (typeof id !== "undefined") {
-      this._id = id;
-    }
-  }
+  //   if (typeof id !== "undefined") {
+  //     this._id = id;
+  //   }
+  // }
 
   // Возвращает предыдущие значения
   // на случай, если что-то пошло не так
-  undoUserInfo() {
+  // undoUserInfo() {
     // this._avatar = this._prevAvatar;
-    this._name = this._prevName;
+    // this._name = this._prevName;
     // this._job = this._prevJob;
-  }
+  // }
 }

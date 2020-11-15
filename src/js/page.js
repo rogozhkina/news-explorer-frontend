@@ -5,21 +5,21 @@ export default class Page {
     // domEditButton,
     domAuthButton,
     popupAuth,
-    cardList,
+    // newsCardList,
     userInfo,
     // popupAdd,
     // popupUser,
-    userForm,
-    formAdd,
+    // userForm,
+    // formAdd,
     // popupImage,
     // largeImage,
   ) {
     this._api = api;
     // this._domEditButton = domEditButton;
-    this._domAuthButton = domAuthButton;
     this._domRootNode = domRootNode;
+    this._domAuthButton = domAuthButton;
     this._popupAuth = popupAuth;
-    this._cardList = cardList;
+    // this._newsCardList = newsCardList;
     this._userInfo = userInfo;
     // this._popupAdd = popupAdd;
     // this._popupUser = popupUser;
@@ -28,7 +28,7 @@ export default class Page {
     // this._popupImage = popupImage;
     // this._largeImage = largeImage;
     this._onClickEditUser = this._onClickEditUser.bind(this);
-    // this._onClickAddCard = this._onClickAddCard.bind(this);
+    this._onClickAddCard = this._onClickAddCard.bind(this);
     // this._onClickLargeImage = this._onClickLargeImage.bind(this);
     this._onFormSubmitClicked = this._onFormSubmitClicked.bind(this);
     this._onAddSubmitClicked = this._onAddSubmitClicked.bind(this);
@@ -42,8 +42,8 @@ export default class Page {
   _setupLogic() {
     // this._domEditButton.addEventListener("click", this._onClickEditUser);
     this._domAuthButton.addEventListener("click", this._onClickAddCard);
-    this._cardList.subscribeLargeImageClick(this._onClickLargeImage);
-    this._userForm.subscribeSubmit(this._onFormSubmitClicked);
+    // this._cardList.subscribeLargeImageClick(this._onClickLargeImage);
+    // this._userForm.subscribeSubmit(this._onFormSubmitClicked);
     // this._formAdd.subscribeSubmit(this._onAddSubmitClicked);
   }
 
@@ -56,9 +56,9 @@ export default class Page {
     this._popupUser.open();
   }
 
-  // _onClickAddCard() {
-  //   this._popupAdd.open();
-  // }
+  _onClickAddCard() {
+    this._popupAuth.open();
+  }
 
   _onFormSubmitClicked() {
     this._api.updateUserInfo(
@@ -88,28 +88,28 @@ export default class Page {
   }
 
   render() {
-    this._api.getUserInfo((userData) => {
-      this._userInfo.setUserInfo(
-        userData.name,
-        userData.email,
-        userData._id,
-      );
-      this._userInfo.updateUserInfo();
-    });
+    // this._api.getUserInfo((userData) => {
+    //   this._userInfo.setUserInfo(
+    //     userData.name,
+    //     userData.email,
+    //     userData._id,
+    //   );
+    //   this._userInfo.updateUserInfo();
+    // });
 
-    this._api.getInitialCards((cards) => {
-      cards.forEach((card) => {
-        if (card.owner._id != this._userInfo.id()) {
-          return;
-        }
+    // this._api.getInitialCards((cards) => {
+    //   cards.forEach((card) => {
+    //     if (card.owner._id != this._userInfo.id()) {
+    //       return;
+    //     }
 
-        this._cardList.addCard({
-          name: card.name,
-          link: card.link,
-        });
-      });
+    //     this._cardList.addCard({
+    //       name: card.name,
+    //       link: card.link,
+    //     });
+    //   });
 
-      this._cardList.render();
-    });
+      // this._newsCardList.render();
+    // });
   }
 }

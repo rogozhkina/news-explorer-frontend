@@ -1166,9 +1166,6 @@ body {
   display: none;
 }
 
-.popup_is-opened {
-  display: block;
-}
 
 @media screen and (min-width: 622px) {
   .popup {
@@ -1565,4 +1562,13 @@ body {
   .popup__fon {
     display: none;
   }
+}
+
+.button_disabled {
+  opacity: 0.2;
+}
+
+
+.popup_is-opened {
+  display: block;
 }

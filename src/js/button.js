@@ -12,6 +12,7 @@ export default class Button {
     if (this._domElement == null) {
       this._domElement = this._createButton();
     }
+    // console.log(this._domElement);
     return this._domElement;
   }
 
@@ -20,6 +21,8 @@ export default class Button {
     const template = document.createElement('div');
     template.insertAdjacentHTML('beforeend', templateString.trim());
     const element = template.firstElementChild;
+
+
 
     this._additionalClasses.forEach((className) => {
       if (className.length > 0) {
@@ -43,22 +46,23 @@ export default class Button {
     });
   }
 
-  enable(button) {
-    if (typeof button === 'undefined') {
-      button = true;
+  enable(isEnabled) {
+    if (typeof isEnabled === 'undefined') {
+      isEnabled = true;
     }
 
-    if (button) {
-      this._domElement.removeAttribute('disabled');
+    if (isEnabled) {
+      this.domElement().removeAttribute('disabled');
 
       if (this._classDisabled && this._classDisabled.length > 0) {
-        this._domElement.classList.remove(this._classDisabled);
+        this.domElement().classList.remove(this._classDisabled);
       }
     } else {
-      this._domElement.setAttribute('disabled', 'disabled');
+      console.log(isEnabled);
+      this.domElement().setAttribute('disabled', 'disabled');
 
       if (this._classDisabled && this._classDisabled.length > 0) {
-        this._domElement.classList.add(this._classDisabled);
+        this.domElement().classList.add(this._classDisabled);
       }
     }
   }

@@ -65,8 +65,8 @@ export default class NewsCard {
     this.removeListeners();
     this._domElement.remove();
 
-    this._removeSubscribers.forEach((subscrieber) => {
-      subscrieber(this);
+    this._removeSubscribers.forEach((subscriber) => {
+      subscriber(this);
     });
   }
 

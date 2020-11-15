@@ -6,7 +6,7 @@ export default class Form {
     this._validator = null;
 
     if (typeof additionalClasses !== 'object') {
-      additionalClasses = [];
+      this._additionalClasses = [];
     }
 
     this._additionalClasses = additionalClasses;

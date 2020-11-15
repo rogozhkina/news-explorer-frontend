@@ -1,32 +1,32 @@
-export default class CardList {
+export default class NewsCardList {
   constructor(domContainer, cardCreator) {
     this.container = domContainer;
     this._cardCreator = cardCreator;
-    this._cardList = [];
+    this._newsCardList = [];
     this._onImageRemoved = this._onImageRemoved.bind(this);
   }
 
   addCard(cardData) {
     const newCard = this._cardCreator(cardData);
     newCard.subscribeRemove(this._onImageRemoved);
-    this._cardList.push(newCard);
+    this._newsCardList.push(newCard);
   }
 
   _onImageRemoved(card) {
     const newList = [];
-    this._cardList.forEach((object) => {
+    this._newsCardList.forEach((object) => {
       if (card === object) {
         return;
       }
       newList.push(object);
     });
 
-    this._cardList = newList;
+    this._newsCardList = newList;
   }
 
   render() {
     this.container.textContent = ' ';
-    this._cardList.forEach((card) => {
+    this._newsCardList.forEach((card) => {
       const cards = card.domElement();
       this.container.appendChild(cards);
     });

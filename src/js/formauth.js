@@ -15,11 +15,12 @@ export default class FormUser extends Form {
   reset() {
     super.reset();
     this._submit.enable(true);
-    this._submit.rename('Сохранить');
-    const name = this._userInfo.name();
+    this._submit.rename('Войти');
     const email = this._userInfo.email();
-    this._names['username'].setValue(name);
-    this._names.email.setValue(email);
+    const password = this._userInfo.password();
+    // this._names.setValue(name);
+    this._names['email'].setValue(email);
+    // this._names.setValue(password);
   }
 
   _setWaitingAnswer() {
@@ -29,9 +30,9 @@ export default class FormUser extends Form {
 
   _onSubmit() {
     this._setWaitingAnswer();
-    const name = this._names['username'].value();
-    const email = this._names['email'].value();
-    this._userInfo.setUserInfo(name, email);
+    const email = this._names.email.value();
+    const password = this._names.password.value();
+    this._userInfo.setUserInfo(email, password);
     this._userInfo.updateUserInfo();
     this._informSubscribers();
   }
