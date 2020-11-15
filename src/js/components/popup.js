@@ -20,8 +20,6 @@ export default class Popup {
         <div class="popup__close">
           <div class="icon_close"></div>
         </div>
-        <h2 class="popup__title"></h2>
-        <form class="popup__form"></form>
       </div>
     </div>
   `;
@@ -58,16 +56,16 @@ export default class Popup {
     const popupContent = element.querySelector(this._selectorContent());
 
     if (this._title.length > 0) {
-      const tagTitle = document.createElement('h2');
+      const tagTitle = document.createElement('h3');
       tagTitle.classList.add('popup__title');
       tagTitle.textContent = this._title;
       popupContent.appendChild(tagTitle);
     }
 
-    // if (typeof this._content !== 'undefined') {
-    //   const domContent = this._content.domElement();
-    //   popupContent.appendChild(domContent);
-    // }
+    if (typeof this._content !== 'undefined') {
+      const domContent = this._content.domElement();
+      popupContent.appendChild(domContent);
+    }
 
     return element;
   }

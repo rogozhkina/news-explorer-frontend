@@ -1,10 +1,12 @@
 export default class TextInput {
-  constructor(placeholder, name, type, validator) {
+  constructor(type, placeholder, name, validator) {
     this._domInput = null;
+    // this._domSpanMessage = null;
     this._domErrorMessage = null;
+    // this._span = span;
     this._placeholder = placeholder;
     this._name = name;
-    this.type = type;
+    this._type = type;
     this._validator = validator;
     this._subscribers = [];
   }
@@ -18,18 +20,20 @@ export default class TextInput {
   }
 
   _createInput() {
-    const templateString = `<input
+    const templateString = `
+    <input
     required
-    type="text"
-    class="popup__input popup__input_type_name"
+    type="type"
+    class="popup__input input popup__input_type_name"
     />`;
     const template = document.createElement('div');
     template.insertAdjacentHTML('beforeend', templateString.trim());
     const element = template.firstElementChild;
 
+    element.setAttribute('type', this._type);
     element.setAttribute('placeholder', this._placeholder);
     element.setAttribute('name', this._name);
-    element.setAttribute('type', this._type);
+
 
     return element;
   }
@@ -56,6 +60,16 @@ export default class TextInput {
     return this._domInput.value;
   }
 
+
+  // _createSpanMessage() {
+  //   const templateString = `<span class="popup__label"></span>`;
+  //   const template = document.createElement("div");
+  //   template.insertAdjacentHTML("beforeend", templateString.trim());
+  //   const element = template.firstElementChild;
+  //   element.setAttribute("span", this._name);
+  //   return element;
+  // }
+
   _createErrorMessage() {
     const templateString = `<span class="popup__error-message"></span>`;
     const template = document.createElement("div");
@@ -81,14 +95,21 @@ export default class TextInput {
   }
 
   domInput() {
-    if (null == this._domInput) {
+    if (this._domInput == null) {
       this._domInput = this._createInput();
     }
     return this._domInput;
   }
 
+  // domSpanMessage() {
+  //   if (this._domSpanMessage == null) {
+  //     this.domSpanMessage = this._createSpanMessage();
+  //   }
+  //   return this.domSpanMessage;
+  // }
+
   domErrorMessage() {
-    if (null == this._domErrorMessage) {
+    if (this._domErrorMessage == null) {
       this._domErrorMessage = this._createErrorMessage();
     }
     return this._domErrorMessage;
@@ -96,6 +117,7 @@ export default class TextInput {
 
   domElements() {
     const result = [];
+    // result.push(this.domSpanMessage());
     result.push(this.domInput());
     result.push(this.domErrorMessage());
     return result;

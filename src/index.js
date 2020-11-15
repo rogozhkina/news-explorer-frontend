@@ -134,13 +134,13 @@ import UserInfo from './js/userinfo';
     userInfo,
     [
       new TextInput(
-        'Почта',
+        'Введите почту',
         'email',
         'email',
         new InputValidator(2, 30, errorEmptyField, errorWrongLength),
       ),
       new TextInput(
-        'Пароль',
+        'Введите пароль',
         'password',
         'password',
         new InputValidator(2, 30, errorEmptyField, errorWrongLength),
@@ -151,7 +151,7 @@ import UserInfo from './js/userinfo';
       ['popup__button', 'button_type_entry'],
       'popup__button_disabled',
     ),
-    (tagElement, submit, inputs) => new FormValidator(tagElement, submit, inputs),
+    (tagElement, submit, inputs) => {return new FormValidator(tagElement, submit, inputs); },
     ['popup__form'],
   );
 
