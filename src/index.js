@@ -12,6 +12,7 @@ import FormReg from './js/formreg';
 import FormValidator from './js/formvalidator';
 import InputValidator from './js/inputvalidator';
 import Page from './js/page';
+import BlockLink from './js/block-link';
 import Popup from './js/components/popup';
 import TextInput from './js/textinput';
 import UserInfo from './js/userinfo';
@@ -124,15 +125,21 @@ import UserInfo from './js/userinfo';
     ],
     new Button(
       'Войти',
-      ['popup__button', 'button_type_entry'],
+      ['popup__button', 'button_type_entry', 'popup__button_disabled'],
       'popup__button_disabled',
     ),
     (tagElement, submit, inputs) => new FormValidator(tagElement, submit, inputs),
     ['popup__form'],
   );
 
-  const blockLink = document.createElement('div');
-  blockLink.innerHTML = '<h3 class="popup__label"test</h3>';
+
+  const authSubmitButton = new Button(
+    'Зарегистрироваться',
+    ['popup__button', 'button_type_entry'],
+    'popup__button_disabled',
+  );
+
+  // authSubmitButton.enable(false);
 
   const formAuth = new FormAuth(
     userInfo,
@@ -152,11 +159,8 @@ import UserInfo from './js/userinfo';
         new InputValidator(2, 30, errorEmptyField, errorWrongLength),
       ),
     ],
-    new Button(
-      'Зарегистрироваться',
-      ['popup__button', 'button_type_entry'],
-      'popup__button_disabled',
-    ),
+    new BlockLink('registration', 'registration__link', 'или ', 'Зарегистрироваться'),
+    authSubmitButton,
     (tagElement, submit, inputs) => {return new FormValidator(tagElement, submit, inputs); },
     ['popup__form'],
   );
@@ -187,7 +191,6 @@ import UserInfo from './js/userinfo';
     // formSucsess,
     // cardList,
     userInfo,
-    blockLink,
     // popupAdd,
     // popupUser,
     // formEdit,

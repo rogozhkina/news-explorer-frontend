@@ -317,12 +317,12 @@ body {
   font-weight: 500;
 }
 
-
+/*
 .button_disabled {
   color: #000;
   background: #B6BCBF;
   opacity: 0.2;
-}
+} */
 
 /* .input:invalid {
   background-color: #e6e8eb;
@@ -1269,11 +1269,6 @@ body {
   font-size: 36px;
 }
 
-.popup__button_disabled {
-  color: #000;
-  background: #B6BCBF;
-  opacity: 0.2;
-}
 
 @media screen and (min-width: 622px) {
   .popup__button {
@@ -1453,6 +1448,8 @@ body {
   margin-left: 0;
   padding-top: 6px;
   margin: 22px auto 16px;
+  color: #fff;
+  background-color: #2f71e5;
 }
 
 .registration__link {
@@ -1570,12 +1567,19 @@ body {
     display: none;
   }
 }
-
+/*
 .button_disabled {
   opacity: 0.2;
-}
+} */
 
 
 .popup_is-opened {
   display: block;
+}
+
+
+.popup__button_disabled {
+  color: #000;
+  background: #B6BCBF;
+  opacity: 0.2;
 }

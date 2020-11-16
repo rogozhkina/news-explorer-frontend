@@ -1,9 +1,12 @@
 export default class Form {
-  constructor(inputs, submitButton, formValidatorCreator, additionalClasses) {
+  constructor(inputs, link, submitButton, formValidatorCreator, additionalClasses) {
     this._domElement = null;
+    this._link = link;
+    // this._blockLink = null;
     this._inputs = inputs;
     this._formValidatorCreator = formValidatorCreator;
     this._validator = null;
+    // this._link = link;
 
     if (typeof additionalClasses !== 'object') {
       this._additionalClasses = [];
@@ -30,8 +33,19 @@ export default class Form {
     return this._domElement;
   }
 
+//   _createBlockLink() {
+//   const templateString = `<div class="registration">
+//   или
+//   <a class="link registration__link" href=" " target="_blank"
+//     ></a
+//   >
+// </div>`;
+//   }
+
   _createForm() {
     const tagElement = document.createElement('form');
+
+
 
     this._additionalClasses.forEach((className) => {
       tagElement.classList.add(className);
@@ -46,6 +60,8 @@ export default class Form {
 
     tagElement.appendChild(this._submit.domElement());
     this._submit.subscribe(this._onSubmit);
+
+    tagElement.appendChild(this._link.domElement());
 
     this._validator = this._formValidatorCreator(
       tagElement,

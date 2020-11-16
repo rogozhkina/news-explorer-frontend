@@ -26,13 +26,13 @@ export default class FormReg extends Form {
     // this._names.setValue(password);
   }
 
-  _setWaitingAnswer() {
-    this._submit.rename('Сохранение...');
-    this._submit.enable(false);
-  }
+  // _setWaitingAnswer() {
+  //   this._submit.rename('Сохранение...');
+  //   this._submit.enable(false);
+  // }
 
   _onSubmit() {
-    this._setWaitingAnswer();
+    // this._setWaitingAnswer();
     const name = this._names.name.value();
     const email = this._names.email.value();
     const password = this._names.password.value();
