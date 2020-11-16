@@ -104,6 +104,7 @@ import UserInfo from './js/userinfo';
     [
       new TextInput(
         'Имя',
+        'test',
         'username',
         'text',
         new InputValidator(2, 30, errorEmptyField, errorWrongLength),
@@ -130,24 +131,29 @@ import UserInfo from './js/userinfo';
     ['popup__form'],
   );
 
+  const blockLink = document.createElement('div');
+  blockLink.innerHTML = '<h3 class="popup__label"test</h3>';
+
   const formAuth = new FormAuth(
     userInfo,
     [
       new TextInput(
-        'Введите почту',
         'email',
+        'Email',
+        'Введите почту',
         'email',
         new InputValidator(2, 30, errorEmptyField, errorWrongLength),
       ),
       new TextInput(
-        'Введите пароль',
         'password',
+        'Пароль',
+        'Введите пароль',
         'password',
         new InputValidator(2, 30, errorEmptyField, errorWrongLength),
       ),
     ],
     new Button(
-      'Войти',
+      'Зарегистрироваться',
       ['popup__button', 'button_type_entry'],
       'popup__button_disabled',
     ),
@@ -181,6 +187,7 @@ import UserInfo from './js/userinfo';
     // formSucsess,
     // cardList,
     userInfo,
+    blockLink,
     // popupAdd,
     // popupUser,
     // formEdit,

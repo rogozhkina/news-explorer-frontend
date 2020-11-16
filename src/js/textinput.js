@@ -1,9 +1,9 @@
 export default class TextInput {
-  constructor(type, placeholder, name, validator) {
+  constructor(type, spanMessage, placeholder, name, validator) {
     this._domInput = null;
-    // this._domSpanMessage = null;
+    this._domSpanMessage = null;
     this._domErrorMessage = null;
-    // this._span = span;
+    this._spanMessage = spanMessage;
     this._placeholder = placeholder;
     this._name = name;
     this._type = type;
@@ -34,7 +34,6 @@ export default class TextInput {
     element.setAttribute('placeholder', this._placeholder);
     element.setAttribute('name', this._name);
 
-
     return element;
   }
 
@@ -42,7 +41,7 @@ export default class TextInput {
     this.domElements();
     this._domInput.value = text;
 
-    if (typeof triggerChecks === "undefined") {
+    if (typeof triggerChecks === 'undefined') {
       triggerChecks = true;
     }
     if (triggerChecks) {
@@ -60,15 +59,14 @@ export default class TextInput {
     return this._domInput.value;
   }
 
-
-  // _createSpanMessage() {
-  //   const templateString = `<span class="popup__label"></span>`;
-  //   const template = document.createElement("div");
-  //   template.insertAdjacentHTML("beforeend", templateString.trim());
-  //   const element = template.firstElementChild;
-  //   element.setAttribute("span", this._name);
-  //   return element;
-  // }
+  _createSpanMessage() {
+    const templateString = `<span class="popup__label"></span>`;
+    const template = document.createElement("div");
+    template.insertAdjacentHTML("beforeend", templateString.trim());
+    const element = template.firstElementChild;
+    element.textContent = this._spanMessage;
+    return element;
+  }
 
   _createErrorMessage() {
     const templateString = `<span class="popup__error-message"></span>`;
@@ -101,12 +99,12 @@ export default class TextInput {
     return this._domInput;
   }
 
-  // domSpanMessage() {
-  //   if (this._domSpanMessage == null) {
-  //     this.domSpanMessage = this._createSpanMessage();
-  //   }
-  //   return this.domSpanMessage;
-  // }
+  domSpanMessage() {
+    if (this._domSpanMessage == null) {
+      this._domSpanMessage = this._createSpanMessage();
+    }
+    return this._domSpanMessage;
+  }
 
   domErrorMessage() {
     if (this._domErrorMessage == null) {
@@ -117,9 +115,16 @@ export default class TextInput {
 
   domElements() {
     const result = [];
-    // result.push(this.domSpanMessage());
+    // const el2 = this.domSpanMessage();
+    // const el1 = this.domInput();
+    // const el3 = this.domErrorMessage();
+    // result.push(el2);
+    // result.push(el1);
+    // result.push(el3);
+    result.push(this.domSpanMessage());
     result.push(this.domInput());
     result.push(this.domErrorMessage());
+
     return result;
   }
 

@@ -1443,6 +1443,7 @@ body {
   font-weight: 400;
   font-family: 'Inter', Arial, sans-serif;
   color: #2f71e5;
+  display: block;
 }
 
 .button_type_entry {
