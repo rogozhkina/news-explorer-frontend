@@ -22,8 +22,6 @@ export default class Button {
     template.insertAdjacentHTML('beforeend', templateString.trim());
     const element = template.firstElementChild;
 
-
-
     this._additionalClasses.forEach((className) => {
       if (className.length > 0) {
         element.classList.add(className);
