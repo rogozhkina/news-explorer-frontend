@@ -100,37 +100,43 @@ import UserInfo from './js/userinfo';
   // const largeImage = new LargeImage();
   // const popupImage = new PopupImage(largeImage);
 
+  // const link = new BlockLink('registration', 'registration__link', 'или ', 'Зарегистрироваться');
+
   const formReg = new FormReg(
     userInfo,
     [
       new TextInput(
+        'email',
+        'Email',
+        'Введите почту',
+        'email',
+        new InputValidator(2, 30, errorEmptyField, errorWrongLength),
+      ),
+      new TextInput(
+        'password',
+        'Пароль',
+        'Введите пароль',
+        'password',
+        new InputValidator(2, 30, errorEmptyField, errorWrongLength),
+      ),
+      new TextInput(
+        'text',
         'Имя',
-        'test',
-        'username',
+        'Введите свое имя',
         'text',
         new InputValidator(2, 30, errorEmptyField, errorWrongLength),
       ),
-      new TextInput(
-        'Почта',
-        'email',
-        'email',
-        new InputValidator(2, 30, errorEmptyField, errorWrongLength),
-      ),
-      new TextInput(
-        'Пароль',
-        'password',
-        'password',
-        new InputValidator(2, 30, errorEmptyField, errorWrongLength),
-      ),
     ],
+    new BlockLink('registration', 'registration__link', 'или ', 'Войти'),
     new Button(
-      'Войти',
-      ['popup__button', 'button_type_entry', 'popup__button_disabled'],
+      'Button',
+      ['popup__button', 'button_type_entry'],
       'popup__button_disabled',
     ),
-    (tagElement, submit, inputs) => new FormValidator(tagElement, submit, inputs),
+    (tagElement, submit, inputs) => { return new FormValidator(tagElement, submit, inputs); },
     ['popup__form'],
   );
+
 
 
   const authSubmitButton = new Button(
@@ -140,6 +146,8 @@ import UserInfo from './js/userinfo';
   );
 
   // authSubmitButton.enable(false);
+
+
 
   const formAuth = new FormAuth(
     userInfo,
@@ -176,7 +184,10 @@ import UserInfo from './js/userinfo';
   // );
 
   const popupAuth = new Popup('Вход', formAuth);
-  const popupReg = new Popup('Регистрация', formReg);
+  const popupReg = new Popup('Зарегистрироваться', formReg);
+
+  // link.addEventListener('click', popupReg.open);
+
   // const popupSucsess = new Popup('Пользователь успешно зарегистрирован!', formSucsess);
 
   const page = new Page(
@@ -201,5 +212,5 @@ import UserInfo from './js/userinfo';
 
   page.render();
 
-  // popupAuth.open();
+  // popupReg.open();
 }());

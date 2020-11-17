@@ -12,7 +12,7 @@ export default class Button {
     if (this._domElement == null) {
       this._domElement = this._createButton();
     }
-    console.log(this._domElement);
+    // console.log(this._domElement);
     return this._domElement;
   }
 

@@ -1416,6 +1416,10 @@ body {
   margin-top: 56px;
 }
 
+.popup_registration {
+  height: 458px;
+}
+
 .popup_authorization_open {
   display: block;
 }

@@ -79,8 +79,8 @@ export default class Popup {
 
   open() {
 
-    // const de = this.domElement();
-    // console.log(de);
+    const de = this.domElement();
+    console.log(de);
 
     this.domElement().classList.add(this._classIsOpened());
     if (
