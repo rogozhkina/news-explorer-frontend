@@ -55,8 +55,8 @@
           </button>
         </div>
       </div>
-      <div class="popup popup_authorization">
-        <div class="popup__content">
+      <div class="popup popup_authorization popup_disabled">
+        <div class="popup__content popup__content_small">
           <div class="popup__close popup__close_form">
             <div class="icon_close"></div>
           </div>
@@ -93,6 +93,57 @@
               или
               <a class="link registration__link" href=" " target="_blank"
                 >Зарегистрироваться</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="popup popup_authorization popup_disabled">
+        <div class="popup__content popup__content_big">
+          <div class="popup__close popup__close_form">
+            <div class="icon_close"></div>
+          </div>
+          <h2 class="popup__title">Вход</h2>
+          <form class="popup__form">
+            <span class="popup__label">Email</span>
+            <input
+              required
+              type="email"
+              class="popup__input popup__input_type_email user__email"
+              placeholder="Введите почту"
+              name="email"
+            />
+            <span class="popup__error-message" id="email"
+              >Неправильный формат email</span
+            >
+            <span class="popup__label">Пароль</span>
+            <input
+              required
+              type="password"
+              class="popup__input popup__input_type_password user__password"
+              placeholder="Введите пароль"
+              name="password"
+            />
+            <span class="popup__error-message" id="password"></span>
+            <span class="popup__label">Имя</span>
+            <input
+              required
+              type="text"
+              class="popup__input popup__input_type_name user__name"
+              placeholder="Введите свое имя"
+              name="name"
+            />
+            <span class="popup__error-message" id="name"
+              >Неправильный формат email</span
+            <button
+              type="submit"
+              class="button popup__button popup__button_disabled button_type_entry"
+              disabled="disabled"
+            >
+              Зарегистрироваться
+            </button>
+            <div class="registration">
+              или
+              <button type="submit" class="button button_type_entry button_special">Зарегистрироваться</button>
             </div>
           </form>
         </div>
