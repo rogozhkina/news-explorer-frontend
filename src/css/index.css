@@ -1587,3 +1587,19 @@ body {
   background: #B6BCBF;
   opacity: 0.2;
 }
+
+.popup__content_size_m {
+  height: 383px;
+}
+
+.popup__content_size_l {
+  height: 458px;
+}
+
+.popup__content_size_s {
+  height: 182px;
+}
+
+.button_special {
+  border: none;
+}

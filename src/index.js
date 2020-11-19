@@ -183,12 +183,12 @@ import UserInfo from './js/userinfo';
   //   ['popup__form'],
   // );
 
-  const popupAuth = new Popup('Вход', formAuth);
-  const popupReg = new Popup('Зарегистрироваться', formReg);
+  const popupAuth = new Popup('Вход', formAuth, 'popup__content_size_m');
+  const popupReg = new Popup('Зарегистрироваться', formReg, 'popup__content_size_l');
 
   // link.addEventListener('click', popupReg.open);
 
-  // const popupSucsess = new Popup('Пользователь успешно зарегистрирован!', formSucsess);
+  // const popupSucsess = new Popup('Пользователь успешно зарегистрирован!', formSucsess, 'popup__content_size_s');
 
   const page = new Page(
     api,
