@@ -12,7 +12,7 @@ import FormReg from './js/formreg';
 import FormValidator from './js/formvalidator';
 import InputValidator from './js/inputvalidator';
 import Page from './js/page';
-import BlockLink from './js/block-link';
+import BlockButton from './js/blockbutton';
 import Popup from './js/components/popup';
 import TextInput from './js/textinput';
 import UserInfo from './js/userinfo';
@@ -127,12 +127,13 @@ import UserInfo from './js/userinfo';
         new InputValidator(2, 30, errorEmptyField, errorWrongLength),
       ),
     ],
-    new BlockLink('registration', 'registration__link', 'или ', 'Войти'),
+
     new Button(
       'Button',
       ['popup__button', 'button_type_entry'],
       'popup__button_disabled',
     ),
+    new BlockButton('или', 'Войти'),
     (tagElement, submit, inputs) => { return new FormValidator(tagElement, submit, inputs); },
     ['popup__form'],
   );
@@ -147,7 +148,7 @@ import UserInfo from './js/userinfo';
 
   // authSubmitButton.enable(false);
 
-
+  const buttonRegistrationHint = new BlockButton('registration', 'registration__link', 'или ', 'Зарегистрироваться');
 
   const formAuth = new FormAuth(
     userInfo,
@@ -167,7 +168,7 @@ import UserInfo from './js/userinfo';
         new InputValidator(2, 30, errorEmptyField, errorWrongLength),
       ),
     ],
-    new BlockLink('registration', 'registration__link', 'или ', 'Зарегистрироваться'),
+    buttonRegistrationHint,
     authSubmitButton,
     (tagElement, submit, inputs) => {return new FormValidator(tagElement, submit, inputs); },
     ['popup__form'],
@@ -199,6 +200,7 @@ import UserInfo from './js/userinfo';
     // popupSucsess,
     formAuth,
     formReg,
+    buttonRegistrationHint,
     // formSucsess,
     // cardList,
     userInfo,

@@ -5,6 +5,10 @@ export default class Page {
     // domEditButton,
     domAuthButton,
     popupAuth,
+    popupReg,
+    formAuth,
+    formReg,
+    buttonRegistrationHint,
     // newsCardList,
     userInfo,
     // popupAdd,
@@ -36,6 +40,13 @@ export default class Page {
     this._domRootNode.appendChild(this._popupAuth.domElement());
     // this._domRootNode.appendChild(this._popupAdd.domElement());
     // this._domRootNode.appendChild(this._popupImage.domElement());
+
+    buttonRegistrationHint.subscribeClick(()=>{
+        console.log("buttonRegistrationHint");
+        this._popupAuth.open();
+    });
+
+
     this._setupLogic();
   }
 

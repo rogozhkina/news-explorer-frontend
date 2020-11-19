@@ -4,12 +4,12 @@ export default class FormAuth extends Form {
   constructor(
     userInfo,
     inputs,
-    link,
     submitButton,
+    blockButton,
     formValidatorCreator,
     additionalClasses,
   ) {
-    super(inputs, link, submitButton, formValidatorCreator, additionalClasses);
+    super(inputs, submitButton, blockButton, formValidatorCreator, additionalClasses);
     this._userInfo = userInfo;
   }
 

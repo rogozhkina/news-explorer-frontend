@@ -1,8 +1,8 @@
 export default class Form {
-  constructor(inputs, link, submitButton, formValidatorCreator, additionalClasses) {
+  constructor(inputs, submitButton, blockButton, formValidatorCreator, additionalClasses) {
     this._domElement = null;
-    this._link = link;
-    // this._blockLink = null;
+    // this._link = link;
+    this._blockButton = blockButton;
     this._inputs = inputs;
     this._formValidatorCreator = formValidatorCreator;
     this._validator = null;
@@ -42,8 +42,14 @@ export default class Form {
 // </div>`;
 //   }
 
+
+
   _createForm() {
     const tagElement = document.createElement('form');
+
+    // const link = document.createElement('div');
+    // link.classList.add('link');
+    // link.textContent
 
 
 
@@ -61,7 +67,7 @@ export default class Form {
     tagElement.appendChild(this._submit.domElement());
     this._submit.subscribe(this._onSubmit);
 
-    tagElement.appendChild(this._link.domElement());
+    tagElement.appendChild(this._blockButton.domElement());
 
     this._validator = this._formValidatorCreator(
       tagElement,
