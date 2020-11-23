@@ -8,7 +8,6 @@ export default class FormReg extends Form {
     text,
     title,
     buttonClass,
-    // blockButton,
     formValidatorCreator,
     additionalClasses,
   ) {
@@ -20,12 +19,12 @@ export default class FormReg extends Form {
     super.reset();
     this._submit.enable(false);
     // this._submit.rename('Зарегистрироваться');
-    const name = this._userInfo.name();
     const email = this._userInfo.email();
     const password = this._userInfo.password();
-    this._names.name.setValue(name);
+    const name = this._userInfo.name();
     this._names.email.setValue(email);
     this._names.password.setValue(password);
+    this._names.name.setValue(name);
   }
 
   // _setWaitingAnswer() {
@@ -35,10 +34,10 @@ export default class FormReg extends Form {
 
   _onSubmit() {
     // this._setWaitingAnswer();
-    const name = this._names.name.value();
     const email = this._names.email.value();
     const password = this._names.password.value();
-    this._userInfo.setUserInfo(name, email, password);
+    const name = this._names.name.value();
+    this._userInfo.setUserInfo(email, password, name);
     this._userInfo.updateUserInfo();
     this._informSubscribers();
   }

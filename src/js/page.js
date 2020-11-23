@@ -5,14 +5,21 @@ export default class Page {
     domAuthButton,
     formAuth,
     popupAuth,
+    domRegButton,
+    formReg,
+    popupReg,
   ) {
     this._domRootNode = domRootNode;
+    this._userInfo = userInfo;
     this._domAuthButton = domAuthButton;
     this._popupAuth = popupAuth;
     this._formAuth = formAuth;
-    this._userInfo = userInfo;
+    this._domRegButton = domRegButton;
+    this._popupReg = popupReg;
+    this._formReg = formReg;
     this._onClickPopupAuthOpen = this._onClickPopupAuthOpen.bind(this);
-    this._onClickRegistration = this._onClickRegistration.bind(this);
+    this._onClickPopupRegOpen = this._onClickPopupRegOpen.bind(this);
+    this._onClickButtonRegistration = this._onClickButtonRegistration.bind(this);
     this._onFormSubmitClicked = this._onFormSubmitClicked.bind(this);
     this._onAddSubmitClicked = this._onAddSubmitClicked.bind(this);
     this._domRootNode.appendChild(this._popupAuth.domElement());
@@ -21,7 +28,8 @@ export default class Page {
 
   _setupLogic() {
     this._domAuthButton.addEventListener("click", this._onClickPopupAuthOpen);
-    this._formAuth.subscribeBlockButton(this._onClickRegistration);
+    this._domRegButton.addEventListener("click", this._onClickPopupRegOpen);
+    this._formAuth.subscribeBlockButton(this._onClickButtonRegistration);
   }
 
   _onClickPopupAuthOpen() {
@@ -30,8 +38,15 @@ export default class Page {
   }
 
 
-  _onClickRegistration() {
-    alert('_onClickRegistration');
+  _onClickPopupRegOpen() {
+    console.log(this._domRegButton);
+    this._popupReg.open();
+  }
+
+
+  _onClickButtonRegistration() {
+    this._popupAuth.close();
+    this._popupReg.open();
   }
 
   _onFormSubmitClicked() {
