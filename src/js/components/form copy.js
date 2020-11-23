@@ -2,6 +2,7 @@ export default class Form {
   constructor(
     inputs,
     submitButton,
+    // blockButton,
     text,
     title,
     buttonClass,
@@ -10,6 +11,7 @@ export default class Form {
   ) {
     this._domElement = null;
     this._inputs = inputs;
+    // this._blockButton = blockButton;
     this._text = text;
     this._title = title;
     this._buttonClass = buttonClass;
@@ -41,22 +43,21 @@ export default class Form {
   }
 
   _createForm() {
-    const formElement = document.createElement('form');
+    const element = document.createElement('form');
+
     this._additionalClasses.forEach((className) => {
-      formElement.classList.add(className);
+      element.classList.add(className);
     });
 
-    const formTitleElement = document.createElement("span");
-    formTitleElement.classList.add("popup__label");
-    formElement.appendChild(formTitleElement);
     this._inputs.forEach((input) => {
       input.domElements().forEach((tag) => {
-        formElement.appendChild(tag);
+        element.appendChild(tag);
       });
       input.subscribe(this._onFormChanged);
     });
-    formElement.appendChild(this._submit.domElement());
-    this._submit.subscribe(this._onSubmit);
+
+    element.appendChild(this._submit.domElement());
+    // this._submit.subscribe(this._onSubmit);
 
     const templateString = `<div class="blockbutton">
     <p class="blockbutton__text"></p>
@@ -65,23 +66,25 @@ export default class Form {
 
     const template = document.createElement('div');
     template.insertAdjacentHTML('beforeend', templateString.trim());
-    const blockButtonElement = template.firstElementChild;
-    const textElement = blockButtonElement.querySelector('.blockbutton__text');
-    textElement.textContent = this._text;
+    const blockelement = template.firstElementChild;
+    const text = blockelement.querySelector('.registration__text');
+    // text.textContent = this._text;
 
-    const blockButtonActionElement = blockButtonElement.querySelector('.button_special');
-    blockButtonActionElement.textContent = this._title;
-    blockButtonActionElement.classList.add(this._buttonClass);
+    const button = element.querySelector('.button');
+    button.textContent = this._title;
+    button.classList.add(this._buttonClass);
 
-    formElement.appendChild(blockButtonElement);
+    // element.appendChild(this._blockElement.domElement());
+
+    // element.appendChild(this._blockButton.domElement());
 
     this._validator = this._formValidatorCreator(
-      formElement,
+      element,
       this._submit,
       this._inputs,
     );
     this._validator.setEventListeners();
-    return formElement;
+    return element;
   }
 
   _informSubscribers() {

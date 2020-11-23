@@ -49,7 +49,7 @@ import UserInfo from './js/userinfo';
       ),
     ],
     authSubmitButton,
-    'или',
+    'или ',
     'Зарегистрироваться',
     'button_type_registration',
     (tagElement, submit, inputs) => {return new FormValidator(tagElement, submit, inputs); },
