@@ -37,9 +37,9 @@ export default class Button {
 
   _onClick(event) {
     event.preventDefault();
-    this._subscribers.forEach((subscriber) => {
-      if (typeof subscriber === 'function') {
-        subscriber();
+    this._subscribers.forEach((t) => {
+      if (typeof t === 'function') {
+       t();
       }
     });
   }

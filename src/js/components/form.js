@@ -29,8 +29,10 @@ export default class Form {
     });
 
     this._subscribers = [];
+    this._subscribersBlockButton = [];
     this._onFormChanged = this._onFormChanged.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
+    this._onClickBlockButton = this._onClickBlockButton.bind(this);
   }
 
   domElement() {
@@ -73,6 +75,10 @@ export default class Form {
     blockButtonActionElement.textContent = this._title;
     blockButtonActionElement.classList.add(this._buttonClass);
 
+    blockButtonActionElement.addEventListener('click', this._onClickBlockButton);
+
+
+
     formElement.appendChild(blockButtonElement);
 
     this._validator = this._formValidatorCreator(
@@ -84,8 +90,19 @@ export default class Form {
     return formElement;
   }
 
-  _informSubscribers() {
-    this._subscribers.forEach((subscriber) => {
+  _onClickBlockButton(event) {
+    event.preventDefault();
+    this._subscribersBlockButton.forEach((f) => {
+      if (typeof f === 'function') { f(); }
+    });
+  }
+
+  subscribeBlockButton(callback) {
+    this._subscribersBlockButton.push(callback);
+  }
+
+  _informSubscribersBlockButton() {
+    this._subscribersBlockButton.forEach((subscriber) => {
       subscriber();
     });
   }

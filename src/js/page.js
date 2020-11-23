@@ -12,6 +12,7 @@ export default class Page {
     this._formAuth = formAuth;
     this._userInfo = userInfo;
     this._onClickPopupAuthOpen = this._onClickPopupAuthOpen.bind(this);
+    this._onClickRegistration = this._onClickRegistration.bind(this);
     this._onFormSubmitClicked = this._onFormSubmitClicked.bind(this);
     this._onAddSubmitClicked = this._onAddSubmitClicked.bind(this);
     this._domRootNode.appendChild(this._popupAuth.domElement());
@@ -20,11 +21,17 @@ export default class Page {
 
   _setupLogic() {
     this._domAuthButton.addEventListener("click", this._onClickPopupAuthOpen);
+    this._formAuth.subscribeBlockButton(this._onClickRegistration);
   }
 
   _onClickPopupAuthOpen() {
     console.log(this._domAuthButton);
     this._popupAuth.open();
+  }
+
+
+  _onClickRegistration() {
+    alert('_onClickRegistration');
   }
 
   _onFormSubmitClicked() {

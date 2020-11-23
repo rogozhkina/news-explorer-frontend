@@ -8,7 +8,6 @@ export default class FormAuth extends Form {
     text,
     title,
     buttonClass,
-    // blockButton,
     formValidatorCreator,
     additionalClasses,
   ) {
@@ -19,7 +18,6 @@ export default class FormAuth extends Form {
   reset() {
     super.reset();
     this._submit.enable(false);
-    // this._submit.rename('Войти');
     const email = this._userInfo.email();
     const password = this._userInfo.password();
     this._names.email.setValue(email);
