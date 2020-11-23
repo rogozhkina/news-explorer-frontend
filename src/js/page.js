@@ -1,73 +1,29 @@
 export default class Page {
   constructor(
-    api,
     domRootNode,
-    // domEditButton,
-    domAuthButton,
-    popupAuth,
-    popupReg,
-    formAuth,
-    formReg,
-    buttonRegistrationHint,
-    // newsCardList,
     userInfo,
-    // popupAdd,
-    // popupUser,
-    // userForm,
-    // formAdd,
-    // popupImage,
-    // largeImage,
+    domAuthButton,
+    formAuth,
+    popupAuth,
   ) {
-    this._api = api;
-    // this._domEditButton = domEditButton;
     this._domRootNode = domRootNode;
     this._domAuthButton = domAuthButton;
     this._popupAuth = popupAuth;
-    // this._newsCardList = newsCardList;
+    this._formAuth = formAuth;
     this._userInfo = userInfo;
-    // this._popupAdd = popupAdd;
-    // this._popupUser = popupUser;
-    // this._userForm = userForm;
-    // this._formAdd = formAdd;
-    // this._popupImage = popupImage;
-    // this._largeImage = largeImage;
-    this._onClickEditUser = this._onClickEditUser.bind(this);
-    this._onClickAddCard = this._onClickAddCard.bind(this);
-    // this._onClickLargeImage = this._onClickLargeImage.bind(this);
+    this._onClickPopupAuthOpen = this._onClickPopupAuthOpen.bind(this);
     this._onFormSubmitClicked = this._onFormSubmitClicked.bind(this);
     this._onAddSubmitClicked = this._onAddSubmitClicked.bind(this);
-    // this._domRootNode.appendChild(this._popupUser.domElement());
     this._domRootNode.appendChild(this._popupAuth.domElement());
-    // this._domRootNode.appendChild(this._popupAdd.domElement());
-    // this._domRootNode.appendChild(this._popupImage.domElement());
-
-    buttonRegistrationHint.subscribeClick(()=>{
-        console.log("buttonRegistrationHint");
-        this._popupAuth.open();
-    });
-
-
     this._setupLogic();
   }
 
   _setupLogic() {
-    // this._domEditButton.addEventListener("click", this._onClickEditUser);
-    this._domAuthButton.addEventListener("click", this._onClickAddCard);
-    // this._cardList.subscribeLargeImageClick(this._onClickLargeImage);
-    // this._userForm.subscribeSubmit(this._onFormSubmitClicked);
-    // this._formAdd.subscribeSubmit(this._onAddSubmitClicked);
+    this._domAuthButton.addEventListener("click", this._onClickPopupAuthOpen);
   }
 
-  // _onClickLargeImage(cardData) {
-  //   this._largeImage.setImageURL(cardData.link);
-  //   this._popupImage.open();
-  // }
-
-  _onClickEditUser() {
-    this._popupUser.open();
-  }
-
-  _onClickAddCard() {
+  _onClickPopupAuthOpen() {
+    console.log(this._domAuthButton);
     this._popupAuth.open();
   }
 
@@ -99,28 +55,5 @@ export default class Page {
   }
 
   render() {
-    // this._api.getUserInfo((userData) => {
-    //   this._userInfo.setUserInfo(
-    //     userData.name,
-    //     userData.email,
-    //     userData._id,
-    //   );
-    //   this._userInfo.updateUserInfo();
-    // });
-
-    // this._api.getInitialCards((cards) => {
-    //   cards.forEach((card) => {
-    //     if (card.owner._id != this._userInfo.id()) {
-    //       return;
-    //     }
-
-    //     this._cardList.addCard({
-    //       name: card.name,
-    //       link: card.link,
-    //     });
-    //   });
-
-      // this._newsCardList.render();
-    // });
   }
 }

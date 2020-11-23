@@ -5,21 +5,23 @@ export default class FormAuth extends Form {
     userInfo,
     inputs,
     submitButton,
-    blockButton,
+    text,
+    title,
+    buttonClass,
+    // blockButton,
     formValidatorCreator,
     additionalClasses,
   ) {
-    super(inputs, submitButton, blockButton, formValidatorCreator, additionalClasses);
+    super(inputs, submitButton, text, title, buttonClass, formValidatorCreator, additionalClasses);
     this._userInfo = userInfo;
   }
 
   reset() {
     super.reset();
-    // this._submit.enable(true);
-    this._submit.rename('Войти');
+    this._submit.enable(false);
+    // this._submit.rename('Войти');
     const email = this._userInfo.email();
     const password = this._userInfo.password();
-    // this._names.setValue(name);
     this._names.email.setValue(email);
     this._names.password.setValue(password);
   }

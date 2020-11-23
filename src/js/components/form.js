@@ -1,12 +1,23 @@
 export default class Form {
-  constructor(inputs, submitButton, blockButton, formValidatorCreator, additionalClasses) {
+  constructor(
+    inputs,
+    submitButton,
+    // blockButton,
+    text,
+    title,
+    buttonClass,
+    formValidatorCreator,
+    additionalClasses,
+  ) {
     this._domElement = null;
-    // this._link = link;
-    this._blockButton = blockButton;
     this._inputs = inputs;
+    // this._blockButton = blockButton;
+    this._text = text;
+    this._title = title;
+    this._buttonClass = buttonClass;
+    this._submit = submitButton;
     this._formValidatorCreator = formValidatorCreator;
     this._validator = null;
-    // this._link = link;
 
     if (typeof additionalClasses !== 'object') {
       this._additionalClasses = [];
@@ -19,7 +30,6 @@ export default class Form {
       this._names[inputName] = input;
     });
 
-    this._submit = submitButton;
     this._subscribers = [];
     this._onFormChanged = this._onFormChanged.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
@@ -29,53 +39,52 @@ export default class Form {
     if (this._domElement == null) {
       this._domElement = this._createForm();
     }
-
     return this._domElement;
   }
 
-//   _createBlockLink() {
-//   const templateString = `<div class="registration">
-//   или
-//   <a class="link registration__link" href=" " target="_blank"
-//     ></a
-//   >
-// </div>`;
-//   }
-
-
-
   _createForm() {
-    const tagElement = document.createElement('form');
-
-    // const link = document.createElement('div');
-    // link.classList.add('link');
-    // link.textContent
-
-
+    const element = document.createElement('form');
 
     this._additionalClasses.forEach((className) => {
-      tagElement.classList.add(className);
+      element.classList.add(className);
     });
 
     this._inputs.forEach((input) => {
       input.domElements().forEach((tag) => {
-        tagElement.appendChild(tag);
+        element.appendChild(tag);
       });
       input.subscribe(this._onFormChanged);
     });
 
-    tagElement.appendChild(this._submit.domElement());
-    this._submit.subscribe(this._onSubmit);
+    element.appendChild(this._submit.domElement());
+    // this._submit.subscribe(this._onSubmit);
 
-    tagElement.appendChild(this._blockButton.domElement());
+    const templateString = `<div class="blockbutton">
+    <p class="blockbutton__text"></p>
+    <button type="submit" class="button button_special"></button>
+    </div>`;
+
+    const template = document.createElement('div');
+    template.insertAdjacentHTML('beforeend', templateString.trim());
+    const blockelement = template.firstElementChild;
+    const text = blockelement.querySelector('.registration__text');
+    // text.textContent = this._text;
+
+    const button = element.querySelector('.button');
+    button.textContent = this._title;
+    button.classList.add(this._buttonClass);
+
+    // element.appendChild(this._blockElement.domElement());
+
+    // element.appendChild(this._blockButton.domElement());
 
     this._validator = this._formValidatorCreator(
-      tagElement,
+      element,
       this._submit,
       this._inputs,
     );
     this._validator.setEventListeners();
-    return tagElement;
+    return element;
   }
 
   _informSubscribers() {

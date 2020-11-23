@@ -1,5 +1,5 @@
 export default class BlockButton {
-  constructor(text, title) {
+  constructor(text, title, additionalClass) {
     // this._word = word;
     this._text = text;
     // this._blockClass = blockClass;
@@ -13,6 +13,8 @@ export default class BlockButton {
     this._subscribers = [];
     this._onClick = this._onClick.bind(this);
 
+
+    this._additionalClass = additionalClass;
   }
 
   domElement() {
@@ -25,7 +27,7 @@ export default class BlockButton {
   _createBlockButton() {
     const templateString = `<div class="registration">
     <p class="registration__text"></p>
-    <button type="submit" class="button button_type_entry button_special"></button>
+    <button type="submit" class="button button_special"></button>
   </div>`;
     const template = document.createElement('div');
     template.insertAdjacentHTML('beforeend', templateString.trim());
@@ -36,6 +38,8 @@ export default class BlockButton {
 
     const button = element.querySelector('.button');
     button.textContent = this._title;
+    button.classList.add(this._additionalClass);
+
 
 
     // element.classList.add('registration');

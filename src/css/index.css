@@ -1289,6 +1289,7 @@ body {
   height: 20px;
   text-decoration: none;
   margin: 0 auto;
+  display: flex;
 }
 
 @media screen and (min-width: 622px) {
@@ -1602,4 +1603,37 @@ body {
 
 .button_special {
   border: none;
+  background: none;
+  color: #2a65cc;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  width: 70px;
+  font-size: 14px;
+}
+
+.registration__text {
+  color: #000;
+  width: 30px;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+
+.blockbutton {
+  width: 226px;
+  height: 20px;
+  text-decoration: none;
+  margin: 0 auto;
+  display: flex;
+}
+
+
+.blockbutton__text {
+  color: #000;
+  width: 30px;
+  display: flex;
+  margin: 0;
+  padding: 0;
 }
