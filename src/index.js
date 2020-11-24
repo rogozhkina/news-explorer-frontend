@@ -57,7 +57,7 @@ import UserInfo from './js/userinfo';
     ['popup__form'],
   );
 
-  const popupAuth = new Popup('Вход', formAuth, 'popup__content_size_m');
+  // const popupAuth = new Popup('Вход', formReg, 'popup__content_size_m');
 
   const regSubmitButton = new Button(
     'Зарегистрироваться',
@@ -93,12 +93,13 @@ import UserInfo from './js/userinfo';
     regSubmitButton,
     'или ',
     'Войти',
-    'button_type_entry',
+    'button_type_authorization',
     (tagElement, submit, inputs) => {return new FormValidator(tagElement, submit, inputs); },
     ['popup__form'],
   );
 
-  const popupReg = new Popup('Вход', formReg, 'popup__content_size_l');
+  const popupAuth = new Popup('Вход', formAuth, 'popup__content_size_m');
+  const popupReg = new Popup('Зарегистрироваться', formReg, 'popup__content_size_l');
 
   const page = new Page(
     domRootNode,

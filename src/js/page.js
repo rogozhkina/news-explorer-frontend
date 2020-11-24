@@ -23,12 +23,13 @@ export default class Page {
     this._onFormSubmitClicked = this._onFormSubmitClicked.bind(this);
     this._onAddSubmitClicked = this._onAddSubmitClicked.bind(this);
     this._domRootNode.appendChild(this._popupAuth.domElement());
+    this._domRootNode.appendChild(this._popupReg.domElement());
     this._setupLogic();
   }
 
   _setupLogic() {
     this._domAuthButton.addEventListener("click", this._onClickPopupAuthOpen);
-    this._domRegButton.addEventListener("click", this._onClickPopupRegOpen);
+    // this._domRegButton.addEventListener("click", this._onClickPopupRegOpen);
     this._formAuth.subscribeBlockButton(this._onClickButtonRegistration);
   }
 
@@ -45,6 +46,8 @@ export default class Page {
 
 
   _onClickButtonRegistration() {
+    console.log(this._popupAuth);
+    console.log(this._popupReg);
     this._popupAuth.close();
     this._popupReg.open();
   }
