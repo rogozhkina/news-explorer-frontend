@@ -107,6 +107,12 @@ export default class Form {
     });
   }
 
+  _informSubscribers() {
+    this._subscribers.forEach((subscriber) => {
+      subscriber();
+    });
+  }
+
   _onSubmit() {
     this._informSubscribers();
   }
@@ -125,5 +131,9 @@ export default class Form {
       return;
     }
     this._subscribers.push(callback);
+  }
+
+  getInput(name){
+    return this._names[name];
   }
 }

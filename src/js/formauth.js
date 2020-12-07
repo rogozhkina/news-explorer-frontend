@@ -33,8 +33,8 @@ export default class FormAuth extends Form {
     // this._setWaitingAnswer();
     const email = this._names.email.value();
     const password = this._names.password.value();
-    this._userInfo.setUserInfo(email, password);
-    this._userInfo.updateUserInfo();
+    // this._userInfo.setUserInfo(email, password);
+    // this._userInfo.updateUserInfo();
     this._informSubscribers();
   }
 }

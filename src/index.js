@@ -1,5 +1,14 @@
+// const express = require('express');
+
+// const cors = require('cors');
+
+// const app = express();
+
+// app.use(cors());
+
 import './css/index.css';
 
+import Api from './js/api/api';
 import Button from './js/button';
 import Form from './js/components/form';
 import FormAuth from './js/formauth';
@@ -10,14 +19,38 @@ import Page from './js/page';
 import Popup from './js/components/popup';
 import TextInput from './js/textinput';
 import UserInfo from './js/userinfo';
+import NewsApi from './js/api/newsapi';
 
 (function () {
+  // app.use(cors());
   const domRootNode = document.querySelector('.page');
   const domAuthButton = document.querySelector('.button_type_authorization');
   const domRegButton = document.querySelector('.button_type_registration');
+  const domSearchButton = document.querySelector('.button_type_search');
   const errorEmptyField = 'Это обязательное поле';
   const errorWrongLength = 'Должно быть от 2 до 30 символов';
   const errorWrongLink = 'Это не ссылка';
+
+  const api = new Api({
+    baseUrl:
+      process.env.NODE_ENV === 'production'
+        ? 'https://localhost:3000'
+        : 'http://localhost:3000',
+    headers: {
+      authorization: '098deaea-e99e-492d-906f-622aa2508f6d',
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const newsApi = new NewsApi({
+    newsUrl: 'https://newsapi.org/v2/everything',
+    headers: {
+      authorization: '35c6d32499234db7b822ba7bc92a823e',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+
+    },
+  });
 
   const userInfo = new UserInfo(
     '.user__name',
@@ -56,8 +89,6 @@ import UserInfo from './js/userinfo';
     (tagElement, submit, inputs) => {return new FormValidator(tagElement, submit, inputs); },
     ['popup__form'],
   );
-
-  // const popupAuth = new Popup('Вход', formReg, 'popup__content_size_m');
 
   const regSubmitButton = new Button(
     'Зарегистрироваться',
@@ -103,6 +134,8 @@ import UserInfo from './js/userinfo';
 
   const page = new Page(
     domRootNode,
+    api,
+    newsApi,
     userInfo,
     domAuthButton,
     formAuth,
@@ -110,6 +143,7 @@ import UserInfo from './js/userinfo';
     domRegButton,
     formReg,
     popupReg,
+    domSearchButton,
   );
 
   page.render();

@@ -1,6 +1,8 @@
 export default class Page {
   constructor(
     domRootNode,
+    api,
+    newsApi,
     userInfo,
     domAuthButton,
     formAuth,
@@ -8,19 +10,24 @@ export default class Page {
     domRegButton,
     formReg,
     popupReg,
+    domSearchButton,
   ) {
     this._domRootNode = domRootNode;
+    this._api = api;
+    this._newsApi = newsApi;
     this._userInfo = userInfo;
     this._domAuthButton = domAuthButton;
     this._popupAuth = popupAuth;
     this._formAuth = formAuth;
     this._domRegButton = domRegButton;
+    this._domSearchButton = domSearchButton;
     this._popupReg = popupReg;
     this._formReg = formReg;
     this._onClickPopupAuthOpen = this._onClickPopupAuthOpen.bind(this);
     this._onClickPopupRegOpen = this._onClickPopupRegOpen.bind(this);
     this._onClickButtonRegistration = this._onClickButtonRegistration.bind(this);
-    this._onFormSubmitClicked = this._onFormSubmitClicked.bind(this);
+    this._onClickButtonSearch = this._onClickButtonSearch.bind(this);
+    this._onFormRegSubmitClicked = this._onFormRegSubmitClicked.bind(this);
     this._onAddSubmitClicked = this._onAddSubmitClicked.bind(this);
     this._domRootNode.appendChild(this._popupAuth.domElement());
     this._domRootNode.appendChild(this._popupReg.domElement());
@@ -29,54 +36,44 @@ export default class Page {
 
   _setupLogic() {
     this._domAuthButton.addEventListener("click", this._onClickPopupAuthOpen);
-    // this._domRegButton.addEventListener("click", this._onClickPopupRegOpen);
+    this._domSearchButton.addEventListener("click", this._onClickButtonSearch);
     this._formAuth.subscribeBlockButton(this._onClickButtonRegistration);
+
+    this._formReg.subscribeSubmit(this._onFormRegSubmitClicked);
   }
 
   _onClickPopupAuthOpen() {
-    console.log(this._domAuthButton);
     this._popupAuth.open();
   }
 
 
   _onClickPopupRegOpen() {
-    console.log(this._domRegButton);
     this._popupReg.open();
   }
 
 
   _onClickButtonRegistration() {
-    console.log(this._popupAuth);
-    console.log(this._popupReg);
     this._popupAuth.close();
     this._popupReg.open();
   }
 
-  _onFormSubmitClicked() {
-    this._api.updateUserInfo(
-      this._userInfo.name(),
-      // this._userInfo.job(),
-      (data) => {
-        // В случае success
-        // сохраняем и отображаем по второму кругу с использованием информации
-        // от сервера, хотя данные должны совпасть
-        this._userInfo.setUserInfo(data.name);
-        this._userInfo.updateUserInfo(); // отрисовка
-        // Закрытие больше не происходит по подписке popup
-        this._popupUser.close();
-      },
-      () => {
-        // В случае failed
-        this._userInfo.undoUserInfo(); // возврат старых значений
-        this._userInfo.updateUserInfo(); // отрисовка
-        alert("Не удалось сохранить!");
-        this._popupUser.reset();
-      }
-    );
+
+  _onFormRegSubmitClicked() {
+    alert("_onFormSubmitClicked");
+
+    const inputName = this._formReg.getInput("name");
+    const inputEmail = this._formReg.getInput("email");
+    const inputPassword = this._formReg.getInput("password");
+    this._api.signup(inputEmail.value(), inputPassword.value(), inputName.value());
   }
 
   _onAddSubmitClicked() {
     this._popupAdd.close();
+  }
+
+  _onClickButtonSearch() {
+   //alert('klick');
+   this._newsApi.getNews('cake');
   }
 
   render() {

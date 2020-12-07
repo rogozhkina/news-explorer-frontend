@@ -3,30 +3,30 @@ export default class Api {
     this._options = options;
   }
 
-  // signup(name, email, password) {
-  //   return fetch(`${this.options.baseUrl}/signup`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     credentials: 'include',
-  //     body: JSON.stringify({
-  //       name,
-  //       email,
-  //       password,
-  //     }),
-  //   })
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       }
-  //       const json = res.json();
-  //       return json.then(Promise.reject.bind(Promise));
-  //     })
-  //     .catch((err) => {
-  //       throw err;
-  //     });
-  // }
+  signup(email, password, name) {
+    return fetch(`${this._options.baseUrl}/signup`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        email,
+        password,
+        name,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise));
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
 
   // signin(email, password) {
   //   return fetch(`${this.options.baseUrl}/signin`, {

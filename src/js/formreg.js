@@ -32,13 +32,5 @@ export default class FormReg extends Form {
   //   this._submit.enable(false);
   // }
 
-  _onSubmit() {
-    // this._setWaitingAnswer();
-    const email = this._names.email.value();
-    const password = this._names.password.value();
-    const name = this._names.name.value();
-    this._userInfo.setUserInfo(email, password, name);
-    this._userInfo.updateUserInfo();
-    this._informSubscribers();
-  }
+
 }
