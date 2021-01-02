@@ -35,8 +35,8 @@ export default class Page {
   }
 
   _setupLogic() {
-    this._domAuthButton.addEventListener("click", this._onClickPopupAuthOpen);
-    this._domSearchButton.addEventListener("click", this._onClickButtonSearch);
+    this._domAuthButton.addEventListener('click', this._onClickPopupAuthOpen);
+    this._domSearchButton.addEventListener('click', this._onClickButtonSearch);
     this._formAuth.subscribeBlockButton(this._onClickButtonRegistration);
 
     this._formReg.subscribeSubmit(this._onFormRegSubmitClicked);
@@ -46,24 +46,21 @@ export default class Page {
     this._popupAuth.open();
   }
 
-
   _onClickPopupRegOpen() {
     this._popupReg.open();
   }
-
 
   _onClickButtonRegistration() {
     this._popupAuth.close();
     this._popupReg.open();
   }
 
-
   _onFormRegSubmitClicked() {
-    alert("_onFormSubmitClicked");
+    alert('_onFormSubmitClicked');
 
-    const inputName = this._formReg.getInput("name");
-    const inputEmail = this._formReg.getInput("email");
-    const inputPassword = this._formReg.getInput("password");
+    const inputName = this._formReg.getInput('name');
+    const inputEmail = this._formReg.getInput('email');
+    const inputPassword = this._formReg.getInput('password');
     this._api.signup(inputEmail.value(), inputPassword.value(), inputName.value());
   }
 

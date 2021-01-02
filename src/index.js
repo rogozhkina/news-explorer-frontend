@@ -1,11 +1,3 @@
-// const express = require('express');
-
-// const cors = require('cors');
-
-// const app = express();
-
-// app.use(cors());
-
 import './css/index.css';
 
 import Api from './js/api/api';
@@ -21,8 +13,9 @@ import TextInput from './js/textinput';
 import UserInfo from './js/userinfo';
 import NewsApi from './js/api/newsapi';
 
+
+
 (function () {
-  // app.use(cors());
   const domRootNode = document.querySelector('.page');
   const domAuthButton = document.querySelector('.button_type_authorization');
   const domRegButton = document.querySelector('.button_type_registration');
@@ -86,7 +79,7 @@ import NewsApi from './js/api/newsapi';
     'или ',
     'Зарегистрироваться',
     'button_type_registration',
-    (tagElement, submit, inputs) => {return new FormValidator(tagElement, submit, inputs); },
+    (tagElement, submit, inputs) => { return new FormValidator(tagElement, submit, inputs); },
     ['popup__form'],
   );
 
@@ -125,7 +118,7 @@ import NewsApi from './js/api/newsapi';
     'или ',
     'Войти',
     'button_type_authorization',
-    (tagElement, submit, inputs) => {return new FormValidator(tagElement, submit, inputs); },
+    (tagElement, submit, inputs) => { return new FormValidator(tagElement, submit, inputs); },
     ['popup__form'],
   );
 
