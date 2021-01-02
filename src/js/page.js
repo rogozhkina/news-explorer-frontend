@@ -70,7 +70,7 @@ export default class Page {
 
   _onClickButtonSearch() {
    //alert('klick');
-   this._newsApi.getNews('cake');
+   this._newsApi.getNews(keyWord);
   }
 
   render() {

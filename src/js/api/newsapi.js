@@ -4,9 +4,21 @@ export default class NewsApi {
   }
 
   getNews(keyWord) {
-    const url = `${this._options.newsUrl}&?q=${keyWord}&sortBy=popularity&apiKey=${this._options.headers.authorization}`;
+    const url = `${this._options.newsUrl}?q=${keyWord}&sortBy=popularity&apiKey=${this._options.headers.authorization}`;
+
+    // const url = `https://newsapi.org/v2/`;
 
     //https://newsapi.org/v2/everything?q=apple&from=2020-11-25&to=2020-11-25&sortBy=popularity&apiKey=35c6d32499234db7b822ba7bc92a823e
+
+    // const url = 'http://newsapi.org/v2/top-headlines?' +
+    // 'apiKey=35c6d32499234db7b822ba7bc92a823e';
+
+    // const req = new Request(url);
+    // fetch(req)
+    //     .then(function(response) {
+    //         console.log(response.json());
+    //     });
+
     fetch(url, {
       headers: this._options.headers,
     })
