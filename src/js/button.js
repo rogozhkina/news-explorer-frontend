@@ -60,7 +60,6 @@ export default class Button {
         this.domElement().classList.remove(this._classDisabled);
       }
     } else {
-      console.log(isEnabled);
       this.domElement().setAttribute('disabled', 'disabled');
 
       if (this._classDisabled && this._classDisabled.length > 0) {
