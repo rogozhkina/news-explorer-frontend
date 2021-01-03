@@ -5,6 +5,7 @@ import Button from './js/button';
 import Form from './js/components/form';
 import FormAuth from './js/formauth';
 import FormReg from './js/formreg';
+import FormSearch from './js/formsearch';
 import FormValidator from './js/formvalidator';
 import InputValidator from './js/inputvalidator';
 import Page from './js/page';
@@ -122,6 +123,26 @@ import NewsApi from './js/api/newsapi';
     ['popup__form'],
   );
 
+  const formSearch = new FormSearch(
+
+    [
+      new TextInput(
+        'keyWord',
+        'keyWord',
+        'Введите ключевое слово',
+        'keyWord',
+        new InputValidator(2, 30, errorEmptyField, errorWrongLength),
+      ),
+
+    ],
+    regSubmitButton,
+    'или ',
+    'Войти',
+    'button_type_authorization',
+    (tagElement, submit, inputs) => { return new FormValidator(tagElement, submit, inputs); },
+    ['popup__form'],
+  );
+
   const popupAuth = new Popup('Вход', formAuth, 'popup__content_size_m');
   const popupReg = new Popup('Зарегистрироваться', formReg, 'popup__content_size_l');
 
@@ -136,6 +157,7 @@ import NewsApi from './js/api/newsapi';
     domRegButton,
     formReg,
     popupReg,
+    formSearch,
     domSearchButton,
   );
 

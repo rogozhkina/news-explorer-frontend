@@ -10,6 +10,7 @@ export default class Page {
     domRegButton,
     formReg,
     popupReg,
+    formSearch,
     domSearchButton,
   ) {
     this._domRootNode = domRootNode;
@@ -23,6 +24,7 @@ export default class Page {
     this._domSearchButton = domSearchButton;
     this._popupReg = popupReg;
     this._formReg = formReg;
+    this._formSearch = formSearch;
     this._onClickPopupAuthOpen = this._onClickPopupAuthOpen.bind(this);
     this._onClickPopupRegOpen = this._onClickPopupRegOpen.bind(this);
     this._onClickButtonRegistration = this._onClickButtonRegistration.bind(this);

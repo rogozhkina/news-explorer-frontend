@@ -4,13 +4,12 @@ export default class FormSearch extends Form {
   constructor(
     inputs,
     submitButton,
-    text,
     title,
     buttonClass,
     formValidatorCreator,
     additionalClasses,
   ) {
-    super(inputs, submitButton, text, title, buttonClass, formValidatorCreator, additionalClasses);
+    super(inputs, submitButton, title, buttonClass, formValidatorCreator, additionalClasses);
   }
 
   reset() {
