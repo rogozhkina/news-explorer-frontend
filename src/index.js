@@ -11,6 +11,7 @@ import InputValidator from './js/inputvalidator';
 import Page from './js/page';
 import Popup from './js/components/popup';
 import TextInput from './js/textinput';
+import TextInputBindable from './js/textinputbindable';
 import UserInfo from './js/userinfo';
 import NewsApi from './js/api/newsapi';
 
@@ -126,11 +127,9 @@ import NewsApi from './js/api/newsapi';
   const formSearch = new FormSearch(
 
     [
-      new TextInput(
-        'keyWord',
-        'keyWord',
-        'Введите ключевое слово',
-        'keyWord',
+      new TextInputBindable(
+        'news__input',
+        'search',
         new InputValidator(2, 30, errorEmptyField, errorWrongLength),
       ),
 

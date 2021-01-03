@@ -71,10 +71,11 @@ export default class Page {
   }
 
   _onClickButtonSearch() {
-   alert('klick');
+  //  alert('klick');
    const inputKeyWord = this._formSearch.getInput('search');
-   this._newsApi.getNews(inputKeyWord.value());
+   inputKeyWord.domElements();
    console.log(inputKeyWord.value());
+   this._newsApi.getNews(inputKeyWord.value());
   }
 
   render() {
