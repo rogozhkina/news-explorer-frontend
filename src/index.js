@@ -136,11 +136,11 @@ import NewsApi from './js/api/newsapi';
 
     ],
     regSubmitButton,
-    'или ',
-    'Войти',
-    'button_type_authorization',
+
+    'Поиск',
+    'button_type_search',
     (tagElement, submit, inputs) => { return new FormValidator(tagElement, submit, inputs); },
-    ['popup__form'],
+    //['popup__form'],
   );
 
   const popupAuth = new Popup('Вход', formAuth, 'popup__content_size_m');

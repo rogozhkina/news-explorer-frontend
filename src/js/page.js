@@ -71,8 +71,10 @@ export default class Page {
   }
 
   _onClickButtonSearch() {
-   //alert('klick');
-   this._newsApi.getNews(keyWord);
+   alert('klick');
+   const inputKeyWord = this._formSearch.getInput('keyWord');
+   this._newsApi.getNews(inputKeyWord.value());
+   console.log(inputKeyWord.value());
   }
 
   render() {

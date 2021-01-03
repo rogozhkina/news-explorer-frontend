@@ -4,7 +4,7 @@ export default class NewsApi {
   }
 
   getNews(keyWord) {
-    const url = `${this._options.newsUrl}?q=${keyWord}&sortBy=popularity&apiKey=${this._options.headers.authorization}`;
+    const url = `${this._options.newsUrl}?keyWord&sortBy=popularity&pageSize=3&apiKey=${this._options.headers.authorization}`;
 
     // const url = `https://newsapi.org/v2/`;
 
