@@ -28,29 +28,29 @@ export default class Api {
       });
   }
 
-  // signin(email, password) {
-  //   return fetch(`${this.options.baseUrl}/signin`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     credentials: 'include',
-  //     body: JSON.stringify({
-  //       email,
-  //       password,
-  //     }),
-  //   })
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       }
-  //       const json = res.json();
-  //       return json.then(Promise.reject.bind(Promise));
-  //     })
-  //     .catch((err) => {
-  //       throw err;
-  //     });
-  // }
+  signin(email, password) {
+    return fetch(`${this.options.baseUrl}/signin`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise));
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
 
   // logout() {
   //   return fetch(`${this.options.baseUrl}/logout`, {
@@ -95,60 +95,60 @@ export default class Api {
   //     });
   // }
 
-  // getArticles(success) {
-  //   const url = `${this._options.baseUrl}/articles`;
-  //   fetch(url, {
-  //     method: 'GET',
-  //     credentials: 'include',
-  //     headers: this._options.headers,
-  //   })
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       }
-  //       return Promise.reject(`Ошибка: ${res.status}`);
-  //     })
-  //     .then((res) => {
-  //       if (typeof success === 'function') {
-  //         success(res);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
+  getArticles(success) {
+    const url = `${this._options.baseUrl}/articles`;
+    fetch(url, {
+      method: 'GET',
+      credentials: 'include',
+      headers: this._options.headers,
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
+      })
+      .then((res) => {
+        if (typeof success === 'function') {
+          success(res);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
-  // createArticle(article) {
-  //   const url = `${this._options.baseUrl}/articles`;
-  //   fetch(url, {
-  //     method: 'POST',
-  //     credentials: 'include',
-  //     headers: this._options.headers,
-  //     body: JSON.stringify({
-  //       keyword: article.keyword,
-  //       image: article.image,
-  //       link: article.link,
-  //       title: article.title,
-  //       date: article.date,
-  //       text: article.text,
-  //       source: article.source,
-  //     }),
-  //   })
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       }
-  //       return Promise.reject(`Ошибка: ${res.status}`);
-  //     })
-  //     .then((res) => {
-  //       if (typeof success === 'function') {
-  //         success(res);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       throw err;
-  //     });
-  // }
+  createArticle(article) {
+    const url = `${this._options.baseUrl}/articles`;
+    fetch(url, {
+      method: 'POST',
+      credentials: 'include',
+      headers: this._options.headers,
+      body: JSON.stringify({
+        keyword: article.keyword,
+        image: article.image,
+        link: article.link,
+        title: article.title,
+        date: article.date,
+        text: article.text,
+        source: article.source,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
+      })
+      .then((res) => {
+        if (typeof success === 'function') {
+          success(res);
+        }
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
 
   // removeArticle(id) {
   //   const url = `${this._options.baseUrl}/cards/\${id}`;

@@ -12,6 +12,7 @@ export default class Page {
     popupReg,
     formSearch,
     domSearchButton,
+    newsCardList,
   ) {
     this._domRootNode = domRootNode;
     this._api = api;
@@ -25,6 +26,7 @@ export default class Page {
     this._popupReg = popupReg;
     this._formReg = formReg;
     this._formSearch = formSearch;
+    this._newsCardList = newsCardList;
     this._onClickPopupAuthOpen = this._onClickPopupAuthOpen.bind(this);
     this._onClickPopupRegOpen = this._onClickPopupRegOpen.bind(this);
     this._onClickButtonRegistration = this._onClickButtonRegistration.bind(this);
@@ -79,5 +81,19 @@ export default class Page {
   }
 
   render() {
+    this._api.getArticles((cards) => {
+      cards.forEach((card) => {
+        if (card.owner._id != this._userInfo.id()) {
+          return;
+        }
+
+        this._newsCardList.addCard({
+          name: card.name,
+          link: card.link,
+        });
+      });
+
+      this._newsCardList.render();
+    });
   }
 }
