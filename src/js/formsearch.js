@@ -16,12 +16,12 @@ export default class FormSearch extends Form {
     super.reset();
     // this._submit.enable(false);
     // this._submit.rename('Зарегистрироваться');
-    // const email = this._userInfo.email();
+    const keyWord = this._keyWord();
     // const password = this._userInfo.password();
     // const name = this._userInfo.name();
     // this._names.email.setValue(email);
     // this._names.password.setValue(password);
-    // this._names.name.setValue(name);
+    this._names.keyWord.setValue(keyWord);
   }
 
   // _setWaitingAnswer() {
