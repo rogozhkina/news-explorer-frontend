@@ -4,7 +4,12 @@ export default class NewsApi {
   }
 
   getNews(keyWord) {
-    const url = `${this._options.newsUrl}?q=${keyWord}&from=2021-01-01&to=2021-01-03&sortBy=popularity&pageSize=3&apiKey=${this._options.headers.authorization}`;
+    const today = new Date();
+    const beforeToday = new Date(today.getTime() - 7*24*60*1000);
+    const fromDay = beforeToday.toISOString().slice(0,10);
+    const toDay = today.toISOString().slice(0,10);
+
+    const url = `${this._options.newsUrl}?q=${keyWord}&from=${fromDay}&to=${toDay}&sortBy=popularity&pageSize=3&apiKey=${this._options.headers.authorization}`;
 
     // const url = `https://newsapi.org/v2/`;
 
@@ -24,7 +29,7 @@ export default class NewsApi {
     })
       .then((res) => {
         if (res.ok) {
-          console.log('url');
+          console.log(res.json());
           return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`);
@@ -38,4 +43,7 @@ export default class NewsApi {
         console.log(err);
       });
   }
+
+
+
 }
