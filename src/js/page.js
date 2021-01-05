@@ -77,7 +77,9 @@ export default class Page {
   _onClickButtonSearch() {
   //  alert('klick');
     const inputKeyWord = this._formSearch.getInput('search');
+
     inputKeyWord.domElements();
+
     console.log(inputKeyWord.value());
     this._newsApi.getNews(inputKeyWord.value(), (data) => {
       console.log("result");

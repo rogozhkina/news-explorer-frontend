@@ -9,7 +9,7 @@ export default class NewsApi {
     const fromDay = beforeToday.toISOString().slice(0,10);
     const toDay = today.toISOString().slice(0,10);
 
-    const url = `${this._options.newsUrl}?q=${keyWord}&from=${fromDay}&to=${toDay}&sortBy=popularity&pageSize=3&apiKey=${this._options.headers.authorization}`;
+    const url = `${this._options.newsUrl}?q=${keyWord}&from=${fromDay}&to=${toDay}&sortBy=popularity&pageSize=100&apiKey=${this._options.headers.authorization}`;
 
     // const url = `https://newsapi.org/v2/`;
 
