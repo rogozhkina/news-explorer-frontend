@@ -10,7 +10,7 @@
     />
     <meta name="author" content="Наталья Рогожкина" />
     <title>news-explorer</title>
-    <link rel="stylesheet" href="./css/index.177feb9cdec488e85c42.css" />
+    <link rel="stylesheet" href="./css/index.8f1a131313cc06100304.css" />
     <link type="image/x-icon" rel="icon"
     href="./images/favicon.ico" />
   </head>
@@ -33,7 +33,7 @@
       </div>
     </header>
     <main class="main">
-      <div class="popup popup_menu">
+      <!-- <div class="popup popup_menu">
         <div class="popup__fon">
           <div class="popup__close popup__close_menu">
             <div class="icon_close"></div>
@@ -55,8 +55,8 @@
           </button>
         </div>
       </div>
-      <div class="popup popup_authorization">
-        <div class="popup__content">
+      <div class="popup popup_authorization popup_disabled">
+        <div class="popup__content popup__content_small">
           <div class="popup__close popup__close_form">
             <div class="icon_close"></div>
           </div>
@@ -66,7 +66,7 @@
             <input
               required
               type="email"
-              class="popup__input popup__input_type_email"
+              class="popup__input popup__input_type_email user__email"
               placeholder="Введите почту"
               name="email"
             />
@@ -77,7 +77,7 @@
             <input
               required
               type="password"
-              class="popup__input popup__input_type_password"
+              class="popup__input popup__input_type_password user__password"
               placeholder="Введите пароль"
               name="password"
             />
@@ -92,12 +92,62 @@
             <div class="registration">
               или
               <a class="link registration__link" href=" " target="_blank"
-                >Зарегистрироваться</a
-              >
+                >Зарегистрироваться</a>
             </div>
           </form>
         </div>
       </div>
+      <div class="popup popup_authorization popup_disabled">
+        <div class="popup__content popup__content_big">
+          <div class="popup__close popup__close_form">
+            <div class="icon_close"></div>
+          </div>
+          <h2 class="popup__title">Вход</h2>
+          <form class="popup__form">
+            <span class="popup__label">Email</span>
+            <input
+              required
+              type="email"
+              class="popup__input popup__input_type_email user__email"
+              placeholder="Введите почту"
+              name="email"
+            />
+            <span class="popup__error-message" id="email"
+              >Неправильный формат email</span
+            >
+            <span class="popup__label">Пароль</span>
+            <input
+              required
+              type="password"
+              class="popup__input popup__input_type_password user__password"
+              placeholder="Введите пароль"
+              name="password"
+            />
+            <span class="popup__error-message" id="password"></span>
+            <span class="popup__label">Имя</span>
+            <input
+              required
+              type="text"
+              class="popup__input popup__input_type_name user__name"
+              placeholder="Введите свое имя"
+              name="name"
+            />
+            <span class="popup__error-message" id="name"
+              >Неправильный формат email</span>
+            <button
+              type="submit"
+              class="button popup__button popup__button_disabled button_type_entry"
+              disabled="disabled"
+            >
+              Зарегистрироваться
+            </button>
+            <div class="registration">
+              или
+              <button type="submit" class="button button_type_entry button_special">Зарегистрироваться</button>
+            </div>
+          </form>
+        </div>
+      </div> -->
       <section class="news">
         <h1 class="title news__title">Что творится в мире?</h1>
         <p class="text news__text">
@@ -301,6 +351,6 @@
         </ul>
       </div>
     </footer>
-    <script type="module" src="./js/index.c05c30ad378b07eb8163.js"></script>
+    <script type="module" src="./js/index.24c154e359d62ac2c9fc.js"></script>
   </body>
 </html>
