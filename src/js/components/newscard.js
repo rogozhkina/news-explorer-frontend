@@ -34,9 +34,9 @@ export default class NewsCard {
     card.querySelector('.article-card__text').textContent = this._cardData.text;
     card.querySelector('.article-card__source').textContent = this._cardData.source;
 
-    // const cardImage = placeCard.querySelector('.article-card__image');
+    const cardImage = card.querySelector('.article-card__image');
 
-    card.style.backgroundImage = `url(${this._cardData.urlToImage})`;
+    cardImage.style.backgroundImage = `url(${this._cardData.urlToImage})`;
 
     // card.addEventListener('click', this._onImageClick);
 
