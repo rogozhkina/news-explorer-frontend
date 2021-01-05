@@ -44,14 +44,16 @@ export default class NewsCard {
     this._saveButton.addEventListener('click', this.save);
 
     this._deleteButton = card.querySelector('.article-card__delete-icon');
-    this._deleteButton.addEventListener('click', this.remove);
+    if(this._deleteButton) {
+      this._deleteButton.addEventListener('click', this.remove);
+    }
 
     return card;
   }
 
   domElement() {
     if (this._domElement == null) {
-      this._domElement = this._createCard();
+      this._domElement = this._createNewsCard();
     }
     return this._domElement;
   }
@@ -71,7 +73,9 @@ export default class NewsCard {
   }
 
   removeListeners() {
-    this._deleteButton.removeEventListener('click', this.remove);
+    if(this._deleteButton) {
+      this._deleteButton.removeEventListener('click', this.remove);
+    }
     this._saveButton.removeEventListener('click', this.save);
 
     // const cardImage = this._domElement.querySelector('.place-card__image');

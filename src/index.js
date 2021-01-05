@@ -26,7 +26,6 @@ import NewsCardList from './js/components/newscardlist';
   const errorEmptyField = 'Это обязательное поле';
   const errorWrongLength = 'Должно быть от 2 до 30 символов';
   //const errorWrongLink = 'Это не ссылка';
-  const domNewsCardListContainer = document.querySelector('.articles__list');
 
   const api = new Api({
     baseUrl:
@@ -148,11 +147,19 @@ import NewsCardList from './js/components/newscardlist';
   const popupAuth = new Popup('Вход', formAuth, 'popup__content_size_m');
   const popupReg = new Popup('Зарегистрироваться', formReg, 'popup__content_size_l');
 
-  const newsCardList = new NewsCardList(domNewsCardListContainer, (cardData) => {
+  const domSavedNewsListContainer = document.querySelector('.articles__list_saved');
+  const savedCardList = new NewsCardList(domSavedNewsListContainer, (cardData) => {
     const newsCard = new NewsCard(cardData);
     return newsCard;
   });
 
+  const domSearchResultListContainer = document.querySelector('.articles__list_search');
+  const resultCardList = new NewsCardList(domSearchResultListContainer, (cardData) => {
+    const newsCard = new NewsCard(cardData);
+    return newsCard;
+  });
+
+  // страница результатов поиска
   const page = new Page(
     domRootNode,
     api,
@@ -166,8 +173,9 @@ import NewsCardList from './js/components/newscardlist';
     popupReg,
     formSearch,
     domSearchButton,
-    newsCardList,
+    savedCardList,
+    resultCardList,
   );
 
-  page.render();
+  page.renderSearchPage();
 }());

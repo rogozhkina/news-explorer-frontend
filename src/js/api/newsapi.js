@@ -3,7 +3,7 @@ export default class NewsApi {
     this._options = options;
   }
 
-  getNews(keyWord) {
+  getNews(keyWord, fSuccess) {
     const today = new Date();
     const beforeToday = new Date(today.getTime() - 7*24*60*1000);
     const fromDay = beforeToday.toISOString().slice(0,10);
@@ -29,17 +29,17 @@ export default class NewsApi {
     })
       .then((res) => {
         if (res.ok) {
-          console.log(res.json());
           return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`);
       })
-      .then((res) => {
-        if (typeof success === 'function') {
-          success(res);
+      .then((data) => {
+        if (typeof fSuccess === 'function') {
+          fSuccess(data);
         }
       })
       .catch((err) => {
+        console.log("error:");
         console.log(err);
       });
   }

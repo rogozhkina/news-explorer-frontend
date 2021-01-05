@@ -12,7 +12,8 @@ export default class Page {
     popupReg,
     formSearch,
     domSearchButton,
-    newsCardList,
+    savedCardList,
+    newsResultList,
   ) {
     this._domRootNode = domRootNode;
     this._api = api;
@@ -26,7 +27,8 @@ export default class Page {
     this._popupReg = popupReg;
     this._formReg = formReg;
     this._formSearch = formSearch;
-    this._newsCardList = newsCardList;
+    this._savedCardList = savedCardList;
+    this._newsResultList = newsResultList;
     this._onClickPopupAuthOpen = this._onClickPopupAuthOpen.bind(this);
     this._onClickPopupRegOpen = this._onClickPopupRegOpen.bind(this);
     this._onClickButtonRegistration = this._onClickButtonRegistration.bind(this);
@@ -74,26 +76,56 @@ export default class Page {
 
   _onClickButtonSearch() {
   //  alert('klick');
-   const inputKeyWord = this._formSearch.getInput('search');
-   inputKeyWord.domElements();
-   console.log(inputKeyWord.value());
-   this._newsApi.getNews(inputKeyWord.value());
+    const inputKeyWord = this._formSearch.getInput('search');
+    inputKeyWord.domElements();
+    console.log(inputKeyWord.value());
+    this._newsApi.getNews(inputKeyWord.value(), (data) => {
+      console.log("result");
+      console.log(data);
+      if (data.articles) {
+        data.articles.forEach((article) => {
+          this._newsResultList.addCard({
+            title: article.title,
+            urlToImage: article.urlToImage,
+            date: article.publishedAt,
+            text: article.description,
+            source: article.source.name,
+          });
+        });
+        this._newsResultList.render();
+      }
+    });
   }
 
-  render() {
+  renderSavedPage() {
     this._api.getArticles((cards) => {
       cards.forEach((card) => {
         if (card.owner._id != this._userInfo.id()) {
           return;
         }
 
-        this._newsCardList.addCard({
-          name: card.name,
-          link: card.link,
+        this._savedCardList.addCard({
+          title: card.title,
+          date: card.date,
+          text: card.text,
+          source: card.source,
+          urlToImage: card.urlToImage,
         });
       });
 
-      this._newsCardList.render();
+      this._savedCardList.render();
     });
+  }
+
+  renderSearchPage(){
+    // this._newsResultList.addCard({
+    //   title: "Title",
+    //   urlToImage: "http://localhost:8080/images/image_08.png",
+    //   date:"date",
+    //   text:"text",
+    //   source:"source",
+    // });
+
+    this._newsResultList.render();
   }
 }
