@@ -24,6 +24,10 @@ export default class NewsCardList {
     this._newsCardList = newList;
   }
 
+  clear() {
+    this._newsCardList = [];
+  }
+
   render() {
     this.container.textContent = ' ';
     this._newsCardList.forEach((card) => {

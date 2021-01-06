@@ -210,7 +210,12 @@ body {
   font-weight: normal;
 }
 
-.articles {
+.articles_hidden {
+
+  display: none;
+}
+
+.articles_show {
   margin: 0 auto;
 }
 

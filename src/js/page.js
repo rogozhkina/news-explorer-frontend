@@ -74,28 +74,100 @@ export default class Page {
     this._popupAdd.close();
   }
 
+  showStateSearching() {
+    // скрыть результаты
+    this._newsResultList.clear();
+    this._newsResultList.render();
+
+    // показать preloader
+    const preloader = document.querySelector('.preloader_searching');
+    if (!preloader) {
+      return;
+    }
+    preloader.style.display = 'block';
+  }
+
+  showStateNotFound() {
+    // скрыть результаты?
+    this.showPreloaderSearch();
+    // поменять preloader "not found"
+  }
+
+  showPreloaderSearch(b) {
+    if (typeof b === 'undefined') {
+      b = true;
+    }
+    const preloaderSearch = document.querySelector('.preloader_searching');
+    if (!preloaderSearch) {
+      return;
+    }
+    if (b) {
+      preloaderSearch.style.display = 'block';
+    } else {
+      preloaderSearch.style.display = 'none';
+    }
+  }
+
+
+  showResultsSection(bShow) {
+    if (typeof bShow === 'undefined') {
+      bShow = true;
+    }
+    const articlesSection = document.querySelector('.articles');
+    if (bShow) {
+      articlesSection.classList.add('articles_show');
+      articlesSection.classList.remove('articles_hidden');
+    } else {
+      articlesSection.classList.remove('articles_show');
+      articlesSection.classList.add('articles_hidden');
+    }
+  }
+
+  hideResultsSection() {
+    this.showResultsSection(false);
+  }
+
+  showResults(articles) {
+    this.showResultsSection();
+    this.showPreloaderSearch(false);
+
+    this._newsResultList.clear();
+    articles.forEach((article) => {
+      this._newsResultList.addCard({
+        title: article.title,
+        urlToImage: article.urlToImage,
+        date: article.publishedAt,
+        text: article.description,
+        source: article.source.name,
+      });
+    });
+    this._newsResultList.render();
+  }
+
   _onClickButtonSearch() {
   //  alert('klick');
     const inputKeyWord = this._formSearch.getInput('search');
-
     inputKeyWord.domElements();
+    const requestText = inputKeyWord.value();
+    console.log(requestText);
 
-    console.log(inputKeyWord.value());
-    this._newsApi.getNews(inputKeyWord.value(), (data) => {
-      console.log("result");
+    if (requestText.length < 2) {
+      alert('Необходимо ввести ключевое слово!');
+      return;
+    }
+
+    this.showStateSearching();
+    this.hideResultsSection();
+
+    this._newsApi.getNews(requestText, (data) => {
+      console.log('result');
       console.log(data);
-      if (data.articles) {
-        data.articles.forEach((article) => {
-          this._newsResultList.addCard({
-            title: article.title,
-            urlToImage: article.urlToImage,
-            date: article.publishedAt,
-            text: article.description,
-            source: article.source.name,
-          });
-        });
-        this._newsResultList.render();
+
+      if (!data.articles || data.articles.length === 0) {
+        alert('News not found');
+        return;
       }
+      this.showResults(data.articles);
     });
   }
 
@@ -119,7 +191,7 @@ export default class Page {
     });
   }
 
-  renderSearchPage(){
+  renderSearchPage() {
     // this._newsResultList.addCard({
     //   title: "Title",
     //   urlToImage: "http://localhost:8080/images/image_08.png",
