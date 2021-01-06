@@ -12,6 +12,7 @@ export default class Page {
     popupReg,
     formSearch,
     domSearchButton,
+    domMoreButton,
     savedCardList,
     newsResultList,
   ) {
@@ -24,6 +25,7 @@ export default class Page {
     this._formAuth = formAuth;
     this._domRegButton = domRegButton;
     this._domSearchButton = domSearchButton;
+    this._domMoreButton = domMoreButton;
     this._popupReg = popupReg;
     this._formReg = formReg;
     this._formSearch = formSearch;
@@ -35,14 +37,19 @@ export default class Page {
     this._onClickButtonSearch = this._onClickButtonSearch.bind(this);
     this._onFormRegSubmitClicked = this._onFormRegSubmitClicked.bind(this);
     this._onAddSubmitClicked = this._onAddSubmitClicked.bind(this);
+    this._onClickButtonMore = this._onClickButtonMore.bind(this);
     this._domRootNode.appendChild(this._popupAuth.domElement());
     this._domRootNode.appendChild(this._popupReg.domElement());
     this._setupLogic();
+
+    this._lastArticlesResult = null;
+    this._totalArticlesShown = 0;
   }
 
   _setupLogic() {
     this._domAuthButton.addEventListener('click', this._onClickPopupAuthOpen);
     this._domSearchButton.addEventListener('click', this._onClickButtonSearch);
+    this._domMoreButton.addEventListener('click', this._onClickButtonMore);
     this._formAuth.subscribeBlockButton(this._onClickButtonRegistration);
 
     this._formReg.subscribeSubmit(this._onFormRegSubmitClicked);
@@ -108,7 +115,6 @@ export default class Page {
     }
   }
 
-
   showResultsSection(bShow) {
     if (typeof bShow === 'undefined') {
       bShow = true;
@@ -127,12 +133,25 @@ export default class Page {
     this.showResultsSection(false);
   }
 
-  showResults(articles) {
+  showMoreButton(bShow) {
+    if (typeof bShow === 'undefined') {
+      bShow = true;
+    }
+    if (bShow) {
+      this._domMoreButton.style.display='block';
+    } else {
+      this._domMoreButton.style.display='none';
+    }
+  }
+
+
+  showFirst3Results(articles) {
     this.showResultsSection();
     this.showPreloaderSearch(false);
 
     this._newsResultList.clear();
-    articles.forEach((article) => {
+    let i = 0;
+    articles.every((article) => {
       this._newsResultList.addCard({
         title: article.title,
         urlToImage: article.urlToImage,
@@ -140,9 +159,34 @@ export default class Page {
         text: article.description,
         source: article.source.name,
       });
+      i++;
+      return i < 3;
     });
     this._newsResultList.render();
+    this._totalArticlesShown = 3;
+    this.showMoreButton(articles.length > 3);
   }
+
+  _appendResults(articles, from, howMany) {
+    const l = articles.length;
+    if(from >= l) {
+      return;
+    }
+
+    for(let n=0; n < howMany && (from < l-n); n++) {
+      const article = articles[from + n];
+      this._newsResultList.addCard({
+        title: article.title,
+        urlToImage: article.urlToImage,
+        date: article.publishedAt,
+        text: article.description,
+        source: article.source.name,
+      });
+    }
+    this._newsResultList.render();
+  }
+
+
 
   _onClickButtonSearch() {
   //  alert('klick');
@@ -167,9 +211,22 @@ export default class Page {
         alert('News not found');
         return;
       }
-      this.showResults(data.articles);
+
+      this._lastArticlesResult = data.articles;
+      this.showFirst3Results(this._lastArticlesResult);
     });
   }
+
+  _onClickButtonMore() {
+      this._appendResults(this._lastArticlesResult, this._totalArticlesShown, 3);
+      this._totalArticlesShown += 3;
+
+      if(this._totalArticlesShown >= this._lastArticlesResult.length){
+        // скрыть кнопку more
+        this.showMoreButton(false);
+      }
+  }
+
 
   renderSavedPage() {
     this._api.getArticles((cards) => {
