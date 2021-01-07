@@ -219,6 +219,16 @@ body {
   margin: 0 auto;
 }
 
+
+.preloader__title {
+  width: 300px;
+  font-family: 'Robotoslab', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  margin: 40px auto 16px auto;
+  text-align: center;
+}
+
 .articles__title {
   width: 285px;
   font-family: 'Robotoslab', Arial, sans-serif;
@@ -227,7 +237,6 @@ body {
   margin: 32px auto 16px auto;
 
 }
-
 
 @media screen and (min-width: 622px) {
   .articles__title {
@@ -1332,6 +1341,21 @@ body {
   }
 }
 
+.icon_notfound {
+  width: 96px;
+  height: 96px;
+  margin: 60px auto 0 auto;
+  /* position: absolute; */
+  cursor: pointer;
+  /* transform: scale(-1, 1); */
+  background-image: url(../images/icons/not-found_v1.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  border: none;
+
+}
+
 .icon_close {
   width: 24px;
   height: 24px;
@@ -1345,6 +1369,7 @@ body {
   border: none;
   position: absolute;
 }
+
 
 
 @media screen and (min-width: 622px) {
@@ -1576,6 +1601,18 @@ body {
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+
+.preloader_notfound {
+  width: 100%;
+  margin: 0;
+  height: 374px;
+  /* padding-top: 80px; */
+  /* min-height: 100vh; */
+  background-color: #f5f6f7;
+  overflow: hidden;
+  display: none;
 }
 
 .preloader__message {

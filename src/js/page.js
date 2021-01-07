@@ -98,6 +98,7 @@ export default class Page {
     // скрыть результаты?
     this.showPreloaderSearch();
     // поменять preloader "not found"
+    const preloaderNotFound = document.querySelector('.preloader_notfound');
   }
 
   showPreloaderSearch(b) {
@@ -208,7 +209,11 @@ export default class Page {
       console.log(data);
 
       if (!data.articles || data.articles.length === 0) {
-        alert('News not found');
+        const preloaderSearch = document.querySelector('.preloader_searching');
+        const preloaderNotFound = document.querySelector('.preloader_notfound');
+        // alert('News not found');
+        preloaderSearch.style.display = 'none';
+        preloaderNotFound.style.display = 'block';
         return;
       }
 
