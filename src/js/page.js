@@ -38,6 +38,8 @@ export default class Page {
     this._onFormRegSubmitClicked = this._onFormRegSubmitClicked.bind(this);
     this._onAddSubmitClicked = this._onAddSubmitClicked.bind(this);
     this._onClickButtonMore = this._onClickButtonMore.bind(this);
+    this._onClickSave = this._onClickSave.bind(this);
+    this._onClickRemove = this._onClickRemove.bind(this);
     this._domRootNode.appendChild(this._popupAuth.domElement());
     this._domRootNode.appendChild(this._popupReg.domElement());
     this._setupLogic();
@@ -145,6 +147,11 @@ export default class Page {
     }
   }
 
+  formatDate(d) {
+    const date = new Date(d);
+    return `${date.getDay()} ${date.getMonth()}, ${date.getFullYear()}`;
+  }
+
 
   showFirst3Results(articles) {
     this.showResultsSection();
@@ -153,13 +160,7 @@ export default class Page {
     this._newsResultList.clear();
     let i = 0;
     articles.every((article) => {
-      this._newsResultList.addCard({
-        title: article.title,
-        urlToImage: article.urlToImage,
-        date: article.publishedAt,
-        text: article.description,
-        source: article.source.name,
-      });
+      this._createCardFromArticle(article);
       i++;
       return i < 3;
     });
@@ -176,16 +177,45 @@ export default class Page {
 
     for(let n=0; n < howMany && (from < l-n); n++) {
       const article = articles[from + n];
-      this._newsResultList.addCard({
-        title: article.title,
-        urlToImage: article.urlToImage,
-        date: article.publishedAt,
-        text: article.description,
-        source: article.source.name,
-      });
+      this._createCardFromArticle(article);
     }
     this._newsResultList.render();
   }
+
+  _createCardFromArticle(article){
+    const newCard = this._newsResultList.addCard({
+      title: article.title,
+      urlToImage: article.urlToImage,
+      date: this.formatDate(article.publishedAt),
+      text: article.description,
+      source: article.source.name,
+    });
+    newCard.subscribeSave(this._onClickSave);
+    newCard.subscribeRemove(this._onClickRemove);
+    return newCard;
+  }
+
+
+  _onClickSave(newsCard) {
+    const cardData = newsCard.export();
+    console.log(cardData);
+
+    this._api.createArticle({
+        //keyword: cardData.keyword,
+        image: cardData.urlToImage,
+        //link: cardData.link,
+        title: cardData.title,
+        date: cardData.date,
+        text: cardData.text,
+        source: cardData.source,
+      })
+  }
+
+  _onClickRemove(newsCard) {
+    alert("_onClickRemove");
+
+  }
+
 
 
 

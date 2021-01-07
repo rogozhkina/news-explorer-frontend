@@ -10,6 +10,7 @@ export default class NewsCardList {
     const newCard = this._cardCreator(cardData);
     newCard.subscribeRemove(this._onImageRemoved);
     this._newsCardList.push(newCard);
+    return newCard;
   }
 
   _onImageRemoved(card) {

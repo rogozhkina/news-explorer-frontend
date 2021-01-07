@@ -5,6 +5,7 @@ export default class NewsCard {
     this._saveButton = null;
     this._deleteButton = null;
     this._removeSubscribers = [];
+    this._saveSubscribers = [];
     this.save = this.save.bind(this);
     this.remove = this.remove.bind(this);
   }
@@ -44,11 +45,15 @@ export default class NewsCard {
     this._saveButton.addEventListener('click', this.save);
 
     this._deleteButton = card.querySelector('.article-card__delete-icon');
-    if(this._deleteButton) {
+    if (this._deleteButton) {
       this._deleteButton.addEventListener('click', this.remove);
     }
 
     return card;
+  }
+
+  export(){
+    return this._cardData;
   }
 
   domElement() {
@@ -60,6 +65,17 @@ export default class NewsCard {
 
   save() {
     this._saveButton.classList.toggle('article-card__icon_saved');
+    if(this._saveButton.classList.contains('article-card__icon_saved')){
+      // сохранили
+      this._saveSubscribers.forEach((subscriber) => {
+        subscriber(this);
+      });
+    } else {
+      //удалили
+      this._removeSubscribers.forEach((subscriber) => {
+        subscriber(this);
+      });
+    }
   }
 
   remove(event) {
@@ -73,7 +89,7 @@ export default class NewsCard {
   }
 
   removeListeners() {
-    if(this._deleteButton) {
+    if (this._deleteButton) {
       this._deleteButton.removeEventListener('click', this.remove);
     }
     this._saveButton.removeEventListener('click', this.save);
@@ -88,5 +104,12 @@ export default class NewsCard {
       return;
     }
     this._removeSubscribers.push(callback);
+  }
+
+  subscribeSave(callback) {
+    if (typeof callback !== 'function') {
+      return;
+    }
+    this._saveSubscribers.push(callback);
   }
 }
