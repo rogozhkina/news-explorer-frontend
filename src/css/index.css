@@ -651,7 +651,7 @@ body {
   }
 }
 
-.article-card__icon_active {
+.article-card__icon_saved {
   width: 40px;
   height: 40px;
   background: url(../images/icons/Rectangle8_blue.svg);
@@ -660,6 +660,7 @@ body {
   background-position: center;
 }
 
+/*
 .article-card__icon_attention {
   width: 40px;
   height: 40px;
@@ -667,7 +668,7 @@ body {
   background-color: #fff;
   background-repeat: no-repeat;
   background-position: center;
-}
+} */
 
 .article-card__date {
   width: 256px;

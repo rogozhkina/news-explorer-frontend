@@ -59,7 +59,7 @@ export default class NewsCard {
   }
 
   save() {
-    this._saveButton.classList.toggle('article-card__icon_special');
+    this._saveButton.classList.toggle('article-card__icon_saved');
   }
 
   remove(event) {
