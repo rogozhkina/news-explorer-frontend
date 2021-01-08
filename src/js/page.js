@@ -36,6 +36,7 @@ export default class Page {
     this._onClickButtonRegistration = this._onClickButtonRegistration.bind(this);
     this._onClickButtonSearch = this._onClickButtonSearch.bind(this);
     this._onFormRegSubmitClicked = this._onFormRegSubmitClicked.bind(this);
+    this._onFormAuthSubmitClicked = this._onFormAuthSubmitClicked.bind(this);
     this._onAddSubmitClicked = this._onAddSubmitClicked.bind(this);
     this._onClickButtonMore = this._onClickButtonMore.bind(this);
     this._onClickSave = this._onClickSave.bind(this);
@@ -55,6 +56,7 @@ export default class Page {
     this._formAuth.subscribeBlockButton(this._onClickButtonRegistration);
 
     this._formReg.subscribeSubmit(this._onFormRegSubmitClicked);
+    this._formAuth.subscribeSubmit(this._onFormAuthSubmitClicked);
   }
 
   _onClickPopupAuthOpen() {
@@ -68,6 +70,13 @@ export default class Page {
   _onClickButtonRegistration() {
     this._popupAuth.close();
     this._popupReg.open();
+  }
+
+  _onFormAuthSubmitClicked() {
+    const inputEmail = this._formReg.getInput('email');
+    const inputPassword = this._formReg.getInput('password');
+    alert('_onFormAuthSubmitClicked');
+    this._api.signin(inputEmail.value(), inputPassword.value());
   }
 
   _onFormRegSubmitClicked() {
@@ -141,9 +150,9 @@ export default class Page {
       bShow = true;
     }
     if (bShow) {
-      this._domMoreButton.style.display='block';
+      this._domMoreButton.style.display = 'block';
     } else {
-      this._domMoreButton.style.display='none';
+      this._domMoreButton.style.display = 'none';
     }
   }
 
@@ -151,7 +160,6 @@ export default class Page {
     const date = new Date(d);
     return `${date.getDay()} ${date.getMonth()}, ${date.getFullYear()}`;
   }
-
 
   showFirst3Results(articles) {
     this.showResultsSection();
@@ -171,18 +179,18 @@ export default class Page {
 
   _appendResults(articles, from, howMany) {
     const l = articles.length;
-    if(from >= l) {
+    if (from >= l) {
       return;
     }
 
-    for(let n=0; n < howMany && (from < l-n); n++) {
+    for (let n = 0; n < howMany && (from < l - n); n++) {
       const article = articles[from + n];
       this._createCardFromArticle(article);
     }
     this._newsResultList.render();
   }
 
-  _createCardFromArticle(article){
+  _createCardFromArticle(article) {
     const newCard = this._newsResultList.addCard({
       title: article.title,
       urlToImage: article.urlToImage,
@@ -195,32 +203,29 @@ export default class Page {
     return newCard;
   }
 
-
   _onClickSave(newsCard) {
     const cardData = newsCard.export();
     console.log(cardData);
 
     this._api.createArticle({
-        //keyword: cardData.keyword,
-        image: cardData.urlToImage,
-        //link: cardData.link,
-        title: cardData.title,
-        date: cardData.date,
-        text: cardData.text,
-        source: cardData.source,
-      })
+      // keyword: cardData.keyword,
+      image: cardData.urlToImage,
+      // link: cardData.link,
+      title: cardData.title,
+      date: cardData.date,
+      text: cardData.text,
+      source: cardData.source,
+    });
   }
 
   _onClickRemove(newsCard) {
-    alert("_onClickRemove");
-
+    alert('_onClickRemove');
   }
-
-
-
 
   _onClickButtonSearch() {
   //  alert('klick');
+    const preloaderSearch = document.querySelector('.preloader_searching');
+    const preloaderNotFound = document.querySelector('.preloader_notfound');
     const inputKeyWord = this._formSearch.getInput('search');
     inputKeyWord.domElements();
     const requestText = inputKeyWord.value();
@@ -234,13 +239,13 @@ export default class Page {
     this.showStateSearching();
     this.hideResultsSection();
 
+    preloaderNotFound.style.display = 'none';
+
     this._newsApi.getNews(requestText, (data) => {
       console.log('result');
       console.log(data);
 
       if (!data.articles || data.articles.length === 0) {
-        const preloaderSearch = document.querySelector('.preloader_searching');
-        const preloaderNotFound = document.querySelector('.preloader_notfound');
         // alert('News not found');
         preloaderSearch.style.display = 'none';
         preloaderNotFound.style.display = 'block';
@@ -253,15 +258,14 @@ export default class Page {
   }
 
   _onClickButtonMore() {
-      this._appendResults(this._lastArticlesResult, this._totalArticlesShown, 3);
-      this._totalArticlesShown += 3;
+    this._appendResults(this._lastArticlesResult, this._totalArticlesShown, 3);
+    this._totalArticlesShown += 3;
 
-      if(this._totalArticlesShown >= this._lastArticlesResult.length){
-        // скрыть кнопку more
-        this.showMoreButton(false);
-      }
+    if (this._totalArticlesShown >= this._lastArticlesResult.length) {
+      // скрыть кнопку more
+      this.showMoreButton(false);
+    }
   }
-
 
   renderSavedPage() {
     this._api.getArticles((cards) => {

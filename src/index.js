@@ -36,6 +36,7 @@ import NewsCardList from './js/components/newscardlist';
     headers: {
       authorization: '098deaea-e99e-492d-906f-622aa2508f6d',
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
     },
   });
 
@@ -46,7 +47,6 @@ import NewsCardList from './js/components/newscardlist';
       authorization: '35c6d32499234db7b822ba7bc92a823e',
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-
     },
   });
 
