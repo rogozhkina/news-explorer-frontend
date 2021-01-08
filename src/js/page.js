@@ -73,9 +73,9 @@ export default class Page {
   }
 
   _onFormAuthSubmitClicked() {
-    const inputEmail = this._formReg.getInput('email');
-    const inputPassword = this._formReg.getInput('password');
-    alert('_onFormAuthSubmitClicked');
+    const inputEmail = this._formAuth.getInput('email');
+    const inputPassword = this._formAuth.getInput('password');
+    //alert('_onFormAuthSubmitClicked');
     this._api.signin(inputEmail.value(), inputPassword.value());
   }
 

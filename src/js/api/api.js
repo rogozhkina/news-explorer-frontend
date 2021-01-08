@@ -29,7 +29,7 @@ export default class Api {
   }
 
   signin(email, password) {
-    return fetch(`${this.options.baseUrl}/signin`, {
+    return fetch(`${this._options.baseUrl}/signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export default class Api {
   }
 
   logout() {
-    return fetch(`${this.options.baseUrl}/logout`, {
+    return fetch(`${this._options.baseUrl}/logout`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
