@@ -27,13 +27,16 @@ export default class Page {
     this._domSearchButton = domSearchButton;
     this._domMoreButton = domMoreButton;
     this._popupReg = popupReg;
+    //this._popupSucsess = popupSucsess;
     this._formReg = formReg;
     this._formSearch = formSearch;
+    //this._formSucsess = formSucsess;
     this._savedCardList = savedCardList;
     this._newsResultList = newsResultList;
     this._onClickPopupAuthOpen = this._onClickPopupAuthOpen.bind(this);
     this._onClickPopupRegOpen = this._onClickPopupRegOpen.bind(this);
     this._onClickButtonRegistration = this._onClickButtonRegistration.bind(this);
+    this._onClickButtonAuthorization = this._onClickButtonAuthorization.bind(this);
     this._onClickButtonSearch = this._onClickButtonSearch.bind(this);
     this._onFormRegSubmitClicked = this._onFormRegSubmitClicked.bind(this);
     this._onFormAuthSubmitClicked = this._onFormAuthSubmitClicked.bind(this);
@@ -49,14 +52,18 @@ export default class Page {
     this._totalArticlesShown = 0;
   }
 
+
+
+
   _setupLogic() {
     this._domAuthButton.addEventListener('click', this._onClickPopupAuthOpen);
     this._domSearchButton.addEventListener('click', this._onClickButtonSearch);
     this._domMoreButton.addEventListener('click', this._onClickButtonMore);
     this._formAuth.subscribeBlockButton(this._onClickButtonRegistration);
-
+    this._formReg.subscribeBlockButton(this._onClickButtonAuthorization);
     this._formReg.subscribeSubmit(this._onFormRegSubmitClicked);
     this._formAuth.subscribeSubmit(this._onFormAuthSubmitClicked);
+    //this._formSucsess.addEventListener('click', this._onClickPopupAuthOpen);
   }
 
   _onClickPopupAuthOpen() {
@@ -70,6 +77,11 @@ export default class Page {
   _onClickButtonRegistration() {
     this._popupAuth.close();
     this._popupReg.open();
+  }
+
+  _onClickButtonAuthorization() {
+    this._popupReg.close();
+    this._popupAuth.open();
   }
 
   _onFormAuthSubmitClicked() {
