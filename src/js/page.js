@@ -66,7 +66,7 @@ export default class Page {
     this._formReg.subscribeBlockButton(this._onClickButtonAuthorization);
     this._formReg.subscribeSubmit(this._onFormRegSubmitClicked);
     this._formAuth.subscribeSubmit(this._onFormAuthSubmitClicked);
-    this._formSucsess.addEventListener('click', this._onClickPopupAuthOpen);
+    this._formSucsess.subscribeBlockButton(this._onClickButtonAuthorization);
   }
 
   _onClickPopupAuthOpen() {
