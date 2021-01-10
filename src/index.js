@@ -7,6 +7,7 @@ import FormAuth from './js/formauth';
 import FormReg from './js/formreg';
 import FormSearch from './js/formsearch';
 import FormValidator from './js/formvalidator';
+import FormSucsess from './js/formsucsess';
 import InputValidator from './js/inputvalidator';
 import Page from './js/page';
 import Popup from './js/components/popup';
@@ -145,8 +146,15 @@ import NewsCardList from './js/components/newscardlist';
     //['popup__form'],
   );
 
+  const formSucsess = new FormSucsess(
+    'Войти',
+    'button_type_authorization',
+    ['popup__form'],
+  );
+
   const popupAuth = new Popup('Вход', formAuth, 'popup__content_size_m');
-  const popupReg = new Popup('Зарегистрироваться', formReg, 'popup__content_size_l');
+  const popupReg = new Popup('Регистрация', formReg, 'popup__content_size_l');
+  const popupSucsess = new Popup('Пользователь успешно зарегистрирован!', formSucsess, 'popup__content_size_s');
 
   const domSavedNewsListContainer = document.querySelector('.articles__list_saved');
   const savedCardList = new NewsCardList(domSavedNewsListContainer, (cardData) => {
@@ -173,6 +181,8 @@ import NewsCardList from './js/components/newscardlist';
     formReg,
     popupReg,
     formSearch,
+    formSucsess,
+    popupSucsess,
     domSearchButton,
     domMoreButton,
     savedCardList,

@@ -57,8 +57,11 @@ export default class Form {
       });
       input.subscribe(this._onFormChanged);
     });
-    formElement.appendChild(this._submit.domElement());
-    this._submit.subscribe(this._onSubmit);
+
+    if(this._submit && typeof this._submit !== 'undefined'){
+      formElement.appendChild(this._submit.domElement());
+      this._submit.subscribe(this._onSubmit);
+    }
 
     const templateString = `<div class="blockbutton">
     <p class="blockbutton__text"></p>
@@ -76,17 +79,16 @@ export default class Form {
     blockButtonActionElement.classList.add(this._buttonClass);
 
     blockButtonActionElement.addEventListener('click', this._onClickBlockButton);
-
-
-
     formElement.appendChild(blockButtonElement);
 
-    this._validator = this._formValidatorCreator(
-      formElement,
-      this._submit,
-      this._inputs,
-    );
-    this._validator.setEventListeners();
+    if(this._formValidatorCreator && typeof this._formValidatorCreator === 'function'){
+      this._validator = this._formValidatorCreator(
+        formElement,
+        this._submit,
+        this._inputs,
+      );
+      this._validator.setEventListeners();
+    }
     return formElement;
   }
 
@@ -120,7 +122,9 @@ export default class Form {
   _onFormChanged() {}
 
   reset() {
-    this._submit.enable(false);
+    if(this._submit){
+      this._submit.enable(false);
+    }
     this._inputs.forEach((input) => {
       input.reset();
     });
