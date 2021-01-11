@@ -39,6 +39,7 @@ export default class Page {
     this._onClickPopupRegOpen = this._onClickPopupRegOpen.bind(this);
     this._onClickButtonRegistration = this._onClickButtonRegistration.bind(this);
     this._onClickButtonAuthorization = this._onClickButtonAuthorization.bind(this);
+    this._onClickAuthorization = this._onClickAuthorization.bind(this);
     this._onClickButtonSearch = this._onClickButtonSearch.bind(this);
     this._onFormRegSubmitClicked = this._onFormRegSubmitClicked.bind(this);
     this._onFormAuthSubmitClicked = this._onFormAuthSubmitClicked.bind(this);
@@ -46,6 +47,7 @@ export default class Page {
     this._onClickButtonMore = this._onClickButtonMore.bind(this);
     this._onClickSave = this._onClickSave.bind(this);
     this._onClickRemove = this._onClickRemove.bind(this);
+    this._showLoggedMenu = this._showLoggedMenu.bind(this);
     this._domRootNode.appendChild(this._popupAuth.domElement());
     this._domRootNode.appendChild(this._popupReg.domElement());
     this._domRootNode.appendChild(this._popupSucsess.domElement());
@@ -66,7 +68,15 @@ export default class Page {
     this._formReg.subscribeBlockButton(this._onClickButtonAuthorization);
     this._formReg.subscribeSubmit(this._onFormRegSubmitClicked);
     this._formAuth.subscribeSubmit(this._onFormAuthSubmitClicked);
-    this._formSucsess.subscribeBlockButton(this._onClickButtonAuthorization);
+    this._formSucsess.subscribeBlockButton(this._onClickAuthorization);
+  }
+
+  _showLoggedMenu() {
+    const menuUnauth = document.querySelector('.header_unauth');
+    const menuAuth = document.querySelector('.header_auth');
+
+    menuUnauth.style.display = 'none';
+    menuAuth.style.display = 'flex';
   }
 
   _onClickPopupAuthOpen() {
@@ -85,6 +95,12 @@ export default class Page {
   _onClickButtonAuthorization() {
     this._popupReg.close();
     this._popupAuth.open();
+  }
+
+  _onClickAuthorization() {
+    this._popupSucsess.close();
+    this._popupAuth.open();
+    this._showLoggedMenu();
   }
 
   _onFormAuthSubmitClicked() {
@@ -325,4 +341,7 @@ export default class Page {
 
     this._newsResultList.render();
   }
+
+
+
 }

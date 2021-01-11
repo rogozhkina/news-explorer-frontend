@@ -153,7 +153,7 @@ body {
     width: 64px;
     text-decoration: none;
     color: #ffffff;
-    border-bottom: 3px solid #ffffff;
+    //border-bottom: 3px solid #ffffff;
   }
 }
 
@@ -162,10 +162,14 @@ body {
     display: flex;
     padding-top: 29px;
     font-size: 18px;
-    width: 69px;
+    width: 90px;
     font-weight: 500;
-    border-bottom: 3px solid #ffffff;
+    //border-bottom: 3px solid #ffffff;
   }
+}
+
+.header__link_focus {
+  border-bottom: 3px solid #ffffff;
 }
 
 .text {
@@ -1721,4 +1725,78 @@ body {
   margin: 22px auto 16px;
   color: #fff;
   background-color: #2f71e5;
+}
+
+
+@media screen and (min-width: 622px) {
+  .header__nav_saved {
+    display: flex;
+    font-size: 16px;
+    width: 240px;
+    padding-right: 0;
+    justify-content: space-between;
+  }
+}
+
+
+@media screen and (min-width: 1100px) {
+  .header__nav_saved {
+    display: flex;
+    font-size: 16px;
+    width: 281px;
+    padding-right: 20px;
+    justify-content: space-around;
+  }
+}
+
+
+.button__escape {
+  display: none;
+}
+
+
+.button__escape:hover {
+  opacity: .7;
+}
+
+@media screen and (min-width: 622px) {
+  .button__escape {
+    display: grid;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 13px;
+    padding-top: 10px;
+    padding-left: 15px;
+    border: 1px solid #fff;
+    background: url(../images/icons/logout.png) no-repeat;
+    background-repeat: no-repeat;
+    background-position: 80%;
+    margin-right: 40px;
+    outline: none;
+    justify-content: left;
+    cursor: pointer;
+  }
+}
+
+
+@media screen and (min-width: 1100px) {
+  .button__escape {
+
+    width: 112px;
+    height: 48px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 13px;
+    padding-top: 14px;
+    padding-left: 15px;
+    margin-right: 104px;
+
+  }
+}
+
+.header_auth {
+  display: none;
 }
