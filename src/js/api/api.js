@@ -70,10 +70,11 @@ export default class Api {
 
   getUserInfo(success) {
     const url = `${this._options.baseUrl}/users/me`;
+
     fetch(url, {
       method: 'GET',
       credentials: 'include',
-      headers: this._options.headers,
+      //headers: this._options.headers,
     })
       .then((res) => {
         if (res.ok) {
@@ -167,5 +168,12 @@ export default class Api {
       .catch((err) => {
         throw err;
       });
+  }
+
+
+   getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
   }
 }

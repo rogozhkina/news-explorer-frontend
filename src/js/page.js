@@ -79,6 +79,15 @@ export default class Page {
     menuAuth.style.display = 'flex';
   }
 
+  _showNotLoggedMenu() {
+    const menuUnauth = document.querySelector('.header_unauth');
+    const menuAuth = document.querySelector('.header_auth');
+
+    menuUnauth.style.display = 'flex';
+    menuAuth.style.display = 'none';
+  }
+
+
   _onClickPopupAuthOpen() {
     this._popupAuth.open();
   }
@@ -353,8 +362,24 @@ export default class Page {
     //   text:"text",
     //   source:"source",
     // });
-
     this._newsResultList.render();
+
+    // вызов инициализации меню, получение пользователя, установка вида меню
+    this.setupMenuByUserInfo();
+  }
+
+  // получает пользователя
+  // и в зависимости от залогиненности
+  // формирует разное меню
+  setupMenuByUserInfo(){
+    this._api.getUserInfo((res)=>{
+
+        // смотрим res и решаем что показать
+        console.log(res);
+      //      this._showLoggedMenu();
+
+    })
+
   }
 
 
