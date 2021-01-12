@@ -100,14 +100,24 @@ export default class Page {
   _onClickAuthorization() {
     this._popupSucsess.close();
     this._popupAuth.open();
-    this._showLoggedMenu();
   }
 
   _onFormAuthSubmitClicked() {
     const inputEmail = this._formAuth.getInput('email');
     const inputPassword = this._formAuth.getInput('password');
     //alert('_onFormAuthSubmitClicked');
-    this._api.signin(inputEmail.value(), inputPassword.value());
+    this._api.signin(inputEmail.value(), inputPassword.value())
+    .then((body)=>{
+      console.log("ok");
+      this._popupAuth.close();
+      // сделать чтобы страница выглядела как "залогинен"
+      this._showLoggedMenu();
+    })
+    .catch((err)=>{
+      console.log("error-catch");
+      console.log(err);
+      this._popupAuth.close();
+    });
   }
 
   _onFormRegSubmitClicked() {
@@ -122,7 +132,12 @@ export default class Page {
       console.log("ok");
       console.log(body);
       this._popupReg.close();
-})
+      // получить userInfo и заполнить кусочек меню
+
+
+
+
+    })
     .catch((err)=>{
       console.log("error-catch");
       console.log(err);

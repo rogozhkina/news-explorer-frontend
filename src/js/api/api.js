@@ -40,12 +40,8 @@ export default class Api {
         password,
       }),
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        const json = res.json();
-        return json.then(Promise.reject.bind(Promise));
+      .then(() => {
+        return Promise.resolve.bind(Promise);
       })
       .catch((err) => {
         throw err;
