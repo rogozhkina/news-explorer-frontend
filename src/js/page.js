@@ -57,9 +57,6 @@ export default class Page {
     this._totalArticlesShown = 0;
   }
 
-
-
-
   _setupLogic() {
     this._domAuthButton.addEventListener('click', this._onClickPopupAuthOpen);
     this._domSearchButton.addEventListener('click', this._onClickButtonSearch);
@@ -71,12 +68,23 @@ export default class Page {
     this._formSucsess.subscribeBlockButton(this._onClickAuthorization);
   }
 
-  _showLoggedMenu() {
+  _showLoggedMenu(userName) {
     const menuUnauth = document.querySelector('.header_unauth');
     const menuAuth = document.querySelector('.header_auth');
 
     menuUnauth.style.display = 'none';
     menuAuth.style.display = 'flex';
+
+    if(userName.length < 1){
+      return;
+    }
+
+    const userButton = document.querySelector(".button__escape");
+    if(!userButton){
+      return;
+    }
+
+    userButton.innerHTML = userName;
   }
 
   _showNotLoggedMenu() {
@@ -86,7 +94,6 @@ export default class Page {
     menuUnauth.style.display = 'flex';
     menuAuth.style.display = 'none';
   }
-
 
   _onClickPopupAuthOpen() {
     this._popupAuth.open();
@@ -114,45 +121,41 @@ export default class Page {
   _onFormAuthSubmitClicked() {
     const inputEmail = this._formAuth.getInput('email');
     const inputPassword = this._formAuth.getInput('password');
-    //alert('_onFormAuthSubmitClicked');
+    // alert('_onFormAuthSubmitClicked');
     this._api.signin(inputEmail.value(), inputPassword.value())
-    .then((body)=>{
-      console.log("ok");
-      this._popupAuth.close();
-      // сделать чтобы страница выглядела как "залогинен"
-      this._showLoggedMenu();
-    })
-    .catch((err)=>{
-      console.log("error-catch");
-      console.log(err);
-      this._popupAuth.close();
-    });
+      .then((body) => {
+        localStorage.setItem('jwt', body.jwt);
+        this._popupAuth.close();
+        // сделать чтобы страница выглядела как "залогинен"
+        this._showLoggedMenu();
+      })
+      .catch((err) => {
+        console.log('error-catch');
+        console.log(err);
+        this._popupAuth.close();
+      });
   }
 
   _onFormRegSubmitClicked() {
-    //alert('_onFormSubmitClicked');
+    // alert('_onFormSubmitClicked');
 
     const inputName = this._formReg.getInput('name');
     const inputEmail = this._formReg.getInput('email');
     const inputPassword = this._formReg.getInput('password');
-    //const popupSucsess = document.querySelector('.popup_sucsess');
+    // const popupSucsess = document.querySelector('.popup_sucsess');
     this._api.signup(inputEmail.value(), inputPassword.value(), inputName.value())
-    .then((body)=>{
-      console.log("ok");
-      console.log(body);
-      this._popupReg.close();
-      // получить userInfo и заполнить кусочек меню
-
-
-
-
-    })
-    .catch((err)=>{
-      console.log("error-catch");
-      console.log(err);
-      this._popupReg.close();
-      this._popupSucsess.open();
-    });
+      .then((body) => {
+        console.log('ok');
+        console.log(body);
+        this._popupReg.close();
+        // получить userInfo и заполнить кусочек меню
+      })
+      .catch((err) => {
+        console.log('error-catch');
+        console.log(err);
+        this._popupReg.close();
+        this._popupSucsess.open();
+      });
   }
 
   _onAddSubmitClicked() {
@@ -371,17 +374,12 @@ export default class Page {
   // получает пользователя
   // и в зависимости от залогиненности
   // формирует разное меню
-  setupMenuByUserInfo(){
-    this._api.getUserInfo((res)=>{
-
-        // смотрим res и решаем что показать
-        console.log(res);
-      //      this._showLoggedMenu();
-
-    })
-
+  setupMenuByUserInfo() {
+      // смотрим res и решаем что показать
+      this._api.getUserInfo((res) => {
+      this._showLoggedMenu(res.data.name);
+    }, () => {
+      this._showNotLoggedMenu();
+    });
   }
-
-
-
 }

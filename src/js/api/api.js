@@ -40,8 +40,12 @@ export default class Api {
         password,
       }),
     })
-      .then(() => {
-        return Promise.resolve.bind(Promise);
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise));
       })
       .catch((err) => {
         throw err;
@@ -68,13 +72,16 @@ export default class Api {
       });
   }
 
-  getUserInfo(success) {
+  getUserInfo(success, fFailed) {
     const url = `${this._options.baseUrl}/users/me`;
 
     fetch(url, {
       method: 'GET',
       credentials: 'include',
-      //headers: this._options.headers,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
     })
       .then((res) => {
         if (res.ok) {
@@ -86,9 +93,12 @@ export default class Api {
         if (typeof success === 'function') {
           success(res);
         }
+        return Promise.resolve();
       })
       .catch((err) => {
-        console.log(err);
+        if (typeof fFailed === 'function') {
+          fFailed();
+        }
       });
   }
 
@@ -168,12 +178,5 @@ export default class Api {
       .catch((err) => {
         throw err;
       });
-  }
-
-
-   getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
   }
 }
