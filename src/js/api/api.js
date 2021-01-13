@@ -52,35 +52,41 @@ export default class Api {
       });
   }
 
-  logout() {
-    return fetch(`${this._options.baseUrl}/logout`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        const json = res.json();
-        return json.then(Promise.reject.bind(Promise));
-      })
-      .catch((err) => {
-        throw err;
-      });
-  }
+  // logout() {
+  //   return fetch(`${this._options.baseUrl}/logout`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     credentials: 'include',
+  //   })
+  //     .then((res) => {
+  //       if (res.ok) {
+  //         return res.json();
+  //       }
+  //       const json = res.json();
+  //       return json.then(Promise.reject.bind(Promise));
+  //     })
+  //     .catch((err) => {
+  //       throw err;
+  //     });
+  // }
 
   getUserInfo(success, fFailed) {
     const url = `${this._options.baseUrl}/users/me`;
+    const jwt = localStorage.getItem('jwt');
+
+    if (jwt.length < 1 && typeof fFailed === 'function') {
+      fFailed();
+      return;
+    }
 
     fetch(url, {
       method: 'GET',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        Authorization: `Bearer ${jwt}`,
       },
     })
       .then((res) => {

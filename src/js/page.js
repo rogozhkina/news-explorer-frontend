@@ -47,6 +47,7 @@ export default class Page {
     this._onClickButtonMore = this._onClickButtonMore.bind(this);
     this._onClickSave = this._onClickSave.bind(this);
     this._onClickRemove = this._onClickRemove.bind(this);
+    this._onClickLogout = this._onClickLogout.bind(this);
     this._showLoggedMenu = this._showLoggedMenu.bind(this);
     this._domRootNode.appendChild(this._popupAuth.domElement());
     this._domRootNode.appendChild(this._popupReg.domElement());
@@ -66,6 +67,8 @@ export default class Page {
     this._formReg.subscribeSubmit(this._onFormRegSubmitClicked);
     this._formAuth.subscribeSubmit(this._onFormAuthSubmitClicked);
     this._formSucsess.subscribeBlockButton(this._onClickAuthorization);
+    const domExitButton = document.querySelector('.button__escape');
+    domExitButton.addEventListener('click', this._onClickLogout);
   }
 
   _showLoggedMenu(userName) {
@@ -382,4 +385,10 @@ export default class Page {
       this._showNotLoggedMenu();
     });
   }
+
+  _onClickLogout() {
+    localStorage.setItem("jwt","");
+    this._showNotLoggedMenu();
+  }
+
 }
