@@ -78,12 +78,12 @@ export default class Page {
     menuUnauth.style.display = 'none';
     menuAuth.style.display = 'flex';
 
-    if(userName.length < 1){
+    if (userName.length < 1) {
       return;
     }
 
-    const userButton = document.querySelector(".button__escape");
-    if(!userButton){
+    const userButton = document.querySelector('.button__escape');
+    if (!userButton) {
       return;
     }
 
@@ -341,6 +341,10 @@ export default class Page {
   }
 
   renderSavedPage() {
+    this._newsResultList.render();
+    // вызов инициализации меню, получение пользователя, установка вида меню
+    this.setupMenuByUserInfo();
+
     this._api.getArticles((cards) => {
       cards.forEach((card) => {
         if (card.owner._id != this._userInfo.id()) {
@@ -361,15 +365,7 @@ export default class Page {
   }
 
   renderSearchPage() {
-    // this._newsResultList.addCard({
-    //   title: "Title",
-    //   urlToImage: "http://localhost:8080/images/image_08.png",
-    //   date:"date",
-    //   text:"text",
-    //   source:"source",
-    // });
     this._newsResultList.render();
-
     // вызов инициализации меню, получение пользователя, установка вида меню
     this.setupMenuByUserInfo();
   }
@@ -378,8 +374,8 @@ export default class Page {
   // и в зависимости от залогиненности
   // формирует разное меню
   setupMenuByUserInfo() {
-      // смотрим res и решаем что показать
-      this._api.getUserInfo((res) => {
+    // смотрим res и решаем что показать
+    this._api.getUserInfo((res) => {
       this._showLoggedMenu(res.data.name);
     }, () => {
       this._showNotLoggedMenu();
@@ -387,8 +383,7 @@ export default class Page {
   }
 
   _onClickLogout() {
-    localStorage.setItem("jwt","");
+    localStorage.setItem('jwt', '');
     this._showNotLoggedMenu();
   }
-
 }
