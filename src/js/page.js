@@ -56,6 +56,7 @@ export default class Page {
 
     this._lastArticlesResult = null;
     this._totalArticlesShown = 0;
+    this._lastSearchText = ''; // gоисковый запрос
   }
 
   _setupLogic() {
@@ -86,8 +87,13 @@ export default class Page {
     if (!userButton) {
       return;
     }
-
     userButton.innerHTML = userName;
+
+    const domKwUserInfo = document.querySelector('.saved-info__username');
+    if (!domKwUserInfo) {
+      return;
+    }
+    domKwUserInfo.textContent = userName;
   }
 
   _showNotLoggedMenu() {
@@ -97,6 +103,25 @@ export default class Page {
     menuUnauth.style.display = 'flex';
     menuAuth.style.display = 'none';
   }
+
+  // _showUserName(userName) {
+  //   const menuUnauth = document.querySelector('.header_unauth');
+  //   const menuAuth = document.querySelector('.header_auth');
+
+  //   menuUnauth.style.display = 'none';
+  //   menuAuth.style.display = 'flex';
+
+  //   if (userName.length < 1) {
+  //     return;
+  //   }
+
+  //   const userButton = document.querySelector('.button__escape');
+  //   if (!userButton) {
+  //     return;
+  //   }
+
+  //   userButton.innerHTML = userName;
+  // }
 
   _onClickPopupAuthOpen() {
     this._popupAuth.open();
@@ -267,9 +292,11 @@ export default class Page {
     const newCard = this._newsResultList.addCard({
       title: article.title,
       urlToImage: article.urlToImage,
-      date: this.formatDate(article.publishedAt),
+      date: article.publishedAt,
       text: article.description,
       source: article.source.name,
+      keyword: article.keyword,
+      link: article.url,
     });
     newCard.subscribeSave(this._onClickSave);
     newCard.subscribeRemove(this._onClickRemove);
@@ -281,9 +308,9 @@ export default class Page {
     console.log(cardData);
 
     this._api.createArticle({
-      // keyword: cardData.keyword,
+      keyword: this._lastSearchText,
       image: cardData.urlToImage,
-      // link: cardData.link,
+      link: cardData.link,
       title: cardData.title,
       date: cardData.date,
       text: cardData.text,
@@ -296,7 +323,6 @@ export default class Page {
   }
 
   _onClickButtonSearch() {
-  //  alert('klick');
     const preloaderSearch = document.querySelector('.preloader_searching');
     const preloaderNotFound = document.querySelector('.preloader_notfound');
     const inputKeyWord = this._formSearch.getInput('search');
@@ -326,6 +352,7 @@ export default class Page {
       }
 
       this._lastArticlesResult = data.articles;
+      this._lastSearchText = requestText;
       this.showFirst3Results(this._lastArticlesResult);
     });
   }
@@ -341,27 +368,65 @@ export default class Page {
   }
 
   renderSavedPage() {
-    this._newsResultList.render();
     // вызов инициализации меню, получение пользователя, установка вида меню
     this.setupMenuByUserInfo();
 
     this._api.getArticles((cards) => {
+      const usedKeywords = {};
       cards.forEach((card) => {
-        if (card.owner._id != this._userInfo.id()) {
-          return;
-        }
-
         this._savedCardList.addCard({
           title: card.title,
+          link: card.link,
           date: card.date,
           text: card.text,
           source: card.source,
-          urlToImage: card.urlToImage,
+          urlToImage: card.image,
+          keyword: card.keyword,
         });
-      });
 
+        const kw = card.keyword;
+        if (typeof usedKeywords[kw] === 'undefined') {
+          usedKeywords[kw] = 1;
+        } else {
+          usedKeywords[kw]++;
+        }
+      });
       this._savedCardList.render();
+      this._fillUsedKeywords(usedKeywords);
+      this._fillKwCounter(cards.length);
     });
+  }
+
+  _fillUsedKeywords(keywords) {
+    const kwSummary = this._composeKeywordsSummary(keywords);
+    console.log(kwSummary);
+    // querySelector
+    const domKwSummary = document.querySelector('.page__kw_summary');
+    domKwSummary.textContent = kwSummary;
+  }
+
+  _fillKwCounter(n) {
+    const domKwCounter = document.querySelector('.saved-info__counter');
+    domKwCounter.textContent = n;
+  }
+
+  _composeKeywordsSummary(keywords) {
+    const keysSorted = Object.keys(keywords).sort(
+      (b, a) => keywords[a] - keywords[b],
+    );
+    console.log(keysSorted);
+    const l = keysSorted.length;
+
+      const separator = ', ';
+
+      if(l<=3){
+        return keysSorted.join(separator);
+      }
+
+      const shortList = keysSorted.slice(0,2);
+      const remainedCount = l-2;
+      // и 2-м другим
+    return shortList.join(separator) + ' и ' + remainedCount + '-м другим';
   }
 
   renderSearchPage() {

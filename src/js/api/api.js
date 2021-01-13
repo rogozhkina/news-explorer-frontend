@@ -110,10 +110,15 @@ export default class Api {
 
   getArticles(success) {
     const url = `${this._options.baseUrl}/articles`;
+    const jwt = localStorage.getItem('jwt');
+
     fetch(url, {
       method: 'GET',
       credentials: 'include',
-      headers: this._options.headers,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwt}`,
+      },
     })
       .then((res) => {
         if (res.ok) {
@@ -123,7 +128,7 @@ export default class Api {
       })
       .then((res) => {
         if (typeof success === 'function') {
-          success(res);
+          success(res.data);
         }
       })
       .catch((err) => {
@@ -133,10 +138,14 @@ export default class Api {
 
   createArticle(article) {
     const url = `${this._options.baseUrl}/articles`;
+    const jwt = localStorage.getItem('jwt');
     fetch(url, {
       method: 'POST',
       credentials: 'include',
-      headers: this._options.headers,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwt}`,
+      },
       body: JSON.stringify({
         keyword: article.keyword,
         image: article.image,

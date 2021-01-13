@@ -1122,3 +1122,12 @@ body {
 .saved-info__category_span {
   font-weight: 700;
 }
+/*
+.header_unauth {
+  display: none;
+} */
+
+
+.popup {
+  display: none;
+}

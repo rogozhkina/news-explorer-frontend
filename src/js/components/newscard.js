@@ -16,6 +16,7 @@ export default class NewsCard {
       <div class='article-card__image-section'>
         <div class='article-card__image'>
           <div class='popup_icon'></div>
+          <div class="article-card__tag"></div>
           <button class='article-card__icon article-card__icon_special'></button>
         </div>
       </div>
@@ -34,6 +35,13 @@ export default class NewsCard {
     card.querySelector('.article-card__date').textContent = this._cardData.date;
     card.querySelector('.article-card__text').textContent = this._cardData.text;
     card.querySelector('.article-card__source').textContent = this._cardData.source;
+
+    const domTag = card.querySelector('.article-card__tag');
+    if(domTag && typeof this._cardData.keyword !== 'undefined') {
+        //
+        domTag.textContent = this._cardData.keyword;
+    }
+
 
     const cardImage = card.querySelector('.article-card__image');
 
