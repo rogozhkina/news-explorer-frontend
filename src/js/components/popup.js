@@ -4,10 +4,6 @@ export default class Popup {
     this._closeButton = null;
     this._title = title;
     this._content = content;
-    // this._additionalClasses = additionalClasses;
-    // if (typeof this._additionalClasses !== 'object') {
-    //   this._additionalClasses = [];
-    // }
     this._contentClass = contentClass;
 
     this.open = this.open.bind(this);
@@ -45,12 +41,6 @@ export default class Popup {
 
     const element = template.firstElementChild;
 
-    // this._additionalClasses.forEach((className) => {
-    //   if (className.length > 0) {
-    //     element.classList.add(className);
-    //   }
-    // });
-
     this._closeButton = element.querySelector(this._selectorClose());
     this._closeButton.addEventListener('click', this.close);
 
@@ -62,12 +52,6 @@ export default class Popup {
       tagTitle.textContent = this._title;
       popupContent.appendChild(tagTitle);
     }
-
-    // this._contentClass.forEach((className) = {
-    //   if (className.length > 0) {
-    //     popupContent.classList.add(className);
-    //   }
-    // }
 
     popupContent.classList.add(this._contentClass);
 
@@ -87,9 +71,6 @@ export default class Popup {
   }
 
   open() {
-    // const element = this.domElement();
-    // console.log(de);
-
     this.domElement().classList.add(this._classIsOpened());
     if (
       typeof this._content !== 'undefined' &&
