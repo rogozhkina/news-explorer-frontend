@@ -48,8 +48,8 @@ export default class Form {
       formElement.classList.add(className);
     });
 
-    const formTitleElement = document.createElement("span");
-    formTitleElement.classList.add("popup__label");
+    const formTitleElement = document.createElement('span');
+    formTitleElement.classList.add('popup__label');
     formElement.appendChild(formTitleElement);
     this._inputs.forEach((input) => {
       input.domElements().forEach((tag) => {
@@ -58,7 +58,7 @@ export default class Form {
       input.subscribe(this._onFormChanged);
     });
 
-    if(this._submit && typeof this._submit !== 'undefined'){
+    if (this._submit && typeof this._submit !== 'undefined') {
       formElement.appendChild(this._submit.domElement());
       this._submit.subscribe(this._onSubmit);
     }
@@ -81,7 +81,7 @@ export default class Form {
     blockButtonActionElement.addEventListener('click', this._onClickBlockButton);
     formElement.appendChild(blockButtonElement);
 
-    if(this._formValidatorCreator && typeof this._formValidatorCreator === 'function'){
+    if (this._formValidatorCreator && typeof this._formValidatorCreator === 'function') {
       this._validator = this._formValidatorCreator(
         formElement,
         this._submit,
@@ -122,7 +122,7 @@ export default class Form {
   _onFormChanged() {}
 
   reset() {
-    if(this._submit){
+    if (this._submit) {
       this._submit.enable(false);
     }
     this._inputs.forEach((input) => {
@@ -137,7 +137,7 @@ export default class Form {
     this._subscribers.push(callback);
   }
 
-  getInput(name){
+  getInput(name) {
     return this._names[name];
   }
 }
