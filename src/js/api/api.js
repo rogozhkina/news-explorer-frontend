@@ -52,26 +52,6 @@ export default class Api {
       });
   }
 
-  // logout() {
-  //   return fetch(`${this._options.baseUrl}/logout`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     credentials: 'include',
-  //   })
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       }
-  //       const json = res.json();
-  //       return json.then(Promise.reject.bind(Promise));
-  //     })
-  //     .catch((err) => {
-  //       throw err;
-  //     });
-  // }
-
   getUserInfo(success, fFailed) {
     const url = `${this._options.baseUrl}/users/me`;
     const jwt = localStorage.getItem('jwt');
