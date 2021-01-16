@@ -1,3 +1,5 @@
+import { daysNumber } from '../constants/constants';
+
 export default class NewsApi {
   constructor(options) {
     this._options = options;
@@ -5,11 +7,20 @@ export default class NewsApi {
 
   getNews(keyWord, fSuccess) {
     const today = new Date();
-    const beforeToday = new Date(today.getTime() - 7 * 24 * 60 * 1000);
+    const msBefore = daysNumber * 24 * 60 * 60 * 1000;
+    const beforeToday = new Date(today.getTime() - msBefore);
     const fromDay = beforeToday.toISOString().slice(0, 10);
     const toDay = today.toISOString().slice(0, 10);
 
+    console.log(today);
+    console.log(msBefore);
+    console.log(beforeToday);
+    console.log(fromDay);
+    console.log(toDay);
+
     const url = `${this._options.newsUrl}?q=${keyWord}&from=${fromDay}&to=${toDay}&sortBy=popularity&pageSize=100&apiKey=${this._options.headers.authorization}`;
+
+    console.log(url);
 
     fetch(url, {
       headers: this._options.headers,
