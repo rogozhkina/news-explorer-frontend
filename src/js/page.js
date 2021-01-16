@@ -56,7 +56,7 @@ export default class Page {
 
     this._lastArticlesResult = null;
     this._totalArticlesShown = 0;
-    this._lastSearchText = ''; // gоисковый запрос
+    this._lastSearchText = ''; // поисковый запрос
   }
 
   _setupLogic() {
@@ -155,7 +155,9 @@ export default class Page {
         localStorage.setItem('jwt', body.jwt);
         this._popupAuth.close();
         // сделать чтобы страница выглядела как "залогинен"
-        this._showLoggedMenu();
+
+        // выяснить имя пользователя
+        this.setupMenuByUserInfo();
       })
       .catch((err) => {
         console.log('error-catch');

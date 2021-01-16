@@ -31,9 +31,7 @@ import NewsCardList from './js/components/newscardlist';
 
   const api = new Api({
     baseUrl:
-      process.env.NODE_ENV === 'production'
-        ? 'https://localhost:3000'
-        : 'http://localhost:3000',
+        'https://tashunina.ru/api',
     headers: {
       authorization: '098deaea-e99e-492d-906f-622aa2508f6d',
       'Content-Type': 'application/json',
