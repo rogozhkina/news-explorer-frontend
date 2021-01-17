@@ -8,7 +8,7 @@
     "prettier": "prettier",
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --mode production",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
-    "deploy": "npm run build && scp -r ./dist/* taschunina@130.193.62.38:/home/taschunina/news-explorer-frontend"
+    "deploy": "npm run build && scp -r ./dist/* tashunina.ru:/home/taschunina/news-explorer-frontend"
   },
   "repository": {
     "type": "git",
