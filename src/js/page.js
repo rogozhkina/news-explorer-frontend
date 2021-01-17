@@ -104,25 +104,6 @@ export default class Page {
     menuAuth.style.display = 'none';
   }
 
-  // _showUserName(userName) {
-  //   const menuUnauth = document.querySelector('.header_unauth');
-  //   const menuAuth = document.querySelector('.header_auth');
-
-  //   menuUnauth.style.display = 'none';
-  //   menuAuth.style.display = 'flex';
-
-  //   if (userName.length < 1) {
-  //     return;
-  //   }
-
-  //   const userButton = document.querySelector('.button__escape');
-  //   if (!userButton) {
-  //     return;
-  //   }
-
-  //   userButton.innerHTML = userName;
-  // }
-
   _onClickPopupAuthOpen() {
     this._popupAuth.open();
   }
