@@ -172,13 +172,12 @@ export default class Page {
     const inputName = this._formReg.getInput('name');
     const inputEmail = this._formReg.getInput('email');
     const inputPassword = this._formReg.getInput('password');
-    // const popupSucsess = document.querySelector('.popup_sucsess');
     this._api.signup(inputEmail.value(), inputPassword.value(), inputName.value())
       .then((body) => {
         console.log('ok');
         console.log(body);
         this._popupReg.close();
-        // получить userInfo и заполнить кусочек меню
+        this._popupSucsess.open();
       })
       .catch((err) => {
         console.log('error-catch');
