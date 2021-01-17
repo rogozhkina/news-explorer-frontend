@@ -31,10 +31,12 @@ import NewsCardList from '../js/components/newscardlist';
 
 
   const api = new Api({
+    // baseUrl:
     baseUrl:
-        'https://tashunina.ru/api',
+       // 'https://tashunina.ru/api',
+        'http://localhost:3000',
     headers: {
-      authorization: '098deaea-e99e-492d-906f-622aa2508f6d',
+      // authorization: '098deaea-e99e-492d-906f-622aa2508f6d',
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
     },
