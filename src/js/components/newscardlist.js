@@ -32,8 +32,21 @@ export default class NewsCardList {
   render() {
     this.container.textContent = ' ';
     this._newsCardList.forEach((card) => {
-      const cards = card.domElement();
-      this.container.appendChild(cards);
+      const domCard = card.domElement();
+      this.container.appendChild(domCard);
     });
+  }
+
+  /**
+   * from - порядковый номер zero-based от начала списка откуда начинать добавление карточек
+   * howMany - сколько карточек добавить в dom
+   */
+  renderPartial(from, howMany) {
+    const l = this._newsCardList.length;
+    for (let n = 0; n < howMany && (from < l - n); n++) {
+      const card = this._newsCardList[from + n];
+      const domCard = card.domElement();
+      this.container.appendChild(domCard);
+    }
   }
 }

@@ -267,9 +267,9 @@ export default class Page {
       const article = articles[from + n];
       this._createCardFromArticle(article);
     }
-    this._newsResultList.render();
+    this._newsResultList.renderPartial( from,howMany);
   }
-
+ 
   _createCardFromArticle(article) {
     const newCard = this._newsResultList.addCard({
       title: article.title,
