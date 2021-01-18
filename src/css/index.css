@@ -1225,7 +1225,8 @@ body {
 
 @media screen and (min-width: 622px) {
   .popup__title {
-    width: 64px;
+    /* width: 64px; */
+    width: 281px;
     height: 32px;
     margin: 34px auto 22px 36px;
   }
@@ -1258,7 +1259,7 @@ body {
   padding-top: 9px;
   margin-bottom: 1px;
   color: #000;
-  opacity: .4;
+  //opacity: .4;
 }
 
 @media screen and (min-width: 622px) {
