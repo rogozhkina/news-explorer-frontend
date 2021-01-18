@@ -1,3 +1,5 @@
+import {showCardsNumber} from './constants/constants.js';
+
 export default class Page {
   constructor(
     domRootNode,
@@ -344,8 +346,8 @@ export default class Page {
   }
 
   _onClickButtonMore() {
-    this._appendResults(this._lastArticlesResult, this._totalArticlesShown, 3);
-    this._totalArticlesShown += 3;
+    this._appendResults(this._lastArticlesResult, this._totalArticlesShown, showCardsNumber);
+    this._totalArticlesShown += showCardsNumber;
 
     if (this._totalArticlesShown >= this._lastArticlesResult.length) {
       // скрыть кнопку more
