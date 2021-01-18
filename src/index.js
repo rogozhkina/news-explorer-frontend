@@ -146,7 +146,7 @@ import NewsCardList from './js/components/newscardlist';
   );
 
   const formSucsess = new FormSucsess(
-    'Войти',
+    'Выполнить вход',
     'button_type_authorization',
     ['popup__form'],
   );
