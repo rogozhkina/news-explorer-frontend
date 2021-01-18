@@ -10,6 +10,10 @@ export default class NewsCard {
     this.remove = this.remove.bind(this);
   }
 
+  ID(){
+    return this._cardData.id;
+  }
+
   _createNewsCard() {
     const templateString = `
     <div class='article-card'>
@@ -18,6 +22,7 @@ export default class NewsCard {
           <div class='popup_icon'></div>
           <div class="article-card__tag"></div>
           <button class='article-card__icon article-card__icon_special'></button>
+          <button class='article-card__delete-icon'></button>
         </div>
       </div>
       <p class='article-card__date'></p>

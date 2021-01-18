@@ -300,8 +300,12 @@ export default class Page {
     });
   }
 
-  _onClickRemove(newsCard) {
-    alert('_onClickRemove');
+  _onClickRemove(card) {
+    console.log('page::_onClickRemove');
+    console.log(card)
+
+    this._api.removeArticle(card.ID());
+
   }
 
   _onClickButtonSearch() {
@@ -356,7 +360,8 @@ export default class Page {
     this._api.getArticles((cards) => {
       const usedKeywords = {};
       cards.forEach((card) => {
-        this._savedCardList.addCard({
+        const newCard = this._savedCardList.addCard({
+          id:card._id,
           title: card.title,
           link: card.link,
           date: card.date,
@@ -365,6 +370,7 @@ export default class Page {
           urlToImage: card.image,
           keyword: card.keyword,
         });
+        newCard.subscribeRemove(this._onClickRemove);
 
         const kw = card.keyword;
         if (typeof usedKeywords[kw] === 'undefined') {

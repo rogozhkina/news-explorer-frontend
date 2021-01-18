@@ -153,11 +153,15 @@ export default class Api {
   }
 
   removeArticle(id) {
-    const url = `${this._options.baseUrl}/cards/\${id}`;
-    fetch(url, {
+    const url = `${this._options.baseUrl}/articles/` + encodeURIComponent(id);
+    const jwt = localStorage.getItem('jwt');
+    fetch(url, { 
       method: 'DELETE',
       credentials: 'include',
-      headers: this._options.headers,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwt}`,
+      },
     })
       .then((res) => {
         if (res.ok) {
