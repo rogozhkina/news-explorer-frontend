@@ -89,7 +89,7 @@ export default class Page {
     if (!userButton) {
       return;
     }
-    userButton.innerHTML = userName;
+    userButton.textContent = userName;
 
     const domKwUserInfo = document.querySelector('.saved-info__username');
     if (!domKwUserInfo) {
@@ -268,7 +268,7 @@ export default class Page {
     }
     this._newsResultList.renderPartial( from,howMany);
   }
- 
+
   _createCardFromArticle(article) {
     const newCard = this._newsResultList.addCard({
       id: article._id,
