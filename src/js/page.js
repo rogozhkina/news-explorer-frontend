@@ -320,7 +320,7 @@ export default class Page {
     console.log(requestText);
 
     if (requestText.length < 2) {
-      alert('Необходимо ввести ключевое слово!');
+      alert('Необходимо ввести ключевое слово длиной не менее 2-х знаков!');
       return;
     }
 
