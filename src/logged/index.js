@@ -24,7 +24,6 @@ const domSearchButton = document.querySelector('.button_type_search');
 const domMoreButton = document.querySelector('.button_type_show'); // загрузить еще
 const errorEmptyField = 'Это обязательное поле';
 const errorWrongLength = 'Должно быть от 2 до 30 символов';
-//const errorWrongLink = 'Это не ссылка';
 
 const api = new Api({
   baseUrl:

@@ -2,7 +2,6 @@ import './css/index.css';
 
 import Api from './js/api/api';
 import Button from './js/button';
-import Form from './js/components/form';
 import FormAuth from './js/formauth';
 import FormReg from './js/formreg';
 import FormSearch from './js/formsearch';
