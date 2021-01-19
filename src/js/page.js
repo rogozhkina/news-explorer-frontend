@@ -271,6 +271,7 @@ export default class Page {
  
   _createCardFromArticle(article) {
     const newCard = this._newsResultList.addCard({
+      id: article._id,
       title: article.title,
       urlToImage: article.urlToImage,
       date: article.publishedAt,

@@ -127,6 +127,7 @@ export default class Api {
         Authorization: `Bearer ${jwt}`,
       },
       body: JSON.stringify({
+        id: article._id,
         keyword: article.keyword,
         image: article.image,
         link: article.link,
