@@ -122,7 +122,6 @@ export default class Form {
   }
 
   _onSubmit() {
-    alert('onsubmit');
     this._setWaitingAnswer();
     this._informSubscribers();
   }
