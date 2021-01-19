@@ -12,15 +12,7 @@ export default class NewsApi {
     const fromDay = beforeToday.toISOString().slice(0, 10);
     const toDay = today.toISOString().slice(0, 10);
 
-    console.log(today);
-    console.log(msBefore);
-    console.log(beforeToday);
-    console.log(fromDay);
-    console.log(toDay);
-
     const url = `${this._options.newsUrl}?q=${keyWord}&from=${fromDay}&to=${toDay}&sortBy=popularity&pageSize=100&apiKey=${this._options.headers.authorization}`;
-
-    console.log(url);
 
     fetch(url, {
       headers: this._options.headers,
@@ -37,8 +29,6 @@ export default class NewsApi {
         }
       })
       .catch((err) => {
-        // console.log("error:");
-        // console.log(err);
       });
   }
 }

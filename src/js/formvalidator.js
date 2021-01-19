@@ -32,8 +32,8 @@ export default class FormValidator {
   }
 
   setEventListeners() {
-    this._domForm.querySelectorAll(".popup__input").forEach((tagElement) => {
-      tagElement.addEventListener("input", this._onInputChanged);
+    this._domForm.querySelectorAll('.popup__input').forEach((tagElement) => {
+      tagElement.addEventListener('input', this._onInputChanged);
     });
   }
 

@@ -18,7 +18,6 @@ export default class NewsCard {
     this._cardData.id = id;
   }
 
-
   _createNewsCard() {
     const templateString = `
     <div class='article-card'>

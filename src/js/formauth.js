@@ -24,17 +24,15 @@ export default class FormAuth extends Form {
     this._names.password.setValue(password);
   }
 
-  // _setWaitingAnswer() {
-  //   this._submit.rename('Сохранение...');
-  //   this._submit.enable(false);
-  // }
+  _setWaitingAnswer() {
+    this._submit.rename('Сохранение...');
+    this._submit.enable(false);
+  }
 
   _onSubmit() {
-    // this._setWaitingAnswer();
+    this._setWaitingAnswer();
     const email = this._names.email.value();
     const password = this._names.password.value();
-    // this._userInfo.setUserInfo(email, password);
-    // this._userInfo.updateUserInfo();
     this._informSubscribers();
   }
 }

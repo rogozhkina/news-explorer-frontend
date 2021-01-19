@@ -12,12 +12,11 @@ export default class Button {
     if (this._domElement == null) {
       this._domElement = this._createButton();
     }
-    // console.log(this._domElement);
     return this._domElement;
   }
 
   _createButton() {
-    const templateString = `<button type="submit" class="button">-title-</button>`;
+    const templateString = '<button type="submit" class="button">-title-</button>';
     const template = document.createElement('div');
     template.insertAdjacentHTML('beforeend', templateString.trim());
     const element = template.firstElementChild;
@@ -39,12 +38,12 @@ export default class Button {
     event.preventDefault();
     this._subscribers.forEach((t) => {
       if (typeof t === 'function') {
-       t();
+        t();
       }
     });
   }
 
-  disable(){
+  disable() {
     this.enable(false);
   }
 

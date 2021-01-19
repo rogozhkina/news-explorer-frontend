@@ -92,6 +92,12 @@ export default class Form {
     return formElement;
   }
 
+
+  _setWaitingAnswer() {
+    this._submit.rename('Сохранение...');
+    this._submit.enable(false);
+  }
+
   _onClickBlockButton(event) {
     event.preventDefault();
     this._subscribersBlockButton.forEach((f) => {
@@ -116,6 +122,8 @@ export default class Form {
   }
 
   _onSubmit() {
+    alert('onsubmit');
+    this._setWaitingAnswer();
     this._informSubscribers();
   }
 

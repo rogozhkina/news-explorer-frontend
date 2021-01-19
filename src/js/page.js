@@ -1,4 +1,4 @@
-import {showCardsNumber} from './constants/constants.js';
+import { showCardsNumber } from './constants/constants';
 
 export default class Page {
   constructor(
@@ -142,8 +142,6 @@ export default class Page {
         this.setupMenuByUserInfo();
       })
       .catch((err) => {
-        console.log('error-catch');
-        console.log(err);
         this._popupAuth.close();
       });
   }
@@ -154,14 +152,10 @@ export default class Page {
     const inputPassword = this._formReg.getInput('password');
     this._api.signup(inputEmail.value(), inputPassword.value(), inputName.value())
       .then((body) => {
-        console.log('ok');
-        console.log(body);
         this._popupReg.close();
         this._popupSucsess.open();
       })
       .catch((err) => {
-        console.log('error-catch');
-        console.log(err);
         this._popupReg.close();
         this._popupSucsess.open();
       });
@@ -266,7 +260,7 @@ export default class Page {
       const article = articles[from + n];
       this._createCardFromArticle(article);
     }
-    this._newsResultList.renderPartial( from,howMany);
+    this._newsResultList.renderPartial(from, howMany);
   }
 
   _createCardFromArticle(article) {
@@ -277,7 +271,6 @@ export default class Page {
       date: article.publishedAt,
       text: article.description,
       source: article.source.name,
-      // keyword: article.keyword,
       keyword: this._lastSearchText,
       link: article.url,
     });
@@ -288,7 +281,6 @@ export default class Page {
 
   _onClickSave(newsCard) {
     const cardData = newsCard.export();
-    console.log(cardData);
 
     this._api.createArticle({
       keyword: this._lastSearchText,
@@ -304,11 +296,7 @@ export default class Page {
   }
 
   _onClickRemove(card) {
-    console.log('page::_onClickRemove');
-    console.log(card)
-
     this._api.removeArticle(card.ID());
-
   }
 
   _onClickButtonSearch() {
@@ -317,7 +305,6 @@ export default class Page {
     const inputKeyWord = this._formSearch.getInput('search');
     inputKeyWord.domElements();
     const requestText = inputKeyWord.value();
-    console.log(requestText);
 
     if (requestText.length < 2) {
       alert('Необходимо ввести ключевое слово длиной не менее 2-х знаков!');
@@ -330,11 +317,7 @@ export default class Page {
     preloaderNotFound.style.display = 'none';
 
     this._newsApi.getNews(requestText, (data) => {
-      console.log('result');
-      console.log(data);
-
       if (!data.articles || data.articles.length === 0) {
-        // alert('News not found');
         preloaderSearch.style.display = 'none';
         preloaderNotFound.style.display = 'block';
         return;
@@ -364,7 +347,7 @@ export default class Page {
       const usedKeywords = {};
       cards.forEach((card) => {
         const newCard = this._savedCardList.addCard({
-          id:card._id,
+          id: card._id,
           title: card.title,
           link: card.link,
           date: card.date,
@@ -390,8 +373,6 @@ export default class Page {
 
   _fillUsedKeywords(keywords) {
     const kwSummary = this._composeKeywordsSummary(keywords);
-    console.log(kwSummary);
-    // querySelector
     const domKwSummary = document.querySelector('.page__kw_summary');
     domKwSummary.textContent = kwSummary;
   }
@@ -405,19 +386,18 @@ export default class Page {
     const keysSorted = Object.keys(keywords).sort(
       (b, a) => keywords[a] - keywords[b],
     );
-    console.log(keysSorted);
     const l = keysSorted.length;
 
-      const separator = ', ';
+    const separator = ', ';
 
-      if(l<=3){
-        return keysSorted.join(separator);
-      }
+    if (l <= 3) {
+      return keysSorted.join(separator);
+    }
 
-      const shortList = keysSorted.slice(0,2);
-      const remainedCount = l-2;
-      // и 2-м другим
-    return shortList.join(separator) + ' и ' + remainedCount + '-м другим';
+    const shortList = keysSorted.slice(0, 2);
+    const remainedCount = l - 2;
+    // и 2-м другим
+    return `${shortList.join(separator)} и ${remainedCount}-м другим`;
   }
 
   renderSearchPage() {

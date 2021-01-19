@@ -32,7 +32,7 @@ export default class InputValidator {
 
   errorMessage() {
     if (this._isValid || this._lastLength < 0) {
-      return "";
+      return '';
     }
     if (this._lastLength === 0) {
       return this._errorMessageEmpty;

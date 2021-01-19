@@ -156,7 +156,7 @@ export default class Api {
   removeArticle(id) {
     const url = `${this._options.baseUrl}/articles/` + encodeURIComponent(id);
     const jwt = localStorage.getItem('jwt');
-    fetch(url, { 
+    fetch(url, {
       method: 'DELETE',
       credentials: 'include',
       headers: {
