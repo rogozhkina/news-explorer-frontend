@@ -27,8 +27,8 @@ const errorWrongLength = 'Должно быть от 2 до 30 символов'
 
 const api = new Api({
   baseUrl:
-  // 'https://tashunina.ru/api',
-        'http://localhost:3000',
+    'https://tashunina.ru/api',
+  //  'http://localhost:3000',
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
