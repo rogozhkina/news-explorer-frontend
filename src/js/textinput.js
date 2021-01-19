@@ -51,8 +51,8 @@ export default class TextInput {
 
   reset() {
     this._validator.reset();
-    this.setValue("");
-    this._domErrorMessage.textContent = "";
+    this.setValue('');
+    this._domErrorMessage.textContent = '';
   }
 
   value() {
@@ -60,20 +60,20 @@ export default class TextInput {
   }
 
   _createSpanMessage() {
-    const templateString = `<span class="popup__label"></span>`;
-    const template = document.createElement("div");
-    template.insertAdjacentHTML("beforeend", templateString.trim());
+    const templateString = '<span class="popup__label"></span>';
+    const template = document.createElement('div');
+    template.insertAdjacentHTML('beforeend', templateString.trim());
     const element = template.firstElementChild;
     element.textContent = this._spanMessage;
     return element;
   }
 
   _createErrorMessage() {
-    const templateString = `<span class="popup__error-message"></span>`;
-    const template = document.createElement("div");
-    template.insertAdjacentHTML("beforeend", templateString.trim());
+    const templateString = '<span class="popup__error-message"></span>';
+    const template = document.createElement('div');
+    template.insertAdjacentHTML('beforeend', templateString.trim());
     const element = template.firstElementChild;
-    element.setAttribute("id", this._name);
+    element.setAttribute('id', this._name);
     return element;
   }
 
@@ -82,7 +82,7 @@ export default class TextInput {
     this._validator.onValueChanged(value);
 
     this._subscribers.forEach((subscriber) => {
-      if (typeof subscriber === "function") {
+      if (typeof subscriber === 'function') {
         subscriber();
       }
     });
@@ -115,12 +115,6 @@ export default class TextInput {
 
   domElements() {
     const result = [];
-    // const el2 = this.domSpanMessage();
-    // const el1 = this.domInput();
-    // const el3 = this.domErrorMessage();
-    // result.push(el2);
-    // result.push(el1);
-    // result.push(el3);
     result.push(this.domSpanMessage());
     result.push(this.domInput());
     result.push(this.domErrorMessage());

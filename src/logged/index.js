@@ -2,7 +2,6 @@ import '../css/logged.css';
 
 import Api from '../js/api/api';
 import Button from '../js/button';
-import Form from '../js/components/form';
 import FormAuth from '../js/formauth';
 import FormReg from '../js/formreg';
 import FormSearch from '../js/formsearch';
@@ -31,12 +30,10 @@ import NewsCardList from '../js/components/newscardlist';
 
 
   const api = new Api({
-    // baseUrl:
     baseUrl:
        // 'https://tashunina.ru/api',
         'http://localhost:3000',
     headers: {
-      // authorization: '098deaea-e99e-492d-906f-622aa2508f6d',
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
     },
@@ -144,7 +141,6 @@ import NewsCardList from '../js/components/newscardlist';
     'Поиск',
     'button_type_search',
     (tagElement, submit, inputs) => { return new FormValidator(tagElement, submit, inputs); },
-    //['popup__form'],
   );
 
   const formSucsess = new FormSucsess(

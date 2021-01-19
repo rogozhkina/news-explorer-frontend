@@ -9,11 +9,6 @@ export default class UserInfo {
     this._name = '';
     this._email = '';
     this._password = '';
-
-    // Для возврата по undo
-    // this._prevName = "";
-    // this._prevJob = "";
-    // this._prevAvatar = "";
   }
 
   // Рисует содержимое на странице
