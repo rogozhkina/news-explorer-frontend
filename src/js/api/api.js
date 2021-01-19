@@ -116,7 +116,7 @@ export default class Api {
       });
   }
 
-  createArticle(article) {
+  createArticle(article, success) {
     const url = `${this._options.baseUrl}/articles`;
     const jwt = localStorage.getItem('jwt');
     fetch(url, {
