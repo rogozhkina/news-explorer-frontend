@@ -10,9 +10,14 @@ export default class NewsCard {
     this.remove = this.remove.bind(this);
   }
 
-  ID(){
+  ID() {
     return this._cardData.id;
   }
+
+  assignID(id) {
+    this._cardData.id = id;
+  }
+
 
   _createNewsCard() {
     const templateString = `

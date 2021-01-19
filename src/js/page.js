@@ -296,6 +296,8 @@ export default class Page {
       date: cardData.date,
       text: cardData.text,
       source: cardData.source,
+    }, (res) => {
+      newsCard.assignID(res.data._id);
     });
   }
 
