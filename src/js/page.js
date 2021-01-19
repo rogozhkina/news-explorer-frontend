@@ -249,11 +249,11 @@ export default class Page {
     articles.every((article) => {
       this._createCardFromArticle(article);
       i++;
-      return i < 3;
+      return i < showCardsNumber;
     });
     this._newsResultList.render();
-    this._totalArticlesShown = 3;
-    this.showMoreButton(articles.length > 3);
+    this._totalArticlesShown = showCardsNumber;
+    this.showMoreButton(articles.length > showCardsNumber);
   }
 
   _appendResults(articles, from, howMany) {
