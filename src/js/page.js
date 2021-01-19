@@ -277,7 +277,8 @@ export default class Page {
       date: article.publishedAt,
       text: article.description,
       source: article.source.name,
-      keyword: article.keyword,
+      // keyword: article.keyword,
+      keyword: this._lastSearchText,
       link: article.url,
     });
     newCard.subscribeSave(this._onClickSave);
